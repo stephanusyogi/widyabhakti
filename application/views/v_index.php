@@ -16,6 +16,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/bootstrap/css/style.less') ?>" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Less JS -->
     <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
@@ -97,12 +100,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-text hidden-xs">
+                <div class="main-text hidden-xs" data-aos="fade-right">
                     <div class="text-left">
                         <h1>Widya Bhakti Pastoral Center</h1>
                         <p class="desc-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, voluptatibus animi? Ea odit fugit non quam cumque magni expedita fuga quasi quod qui, corrupti quia voluptates pariatur? Aut, architecto suscipit.</p>
                         <p class="lead flex-btn">
-                            <a class="btn btn-banner btn-lg" href="#" role="button">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                            <a class="btn btn-banner btn-lg" href="<?php echo base_url('main/tentang') ?>" role="button">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                             <a class="btn btn-banner btn-none btn-lg" href="#" role="button">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></a>
                         </p>
                     </div>
@@ -112,11 +115,11 @@
     <!-- Section Berita -->
     <section class="section-berita">
         <div class="container">
-            <div class="title-berita">
+            <div class="title-berita" data-aos="fade-up">
             <h4>Berita Terkini</h4>
             </div>
             <!-- Slider News -->
-            <div class="galeri-slider">
+            <div class="galeri-slider" data-aos="fade-up">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
@@ -127,7 +130,7 @@
                                     Publis : 22 Juli 2020
                                 </p>
                                 <h5>Pelayanan Widya Bhakti Dibuka Selama Jam Kerja</h5>
-                                <a href="#">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +144,7 @@
                                     Publis : 22 Juli 2020
                                 </p>
                                 <h5>Widya Bhakti Footage Gedung Lampau Kota Malang</h5>
-                                <a href="#">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +158,7 @@
                                     Publis : 22 Juli 2020
                                 </p>
                                 <h5>Kapel Adorasi Dibuka Kembali dengan Protokol Kesehatan</h5>
-                                <a href="#">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +166,7 @@
                 </div>
             </div>
             <div class="linknews">
-                <a href="#">Lihat Semua Berita&nbsp;<i class="fas fa-angle-right"></i></a>
+                <a href="<?php echo base_url('main/berita') ?>">Lihat Semua Berita&nbsp;<i class="fas fa-angle-right"></i></a>
             </div>
         </div>
     </section>
@@ -172,18 +175,18 @@
     <section class="section-fasilitas">
         <div class="container">
                <div class="row">
-                  <div class="col-md-6 col-sm-10">
+                  <div class="col-md-6 col-sm-10" data-aos="fade-right">
                     <div class="title-fasilitas">
                         <h2>Fasilitas Gedung</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sunt molestiae commodi dolore. Maiores voluptas.</p>
                     </div>
                     <div class="buttonpagefasilitas">
-                        <a href="#"><button class="buttonfasilitas">Detail Fasilitas&nbsp;<i class="fas fa-angle-right"></i></button></a>
+                        <a href="<?php echo base_url('main/fasilitas') ?>"><button class="buttonfasilitas">Detail Fasilitas&nbsp;<i class="fas fa-angle-right"></i></button></a>
                         <a href="#"><button class="buttonfasilitas">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></button></a>
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-2">
-                     <div class="arrow">
+                     <div class="arrow" data-aos="fade-up">
                         <div class="arrowleft">
                            <a class="buttonleft"><i class="fas fa-long-arrow-alt-left"></i></a>
                         </div>
@@ -193,7 +196,7 @@
                      </div>
                   </div>
                </div>
-            <div class="fasilitas">
+            <div class="fasilitas" data-aos="flip-up">
                <div class="swiper-container s1">
                   <div class="swiper-wrapper">
                      <!-- slide 1 -->
@@ -333,7 +336,7 @@
                            <div class="col-md-3">
                                 <div class="card-fasilitas">
                                     <a href="#">
-                                    <div class="wg-box-content-overlay"></div>
+                                    <div class="card-fasilitas-overlay"></div>
                                     <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas4.jpg') ?>">
                                     <div class="card-fasilitas-details card-fasilitas-fade">
                                         <h3 class="wg-box-content-title">Kapel Adorasi</h3>
@@ -351,7 +354,7 @@
     </section>
 
     <!-- Section Number -->
-    <section class="section section-number">
+    <section class="section section-number" id="counter">
         <div class="container">
             <div class="numberrow">
                 <div class="row">
@@ -363,7 +366,7 @@
                             </div>
                             <h4>
                                 <b>
-                                    <div class="demo"><span class="counter">14</span></div>
+                                    <div class="demo"><span class="counter counter-value" data-count="14">0</span></div>
                                 </b>
                             </h4>
                             <p>FASILITAS RUANGAN</p>
@@ -393,7 +396,7 @@
                             </div>
                             <h4>
                                 <b>
-                                    <div class="demo"><span class="counter">2000&nbsp;+</span></div>
+                                    <div class="demo"><span class="counter counter-value" data-count="2000">0</span>&nbsp;+</div>
                                 </b>
                             </h4>
                             <p>PENGUNJUNG WEBSITE</p>
@@ -406,7 +409,7 @@
                             <div class="shapecount">
                                 <img class="img-fluid" src="<?php echo base_url('assets/img/event.png') ?>" alt="influencer" width="35" height="33">
                             </div>
-                            <h4><div class="demo"><b><span>150&nbsp;+</span></b></div></h4>
+                            <h4><div class="demo"><b><span class="counter counter-value" data-count="150">0</span>&nbsp;+</b></div></h4>
                             <p>EVENT</p>
                         </div>
                         </div>
@@ -419,10 +422,10 @@
       <!-- Section Galeri -->
       <section class="section-galeri">
         <div class="container">
-            <div class="title-galeri">
+            <div class="title-galeri" data-aos="fade-down">
                 <h4>Galeri Kegiatan</h4>
             </div>
-            <div class="album-kegiatan">
+            <div class="album-kegiatan" data-aos="fade-down">
                 <div class="swiper-container s2">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -566,9 +569,9 @@
                     <div class="subfooter1">
                         <ul>
                         <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Fasilitas</a></li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="<?php echo base_url('main/tentang') ?>">Tentang Kami</a></li>
+                        <li><a href="<?php echo base_url('main/fasilitas') ?>">Fasilitas</a></li>
+                        <li><a href="<?php echo base_url('main/BERITA') ?>">Berita</a></li>
                         <li><a href="#">Informasi Peminjaman</a></li>
                         </ul>
                     </div>
@@ -586,7 +589,6 @@
       </section>
       <section class="section section-copyright">
         <p>Copyright @ 2022, Widya Bhakti Pastoral Center, All rights reserved</p>
-        <p>Developed by Universitas Brawijaya</p>
      </section>
 
 
@@ -640,6 +642,44 @@
                  }
              });
       </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- JQuery Number Counter -->
+    <script>
+    var a = 0;
+    $(window).scroll(function() {
+    var oTop = $('#counter').offset().top - window.innerHeight;
+    if (a == 0 && $(window).scrollTop() > oTop) {
+        $('.counter-value').each(function() {
+        var $this = $(this),
+            countTo = $this.attr('data-count');
+        $({
+            countNum: $this.text()
+        }).animate({
+            countNum: countTo
+            },
+            {
+            duration: 3000,
+            easing: 'swing',
+            step: function() {
+                $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+                $this.text(this.countNum);
+                //alert('finished');
+            }
+            });
+        });
+        a = 1;
+    }
+
+    });
+    </script>
 
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>

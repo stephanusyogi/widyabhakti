@@ -13,6 +13,9 @@
     <!-- Less JS -->
     <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
 
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/922eb8e20d.js" crossorigin="anonymous"></script>
 
@@ -76,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-text hidden-xs">
+                <div class="main-text hidden-xs" data-aos="fade-up">
                     <h1>Fasilitas & Ruangan</h1>
                 </div>
     </section>
@@ -236,10 +239,10 @@
                     <h2>Menu</h2>
                     <div class="subfooter1">
                         <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="<?php echo base_url('main') ?>">Beranda</a></li>
+                        <li><a href="<?php echo base_url('main/tentang') ?>">Tentang Kami</a></li>
                         <li><a href="#">Fasilitas</a></li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="<?php echo base_url('main/berita') ?>">Berita</a></li>
                         <li><a href="#">Informasi Peminjaman</a></li>
                         </ul>
                     </div>
@@ -257,7 +260,6 @@
       </section>
       <section class="section section-copyright">
         <p>Copyright @ 2022, Widya Bhakti Pastoral Center, All rights reserved</p>
-        <p>Developed by Universitas Brawijaya</p>
      </section>
 
 <!-- Fixed -->
@@ -274,6 +276,12 @@
             }
         });
 </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 <!-- List Group -->
 <!-- <script type="text/javascript">

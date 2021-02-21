@@ -17,6 +17,9 @@
     <!-- CSS -->
     <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/bootstrap/css/styletentang.less') ?>" />
 
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    
+
     <!-- Less JS -->
     <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
 
@@ -83,13 +86,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-text hidden-xs">
+                <div class="main-text hidden-xs" data-aos="fade-down">
                     <h1>Tentang Kami</h1>
                 </div>
     </section>
 
     <!-- Section Tentang -->
-    <section class="section-tentang">
+    <section class="section-tentang" data-aos="fade-up">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -130,7 +133,7 @@
     </section>
 
     <!-- Section Hubungi -->
-    <section class="section-hubungi">
+    <section class="section-hubungi" data-aos="fade-up">
         <div class="container">
             <div class="title-hubungi">
                 <h1>Hubungi Kami</h1>
@@ -172,10 +175,10 @@
                     <h2>Menu</h2>
                     <div class="subfooter1">
                         <ul>
-                        <li><a href="#">Beranda</a></li>
+                        <li><a href="<?php echo base_url('main') ?>">Beranda</a></li>
                         <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Fasilitas</a></li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="<?php echo base_url('main/fasilitas') ?>">Fasilitas</a></li>
+                        <li><a href="<?php echo base_url('main/berita') ?>">Berita</a></li>
                         <li><a href="#">Informasi Peminjaman</a></li>
                         </ul>
                     </div>
@@ -193,7 +196,6 @@
       </section>
       <section class="section section-copyright">
         <p>Copyright @ 2022, Widya Bhakti Pastoral Center, All rights reserved</p>
-        <p>Developed by Universitas Brawijaya</p>
      </section>
 
 
@@ -212,6 +214,12 @@
                 }
             });
     </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>    
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.5.1.min.js') ?>"></script>
