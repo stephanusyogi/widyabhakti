@@ -89,6 +89,7 @@ class Ruangan extends CI_Controller
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
                 'nama' => $nama,
+                'thumbnail' => $new_file_image,
                 'kapasitas' => $kapasitas,
                 'luas' => $luas,
                 'deskripsi' => $deskripsi,
@@ -140,15 +141,15 @@ class Ruangan extends CI_Controller
         redirect('ruangan');
     }
 
-    // function ubah($id)
-    // {
-    //     $this->Ruangan_model->ubahRuangan($id);
-    //     redirect('ruangan');
-    // }
+    function ubah($id)
+    {
+        $this->Ruangan_model->ubahRuangan($id);
+        redirect('ruangan');
+    }
 
-    // public function hapus($id)
-    // {
-    //     $this->Ruangan_model->deleteRuangan($id);
-    //     redirect('ruangan');
-    // }
+    public function hapus($id)
+    {
+        $this->Ruangan_model->deleteRuangan($id);
+        redirect('ruangan');
+    }
 }
