@@ -150,6 +150,20 @@ class Berita_model extends CI_model
     public function deleteBerita($id)
     {
         $session = $this->session->userdata('login_data')['token'];
+        // GetImage
+        $responseimage = $this->_client->request(
+            'GET', 
+            '/api/berita/' ,
+            [
+                'headers' =>
+                [
+                    'Authorization' => "Bearer $session"
+                ]
+            ]
+        );
+        $resimage = json_decode($responseimage->getBody(), true);
+        $dataimage = $resimage['data'][0]['img_dir'];
+        unlink('./uploads/img_thumbnail_berita/'.$dataimage);
         $response = $this->_client->request(
             'DELETE', 
             '/api/berita/' . $id ,

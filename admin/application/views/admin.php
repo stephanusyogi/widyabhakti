@@ -40,61 +40,67 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($datadmin['data'] as $row) { ?>
-                                            <tr>
-                                                <td>
-                                                    <a data-toggle="modal" data-target="#editModal<?= $row['id']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
-                                                    <a href="<?= base_url('admin/hapus'); ?>/<?= $row['id']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
-                                                </td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['username']; ?></td>
-                                                <td><?php echo $row['status']; ?></td>
-                                                <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
-                                            </tr>
-                                            <!-- Modal Edit -->
-                                            <div class="modal fade" id="editModal<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="addModalLabel">Data Admin || Edit</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="<?= base_url('admin/ubah'); ?>/<?= $row['id']; ?>" method="POST"  enctype="multipart/form-data">
-                                                                <input type="hidden" name="id" value="<?= $row['id']; ?>">
-                                                                <div class="form-group row">
-                                                                    <label for="nama<?= $row['id']; ?>" class="col-sm-4 col-form-label">Nama Admin</label>
-                                                                    <div class="col-sm-8">
-                                                                        <input type="text" name="name" class="form-control" id="nama<?= $row['id']; ?>" placeholder="Nama Admin" value="<?= $row['name']; ?>">
+                                        <?php if(isset($datadmin['data'])){ ?>
+                                            <?php foreach ($datadmin['data'] as $row) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <a data-toggle="modal" data-target="#editModal<?= $row['id']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
+                                                        <a href="<?= base_url('admin/hapus'); ?>/<?= $row['id']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
+                                                    </td>
+                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td><?php echo $row['username']; ?></td>
+                                                    <td><?php echo $row['status']; ?></td>
+                                                    <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
+                                                </tr>
+                                                <!-- Modal Edit -->
+                                                <div class="modal fade" id="editModal<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="addModalLabel">Data Admin || Edit</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="<?= base_url('admin/ubah'); ?>/<?= $row['id']; ?>" method="POST"  enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id" value="<?= $row['id']; ?>">
+                                                                    <div class="form-group row">
+                                                                        <label for="nama<?= $row['id']; ?>" class="col-sm-4 col-form-label">Nama Admin</label>
+                                                                        <div class="col-sm-8">
+                                                                            <input type="text" name="name" class="form-control" id="nama<?= $row['id']; ?>" placeholder="Nama Admin" value="<?= $row['name']; ?>">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label for="username<?= $row['id']; ?>" class="col-sm-4 col-form-label">Email Admin</label>
-                                                                    <div class="col-sm-8">
-                                                                        <input type="text" name="username" class="form-control" id="username<?= $row['id']; ?>" placeholder="Email Admin" value="<?= $row['username']; ?>">
+                                                                    <div class="form-group row">
+                                                                        <label for="username<?= $row['id']; ?>" class="col-sm-4 col-form-label">Email Admin</label>
+                                                                        <div class="col-sm-8">
+                                                                            <input type="text" name="username" class="form-control" id="username<?= $row['id']; ?>" placeholder="Email Admin" value="<?= $row['username']; ?>">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label for="status<?= $row['id']; ?>" class="col-sm-4 col-form-label">Status</label>
-                                                                    <div class="col-sm-8">
-                                                                    <select id="status<?= $row['id']; ?>" class="form-control" type="text" name="status" placeholder="Status">
-                                                                        <option value="<?= $row['status']; ?>" selected disabled><?= $row['status']; ?></option>
-                                                                        <option value="primary">Primary</option>
-                                                                        <option value="secondary">Secondary</option>
-                                                                    </select>
+                                                                    <div class="form-group row">
+                                                                        <label for="status<?= $row['id']; ?>" class="col-sm-4 col-form-label">Status</label>
+                                                                        <div class="col-sm-8">
+                                                                        <select id="status<?= $row['id']; ?>" class="form-control" type="text" name="status" placeholder="Status">
+                                                                            <option value="<?= $row['status']; ?>" selected disabled><?= $row['status']; ?></option>
+                                                                            <option value="primary">Primary</option>
+                                                                            <option value="secondary">Secondary</option>
+                                                                        </select>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-success">Save</button>
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-success">Save</button>
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
+                                        <?php }else{?>
+                                            <tr>
+                                                <td colspan="5" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
