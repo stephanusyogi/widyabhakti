@@ -16,7 +16,7 @@ class User extends CI_Controller
 
     public function index()
     {
-        $session = $this->session->userdata('login_data');
+        $session = $this->session->userdata('login_data')['token'];
         $client = new \GuzzleHttp\Client();
         $response = $client->request(
             'GET',

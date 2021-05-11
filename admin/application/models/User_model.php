@@ -8,7 +8,7 @@ class User_model extends CI_model
 
     public function __construct()
     {
-        $session = $this->session->userdata('login_data');
+        $session = $this->session->userdata('login_data')['token'];
         $this->_client = new Client([
             'base_uri' => 'http://127.0.0.1:8000/api/user',
             'headers' =>
@@ -21,7 +21,7 @@ class User_model extends CI_model
     // Edit Adv
     public function ubahUser($id)
     {   
-        $session = $this->session->userdata('login_data');
+        $session = $this->session->userdata('login_data')['token'];
         $id = $this->input->post('id', true);
         $name = $this->input->post('name', true);
         $email = $this->input->post('email', true);
@@ -62,7 +62,7 @@ class User_model extends CI_model
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
 		} else {
-			$this->session->set_flashdata('errorMsg', 'TEST2');
+			$this->session->set_flashdata('errorMsg', $response['message']);
 		}
                 
     }
@@ -70,7 +70,7 @@ class User_model extends CI_model
     // Delete Ads
     public function deleteUser($id)
     {
-        $session = $this->session->userdata('login_data');
+        $session = $this->session->userdata('login_data')['token'];
         $response = $this->_client->request(
             'DELETE', 
             '/api/user/' . $id ,

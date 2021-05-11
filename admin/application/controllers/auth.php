@@ -68,12 +68,9 @@ class Auth extends CI_Controller
 
         $response = curl_exec($curl);
         curl_close($curl);
-        // die(var_dump($response));
         $response = json_decode($response, true);
-        // die(var_dump($response));
         if ($response['success']) {
-            // die(var_dump('test'));
-            $this->session->set_userdata('login_data', $response['token']);
+            $this->session->set_userdata('login_data', $response['data']);
             $this->session->set_userdata('isLoggedIn', true);
             redirect(base_url());
         } else {

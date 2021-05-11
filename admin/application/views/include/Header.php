@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/summernote/summernote-bs4.min.css">
   <!-- jQuery -->
   <script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
+
   <?php $error = $this->session->flashdata('errorMsg');
     if ($error) { ?>
       <script type="text/javascript">
@@ -158,28 +159,34 @@
             </li>
             <li class="nav-header">ADMIN</li>
             <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('admin');?>" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>Data Admin</p>
             </a>
             </li>
             <li class="nav-header">PEMINJAMAN</li>
             <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('peminjaman');?>" class="nav-link">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Data Peminjaman</p>
             </a>
             </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Data Peminjaman Rutin</p>
+            </a>
+            </li>
             <li class="nav-header">RUANGAN</li>
             <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('ruangan');?>" class="nav-link">
                 <i class="nav-icon fas fa-building"></i>
                 <p>Data Ruangan</p>
             </a>
             </li>
             <li class="nav-header">BERITA</li>
             <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('berita');?>" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>Data Berita & Artikel</p>
             </a>

@@ -61,7 +61,7 @@
                                                 <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="addModalLabel">Data User</h5>
+                                                            <h5 class="modal-title" id="addModalLabel">Data User || Edit</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>

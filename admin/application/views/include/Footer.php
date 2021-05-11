@@ -67,6 +67,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Script -->
 <script src="<?= base_url(); ?>/public/dist/js/myscript.js"></script>
+<!-- CKEDITOR -->
+<script type="text/javascript" src="<?php echo base_url(); ?>/public/plugins/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
   var windowURL = window.location.href;
   pageURL = '<?php echo base_url() . $menuLink ?>';
