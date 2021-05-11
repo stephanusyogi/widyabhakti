@@ -69,6 +69,8 @@
 <script src="<?= base_url(); ?>/public/dist/js/myscript.js"></script>
 <!-- CKEDITOR -->
 <script type="text/javascript" src="<?php echo base_url(); ?>/public/plugins/ckeditor/ckeditor.js"></script>
+<!-- date-range-picker -->
+<script src="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.js"></script>
 <script type="text/javascript">
   var windowURL = window.location.href;
   pageURL = '<?php echo base_url() . $menuLink ?>';

@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Datetimepicker -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Toast -->
@@ -38,6 +41,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/summernote/summernote-bs4.min.css">
   <!-- jQuery -->
   <script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
+<!-- DateTimePicker -->
+<script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.js"></script>
+<script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
   <?php $error = $this->session->flashdata('errorMsg');
     if ($error) { ?>
@@ -146,7 +152,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="<?php echo site_url();?>" class="nav-link">
-                    <i class="fas fa-home"></i>
+                    <i class="nav-icon fas fa-home"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
