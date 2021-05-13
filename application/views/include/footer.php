@@ -140,6 +140,15 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.5.1.min.js') ?>"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Toast -->
+    <script src="<?php echo base_url('assets/plugins'); ?>/toastr/toastr.min.js"></script>  
+    
     <!-- Swiper JS -->
     <script>
         var swiper = new Swiper('.s1', {
@@ -175,9 +184,5 @@
         });
     </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.5.1.min.js') ?>"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 </body>
 </html>

@@ -103,7 +103,15 @@ body {
 			}
 		}
 	}
-
+	.nav-right{
+		margin-right: 150px;
+		@media screen and (max-width: 1150px) {
+			margin-right: 50px;
+		}
+		@media screen and (max-width: 1040px) {
+			margin-right: 0px;
+		}
+	}
 	.nav-active{
 		padding-right: 20px;
 		a:after {
@@ -139,7 +147,6 @@ body {
 	}
 
 	.btn-infopinjam{
-		width: 100%;
 		border: none;
 		border-radius: 5px;
 		background-color: #C48B8A;
@@ -150,19 +157,47 @@ body {
 				color: #776161!important;
 			}
 		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+
+	.br-line{
+		@media screen and (max-width: 991px) {
+			display: none;
+		}
 	}
 
 	.btn-login{
+		margin-left: 0.5rem;
 		font-weight: 600;
+		text-align: center;
 		border: none;
 		border-radius: 5px;
 		background-color: #C48B8A;
+		@media screen and (max-width: 991px) {
+			width: 10%;
+			margin-top: 5px;
+			margin-left: 0px;
+		}
 		.nav-link{
 			color: #fff!important;
 			&:hover{
 				color: #776161!important;
+				cursor: pointer;
 			}
 		}
+	}
+
+}
+
+.wb-form-control{
+	width: 100%;
+	padding: 10px 5px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	&:focus{
+		color: #C48B8A!important;
 	}
 }
 
