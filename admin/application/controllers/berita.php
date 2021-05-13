@@ -16,6 +16,9 @@ class Berita extends CI_Controller
 
     public function index()
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $session = $this->session->userdata('login_data')['token'];
         $client = new \GuzzleHttp\Client();
         $response = $client->request(
@@ -41,18 +44,27 @@ class Berita extends CI_Controller
 
     function tambah()
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Berita_model->tambahBerita();
         redirect('berita');
     }
 
     function ubah($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Berita_model->ubahBerita($id);
         redirect('berita');
     }
 
     public function hapus($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Berita_model->deleteBerita($id);
         redirect('berita');
     }

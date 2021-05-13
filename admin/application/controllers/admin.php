@@ -16,6 +16,9 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $session = $this->session->userdata('login_data')['token'];
         $client = new \GuzzleHttp\Client();
         $response = $client->request(
@@ -41,18 +44,27 @@ class Admin extends CI_Controller
 
     function tambah()
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Admin_model->tambahAdmin();
         redirect('admin');
     }
 
     function ubah($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Admin_model->ubahAdmin($id);
         redirect('admin');
     }
 
     public function hapus($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Admin_model->deleteAdmin($id);
         redirect('admin');
     }

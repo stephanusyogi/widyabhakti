@@ -25,6 +25,9 @@ class Ruangan extends CI_Controller
 
     public function index()
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $session = $this->session->userdata('login_data')['token'];
         $client = new \GuzzleHttp\Client();
         $response = $client->request(
@@ -50,7 +53,9 @@ class Ruangan extends CI_Controller
 
     function tambah()
     {   
-                   
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}      
         $session = $this->session->userdata('login_data')['token'];
         $id_admin = $this->session->userdata('login_data')['userdata']['id'];
         $nama = $this->input->post('nama', true);
@@ -143,12 +148,18 @@ class Ruangan extends CI_Controller
 
     function ubah($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Ruangan_model->ubahRuangan($id);
         redirect('ruangan');
     }
 
     public function hapus($id)
     {
+        if (!$this->session->userdata('isLoggedIn')) {
+			return redirect(base_url() . 'login');
+		}
         $this->Ruangan_model->deleteRuangan($id);
         redirect('ruangan');
     }

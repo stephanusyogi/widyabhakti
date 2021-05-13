@@ -75,6 +75,7 @@
   var windowURL = window.location.href;
   pageURL = '<?php echo base_url() . $menuLink ?>';
   var x = $('a[href="' + pageURL + '"]');
+  console.log(x);
   x.addClass('active');
   x.parent().parent().parent().addClass('menu-open');
   x.parent().parent().parent().children().first().addClass('active');
