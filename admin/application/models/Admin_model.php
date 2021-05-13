@@ -66,7 +66,7 @@ class Admin_model extends CI_model
         $id = $this->input->post('id', true);
         $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
-        $status = $this->input->post('status', true);
+        $status = $_POST['status'];
         
         $curl = curl_init();
 

@@ -177,12 +177,6 @@
                 <p>Data Peminjaman</p>
             </a>
             </li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-calendar-check"></i>
-                <p>Data Peminjaman Rutin</p>
-            </a>
-            </li>
             <li class="nav-header">RUANGAN</li>
             <li class="nav-item">
             <a href="<?php echo site_url('ruangan');?>" class="nav-link">

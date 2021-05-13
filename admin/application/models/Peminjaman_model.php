@@ -33,7 +33,22 @@ class Peminjaman_model extends CI_model
         $jumlah_orang = $this->input->post('jumlah_orang', true);
         $deskripsi_kegiatan = $this->input->post('deskripsi_kegiatan', true);
         $keterangan_tambahan = $this->input->post('keterangan_tambahan', true);
+        $rutin = $this->input->post('rutin', true);
+        $hiddenrutin = $this->input->post('hiddenrutin', true);
+        $finalrutin = null;
+        if(empty($rutin)){
+            $finalrutin = $hiddenrutin;
+        }else{
+            $finalrutin = $rutin;
+        }
         $status = $this->input->post('status', true);
+        $hiddenstatus = $this->input->post('hiddenstatus', true);
+        $finalstatus = null;
+        if(empty($status)){
+            $finalstatus = $hiddenstatus;
+        }else{
+            $finalstatus = $status;
+        }
         $pesan_admin = $this->input->post('pesan_admin', true);
 
         $curl = curl_init();
@@ -55,10 +70,11 @@ class Peminjaman_model extends CI_model
                 'jumlah_orang' => $jumlah_orang,
                 'deskripsi_kegiatan' => $deskripsi_kegiatan,
                 'keterangan_tambahan' => $keterangan_tambahan,
+                'rutin' => $finalrutin,
                 'id_ruangan' => $id_ruangan,
                 'id_user' => $id_user,
                 'id_admin' => $id_admin,
-                'status' => $status,
+                'status' => $finalstatus,
                 'pesan_admin' => $pesan_admin,
                 'id_peminjaman' => $id_peminjaman,
             ),
