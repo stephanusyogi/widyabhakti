@@ -39,6 +39,10 @@
     
     <!-- Fixed -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    
+    <!-- Validate -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 
     <title>Widya Bhakti | Pastoral Center Official Website</title>
     <link rel="icon" href="<?php echo base_url('assets/img/logo.png') ?>">
@@ -97,18 +101,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item nav-hover nav-active">
-                            <a class="nav-link" href="#">Beranda</a>
-                        </li>
-                        <li class="nav-item nav-hover">
-                            <a class="nav-link" href="<?php echo base_url('main/tentang') ?>">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item nav-hover">
-                            <a class="nav-link" href="<?php echo base_url('main/fasilitas') ?>">Fasilitas</a>
-                        </li>
-                        <li class="nav-item nav-hover nav-right">
-                            <a class="nav-link" href="<?php echo base_url('main/berita') ?>">Berita</a>
-                        </li>
                         <li class="item-button mr-2">
                             <button class="btn-infopinjam">
                                 <a class="nav-link" href="<?php echo base_url('peminjaman/informasi') ?>">Informasi Peminjaman</a>

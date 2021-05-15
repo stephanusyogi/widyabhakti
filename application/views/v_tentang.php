@@ -78,7 +78,7 @@
     </section>
 
     <!-- Section Carousel Jumbotron -->
-    <section class="carjumbotron">
+    <section class="carjumbotrontentang">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

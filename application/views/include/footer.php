@@ -1,6 +1,6 @@
 
       <!-- Section Footer -->
-      <section class="section-footer">
+      <section class="section-footer" id="footer">
           <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -48,43 +48,7 @@
 
 
 
-    <!-- Jquery Interval Carousel -->
-    <script>
-        $('.carousel').carousel({
-        interval: 25
-        })
-    </script>
-
-    <!-- JS POPUP -->
-    <script src="<?php echo base_url('assets/bootstrap/js/jquery.magnific-popup.js') ?>"></script>
-    <!-- Jquery PopUp -->
-    <script type="text/javascript">
-        $(document).ready(function($) {
-          $('.test-popup-link').magnificPopup({
-            type:'image',
-            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-
-        zoom: {
-          enabled: true, // By default it's false, so don't forget to enable it
-
-          duration: 300, // duration of the effect, in milliseconds
-          easing: 'ease-in-out', // CSS transition easing function
-
-          // The "opener" function should return the element from which popup will be zoomed in
-          // and to which popup will be scaled down
-          // By defailt it looks for an image tag:
-          opener: function(openerElement) {
-            // openerElement is the element on which popup was initialized, in this case its <a> tag
-            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-            return openerElement.is('img') ? openerElement : openerElement.find('img');
-          }
-        }
-          });
-        });
-    </script>
     
-    <!-- Fixed -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <!-- JQuery Menu Fixed -->
       <script>
           $(window).scroll(function() {
@@ -104,37 +68,6 @@
         AOS.init();
     </script>
 
-    <!-- JQuery Number Counter -->
-    <script>
-    var a = 0;
-    $(window).scroll(function() {
-    var oTop = $('#counter').offset().top - window.innerHeight;
-    if (a == 0 && $(window).scrollTop() > oTop) {
-        $('.counter-value').each(function() {
-        var $this = $(this),
-            countTo = $this.attr('data-count');
-        $({
-            countNum: $this.text()
-        }).animate({
-            countNum: countTo
-            },
-            {
-            duration: 3000,
-            easing: 'swing',
-            step: function() {
-                $this.text(Math.floor(this.countNum));
-            },
-            complete: function() {
-                $this.text(this.countNum);
-                //alert('finished');
-            }
-            });
-        });
-        a = 1;
-    }
-
-    });
-    </script>
 
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
@@ -144,11 +77,18 @@
     <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.5.1.min.js') ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.js') ?>"></script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Toast -->
     <script src="<?php echo base_url('assets/plugins'); ?>/toastr/toastr.min.js"></script>  
     
+    <!-- Jquery Interval Carousel -->
+    <script>
+        $('.carousel').carousel({
+        interval: 5000
+        })
+    </script>
     <!-- Swiper JS -->
     <script>
         var swiper = new Swiper('.s1', {
@@ -183,6 +123,6 @@
         }
         });
     </script>
-
+    
 </body>
 </html>

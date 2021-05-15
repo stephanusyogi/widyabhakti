@@ -24,7 +24,6 @@
                         <p class="desc-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, voluptatibus animi? Ea odit fugit non quam cumque magni expedita fuga quasi quod qui, corrupti quia voluptates pariatur? Aut, architecto suscipit.</p>
                         <p class="lead flex-btn">
                             <a class="btn btn-banner btn-lg" href="<?php echo base_url('main/tentang') ?>" role="button">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                            <a class="btn btn-banner btn-none btn-lg" href="#" role="button">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></a>
                         </p>
                     </div>
                 </div>
@@ -424,3 +423,64 @@
             </div>
         </div>
       </section>
+
+    <!-- JQuery Number Counter -->
+    <script>
+    var a = 0;
+    $(window).scroll(function() {
+    var oTop = $('#counter').offset().top - window.innerHeight;
+    if (a == 0 && $(window).scrollTop() > oTop) {
+        $('.counter-value').each(function() {
+        var $this = $(this),
+            countTo = $this.attr('data-count');
+        $({
+            countNum: $this.text()
+        }).animate({
+            countNum: countTo
+            },
+            {
+            duration: 3000,
+            easing: 'swing',
+            step: function() {
+                $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+                $this.text(this.countNum);
+                //alert('finished');
+            }
+            });
+        });
+        a = 1;
+    }
+
+    });
+    </script>
+    
+
+    <!-- JS POPUP -->
+    <script src="<?php echo base_url('assets/bootstrap/js/jquery.magnific-popup.js') ?>"></script>
+    <!-- Jquery PopUp -->
+    <script type="text/javascript">
+        $(document).ready(function($) {
+          $('.test-popup-link').magnificPopup({
+            type:'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+        zoom: {
+          enabled: true, // By default it's false, so don't forget to enable it
+
+          duration: 300, // duration of the effect, in milliseconds
+          easing: 'ease-in-out', // CSS transition easing function
+
+          // The "opener" function should return the element from which popup will be zoomed in
+          // and to which popup will be scaled down
+          // By defailt it looks for an image tag:
+          opener: function(openerElement) {
+            // openerElement is the element on which popup was initialized, in this case its <a> tag
+            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+            return openerElement.is('img') ? openerElement : openerElement.find('img');
+          }
+        }
+          });
+        });
+    </script>
