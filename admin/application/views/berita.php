@@ -66,25 +66,25 @@
                                                             <div class="modal-body">
                                                                 <form method="GET" enctype="multipart/form-data">
                                                                     <div class="form-group row">
-                                                                        <label for="title<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Title Berita</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Title Berita</label>
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" name="title" class="form-control" id="title<?= $row['id_berita']; ?>" value="<?= $row['title']; ?>" disabled>
+                                                                            <input type="text" name="title" class="form-control" value="<?= $row['title']; ?>" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="content<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Content Berita</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Content Berita</label>
                                                                         <div class="col-sm-10">
                                                                             <textarea type="text" name="content" class="form-control" disabled><?= strip_tags($row['content']); ?></textarea>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="excerpt<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Excerpt Berita</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Excerpt Berita</label>
                                                                         <div class="col-sm-10">
                                                                             <textarea type="text" name="excerpt" class="form-control" disabled><?= strip_tags($row['excerpt']); ?></textarea>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="file_image_edit" class="col-sm-2 col-form-label">Thumbnail Berita</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Thumbnail Berita</label>
                                                                         <div class="col-sm-8">
                                                                             <img src="<?= base_url('/uploads/img_thumbnail_berita') ?>/<?= $row['img_dir']; ?>" width="250" class="img-thumbnail" style="margin-top:10px;">
                                                                         </div>
@@ -111,29 +111,29 @@
                                                                 <form action="<?= base_url('berita/ubah'); ?>/<?= $row['id_berita']; ?>" method="POST"  enctype="multipart/form-data">
                                                                     <input type="hidden" name="id" value="<?= $row['id_berita']; ?>">
                                                                         <div class="form-group row">
-                                                                            <label for="title<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Title Berita</label>
+                                                                            <label for="" class="col-sm-2 col-form-label">Title Berita</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="text" name="title" class="form-control" id="title<?= $row['id_berita']; ?>" placeholder="Masukkan Title Berita" value="<?= $row['title']; ?>">
+                                                                                <input type="text" name="title" class="form-control" placeholder="Masukkan Title Berita" value="<?= $row['title']; ?>">
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group row">
-                                                                            <label for="content<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Content Berita</label>
+                                                                            <label for="" class="col-sm-2 col-form-label">Content Berita</label>
                                                                             <div class="col-sm-10">
                                                                                 <textarea type="text" name="content" class="ckeditor form-control" id="ckeditor" placeholder="Masukkan Content Berita"><?= $row['content']; ?></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group row">
-                                                                            <label for="excerpt<?= $row['id_berita']; ?>" class="col-sm-2 col-form-label">Excerpt Berita</label>
+                                                                            <label for="" class="col-sm-2 col-form-label">Excerpt Berita</label>
                                                                             <div class="col-sm-10">
                                                                                 <textarea type="text" name="excerpt" class="ckeditor form-control" id="ckeditor" placeholder="Masukkan Excerpt Berita"><?= $row['excerpt']; ?></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group row">
-                                                                            <label for="file_image_edit" class="col-sm-2 col-form-label">Thumbnail Berita</label>
+                                                                            <label for="" class="col-sm-2 col-form-label">Thumbnail Berita</label>
                                                                             <div class="col-sm-8 row">
                                                                                 <div class="col-md-6">
                                                                                     <input type="hidden" name="thumbnail" value="<?= $row['img_dir']; ?>">
-                                                                                    <input type="file" name="file_image_edit" class="form-control" id="sampul-edit<?= $row['id_berita']; ?>" onchange="previewImg_edit(<?= $row['id_berita']; ?>)">
+                                                                                    <input type="file" name="file_image_edit" class="form-control" onchange="previewImg_edit(<?= $row['id_berita']; ?>)">
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <img src="<?= base_url('/uploads/img_thumbnail_berita') ?>/<?= $row['img_dir']; ?>" width="250" class="img-thumbnail img-preview-edit<?= $row['id_berita']; ?>" style="margin-top:10px;">

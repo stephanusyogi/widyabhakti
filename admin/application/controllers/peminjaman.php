@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require 'vendor/autoload.php';
 
-class Peminjaman extends CI_Controller
+class Peminjaman extends MY_Controller
 {
 
     function __construct()
@@ -15,40 +15,36 @@ class Peminjaman extends CI_Controller
     }
 
     public function index()
-    {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
+    {   
+        // Peminjaman All
+        $url = 'http://127.0.0.1:8000/api/peminjaman';
+        $method = 'GET';
         $session = $this->session->userdata('login_data')['token'];
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/peminjaman',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['peminjaman'] = $res;
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/peminjamanrutin',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['peminjamanrutin'] = $res;
-        // $data['count'] = sizeof($res['data']);
+        $requestpeminjaman = $this->SendWithRequest($url, $method, $session);
+        // Cek Auth
+        if($requestpeminjaman['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Peminjaman Rutin
+        $url = 'http://127.0.0.1:8000/api/peminjamanrutin';
+        $method = 'GET';
+        $session = $this->session->userdata('login_data')['token'];
+        $requestpeminjamanrutin = $this->SendWithRequest($url, $method, $session);
+        // Cek Auth
+        if($requestpeminjamanrutin['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Tampilan
+        $data['peminjaman'] = $requestpeminjaman;
+        $data['peminjamanrutin'] = $requestpeminjamanrutin;
         $data['title'] = "Data Peminjaman";
         $data['menuLink'] = "peminjaman";
         $data['menuName'] = "Data Peminjaman";
+        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('peminjaman', $data);
         $this->load->view('include/footer');
@@ -56,19 +52,11 @@ class Peminjaman extends CI_Controller
 
     function ubah($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Peminjaman_model->ubahPeminjaman($id);
-        redirect('peminjaman');
     }
 
     public function hapus($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Peminjaman_model->deletePeminjaman($id);
-        redirect('peminjaman');
     }
 }

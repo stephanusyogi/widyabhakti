@@ -1,22 +1,7 @@
 <?php
 
-use GuzzleHttp\Client;
-
 class User_model extends CI_model
 {
-    private $_client;
-
-    public function __construct()
-    {
-        $session = $this->session->userdata('login_data')['token'];
-        $this->_client = new Client([
-            'base_uri' => 'http://127.0.0.1:8000/api/user',
-            'headers' =>
-            [
-                'Authorization' => "Bearer $session"
-            ]
-        ]);
-    }
 
     // Edit Adv
     public function ubahUser($id)
@@ -51,6 +36,7 @@ class User_model extends CI_model
                 'nohp' => $nohp
             ),
             CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
                 'Authorization: Bearer ' . $session
             ),
         ));
@@ -58,11 +44,16 @@ class User_model extends CI_model
         $response = curl_exec($curl);
         curl_close($curl);
         $response = json_decode($response, true);
-        // die(var_dump($response['message']));
+
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-		} else {
+            redirect('user');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('user');
 		}
                 
     }
@@ -71,23 +62,38 @@ class User_model extends CI_model
     public function deleteUser($id)
     {
         $session = $this->session->userdata('login_data')['token'];
-        $response = $this->_client->request(
-            'DELETE', 
-            '/api/user/' . $id ,
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $result = json_decode($response->getBody()->getContents(), true);
-		if ($result['success']) {
-			$this->session->set_flashdata('successMsg', $result['message']);
-		} else {
-			$this->session->set_flashdata('errorMsg', $result['message']);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://127.0.0.1:8000/api/user/'. $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
+                'Authorization: Bearer ' . $session
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+        $response = json_decode($response, true);
+
+		if ($response['success']) {
+			$this->session->set_flashdata('successMsg', $response['message']);
+            redirect('user');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
+			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('user');
 		}
-        return $result;
     }
 
 }

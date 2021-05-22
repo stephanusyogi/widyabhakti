@@ -1,23 +1,7 @@
 <?php
 
-use GuzzleHttp\Client;
-
 class Berita_model extends CI_model
 {
-    private $_client;
-
-    public function __construct()
-    {
-        $session = $this->session->userdata('login_data')['token'];
-        $this->_client = new Client([
-            'base_uri' => 'http://127.0.0.1:8000/api/berita',
-            'headers' =>
-            [
-                'Authorization' => "Bearer $session"
-            ]
-        ]);
-    }
-
     public function tambahBerita()
     {   
         $session = $this->session->userdata('login_data')['token'];
@@ -64,6 +48,7 @@ class Berita_model extends CI_model
                 'img_dir' => $new_file_image
             ),
             CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
                 'Authorization: Bearer ' . $session
             ),
         ));
@@ -71,10 +56,16 @@ class Berita_model extends CI_model
         $response = curl_exec($curl);
         curl_close($curl);
         $response = json_decode($response, true);
+
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-		} else {
+            redirect('berita');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('berita');
 		}
                 
     }
@@ -131,6 +122,7 @@ class Berita_model extends CI_model
                 'img_dir' => $new_file_image
             ),
             CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
                 'Authorization: Bearer ' . $session
             ),
         ));
@@ -138,10 +130,16 @@ class Berita_model extends CI_model
         $response = curl_exec($curl);
         curl_close($curl);
         $response = json_decode($response, true);
+
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-		} else {
+            redirect('berita');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('berita');
 		}
                 
     }
@@ -150,37 +148,38 @@ class Berita_model extends CI_model
     public function deleteBerita($id)
     {
         $session = $this->session->userdata('login_data')['token'];
-        // GetImage
-        $responseimage = $this->_client->request(
-            'GET', 
-            '/api/berita/' ,
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $resimage = json_decode($responseimage->getBody(), true);
-        $dataimage = $resimage['data'][0]['img_dir'];
-        unlink('./uploads/img_thumbnail_berita/'.$dataimage);
-        $response = $this->_client->request(
-            'DELETE', 
-            '/api/berita/' . $id ,
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $result = json_decode($response->getBody()->getContents(), true);
-		if ($result['success']) {
-			$this->session->set_flashdata('successMsg', $result['message']);
-		} else {
-			$this->session->set_flashdata('errorMsg', $result['message']);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://127.0.0.1:8000/api/berita/'. $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
+                'Authorization: Bearer ' . $session
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+        $response = json_decode($response, true);
+
+		if ($response['success']) {
+			$this->session->set_flashdata('successMsg', $response['message']);
+            redirect('berita');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
+			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('berita');
 		}
-        return $result;
     }
 
 }

@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-require 'vendor/autoload.php';
 
-class Admin extends CI_Controller
+class Admin extends MY_Controller
 {
 
     function __construct()
@@ -16,27 +15,24 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
+        $url = 'http://127.0.0.1:8000/api/admin';
+        $method = 'GET';
         $session = $this->session->userdata('login_data')['token'];
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/admin',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['datadmin'] = $res;
-        // $data['count'] = sizeof($res['data']);
+        
+        $request = $this->SendWithRequest($url, $method, $session);
+
+        // Cek Auth
+        if($request['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Tampilan
+        $data['datadmin'] = $request;
         $data['title'] = "Data Admin";
         $data['menuLink'] = "dataadmin";
         $data['menuName'] = "Data Admin";
+        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('admin', $data);
         $this->load->view('include/footer');
@@ -44,28 +40,16 @@ class Admin extends CI_Controller
 
     function tambah()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Admin_model->tambahAdmin();
-        redirect('admin');
     }
 
     function ubah($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Admin_model->ubahAdmin($id);
-        redirect('admin');
     }
 
     public function hapus($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Admin_model->deleteAdmin($id);
-        redirect('admin');
     }
 }

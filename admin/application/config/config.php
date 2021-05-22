@@ -379,7 +379,7 @@ $config['encryption_key'] = '';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 3600;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
@@ -523,4 +523,15 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
-$config['sess_expiration'] = '60';
+function kang_controller($class) 
+{
+ if (strpos($class, 'CI_') !== 0)
+ {
+     if (is_readable(APPPATH . 'core/' . $class . '.php'))
+     {
+      require_once(APPPATH . 'core/' . $class . '.php');
+     }
+ }
+}
+ 
+spl_autoload_register('kang_controller');

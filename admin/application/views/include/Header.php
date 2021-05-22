@@ -80,7 +80,6 @@
             title: '&nbsp;<?php echo $success ?>'
           })
         });
-        console.log('<?php echo $success ?>');
       </script>
     <?php } ?>
 </head>
@@ -138,7 +137,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url(); ?>/public/dist/img/avatar2.png" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url(); ?>/public/dist/img/img_avatar.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Administrator</a>
@@ -189,6 +188,20 @@
             <a href="<?php echo site_url('berita');?>" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>Data Berita & Artikel</p>
+            </a>
+            </li>
+            <li class="nav-header">TRANSAKSI</li>
+            <li class="nav-item">
+            <a href="<?php echo site_url('transaksi');?>" class="nav-link">
+              <i class="nav-icon fas fa-wallet"></i>
+                <p>Data Donasi Partisipasi</p>
+            </a>
+            </li>
+            <li class="nav-header">KOMUNIKASI</li>
+            <li class="nav-item">
+            <a href="<?php echo site_url('komunikasi');?>" class="nav-link">
+              <i class="nav-icon fas fa-envelope-open-text"></i>
+                <p>Call Center Message</p>
             </a>
             </li>
         </ul>

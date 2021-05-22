@@ -1,22 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-require 'vendor/autoload.php';
-use GuzzleHttp\Client;
 
-class Ruangan extends CI_Controller
+class Ruangan extends MY_Controller
 {
-    private $_client;
     function __construct()
     {
         parent::__construct();
-        $session = $this->session->userdata('login_data')['token'];
-        $this->_client = new Client([
-            'base_uri' => 'http://127.0.0.1:8000/api/ruangan',
-            'headers' =>
-            [
-                'Authorization' => "Bearer $session"
-            ]
-        ]);
         $this->load->library('session');
         $this->load->helper('url');
         $this->load->helper('cookie');
@@ -25,27 +14,23 @@ class Ruangan extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
+        $url = 'http://127.0.0.1:8000/api/ruangan';
+        $method = 'GET';
         $session = $this->session->userdata('login_data')['token'];
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/ruangan',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['ruangan'] = $res;
-        // $data['count'] = sizeof($res['data']);
+        
+        $request = $this->SendWithRequest($url, $method, $session);
+
+        // Cek Auth
+        if($request['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        $data['ruangan'] = $request;
         $data['title'] = "Data Ruangan";
         $data['menuLink'] = "ruangan";
         $data['menuName'] = "Data Ruangan";
+        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('ruangan', $data);
         $this->load->view('include/footer');
@@ -53,12 +38,10 @@ class Ruangan extends CI_Controller
 
     function tambah()
     {   
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}      
         $session = $this->session->userdata('login_data')['token'];
         $id_admin = $this->session->userdata('login_data')['userdata']['id'];
         $nama = $this->input->post('nama', true);
+        $lantai = $this->input->post('lantai', true);
         $thumbnail = $this->input->post('thumbnail', true);
         $kapasitas = $this->input->post('kapasitas', true);
         $deskripsi = $this->input->post('deskripsi', true);
@@ -95,12 +78,14 @@ class Ruangan extends CI_Controller
             CURLOPT_POSTFIELDS => array(
                 'nama' => $nama,
                 'thumbnail' => $new_file_image,
+                'lantai' => $lantai,
                 'kapasitas' => $kapasitas,
                 'luas' => $luas,
                 'deskripsi' => $deskripsi,
                 'id_admin' => $id_admin
             ),
             CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
                 'Authorization: Bearer ' . $session
             ),
         ));
@@ -135,32 +120,27 @@ class Ruangan extends CI_Controller
 				}
 			}
 		}
-
-        
         $response = json_decode($response, true);
+
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-		} else {
+            redirect('ruangan');
+		} elseif ($response['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
+            redirect('ruangan');
 		}
-        redirect('ruangan');
     }
 
     function ubah($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Ruangan_model->ubahRuangan($id);
-        redirect('ruangan');
     }
 
     public function hapus($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Ruangan_model->deleteRuangan($id);
-        redirect('ruangan');
     }
 }

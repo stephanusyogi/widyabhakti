@@ -14,24 +14,34 @@
   <link rel="stylesheet" href="<?php echo base_url()?>/public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>/public/dist/css/adminlte.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Toast -->
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/toastr/toastr.min.css">
+  <!-- jQuery -->
+  <script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
 </head>
 <?php
   $error = $this->session->flashdata('error');
   if ($error) {
   ?>
     <script type="text/javascript">
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-      Toast.fire({
-        type: 'error',
-        title: '<?php echo $error; ?>'
-      })
-    </script>
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
 
+          Toast.fire({
+            icon: 'error',
+            title: '&nbsp;<?php echo $error ?>'
+          })
+        });
+            console.log('test');
+    </script>
   <?php }
   ?>
 <style>
@@ -155,7 +165,7 @@
           <!-- /.col -->
           <div class="col-8">
             <?php
-            $error = $this->session->flashdata('err');
+            $error = $this->session->flashdata('error');
             if ($error) {
             ?>
               <label for="remember" class="login-message">
@@ -183,5 +193,9 @@
 <script src="<?php echo base_url()?>/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>/public/dist/js/adminlte.min.js"></script>
+<!-- Toast -->
+<script src="<?php echo base_url('public/plugins'); ?>/toastr/toastr.min.js"></script>  
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

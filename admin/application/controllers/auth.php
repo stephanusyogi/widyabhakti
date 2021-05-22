@@ -35,17 +35,17 @@ class Auth extends CI_Controller
     public function login()
     {
         // die(var_dump('test'));
-        if ($this->session->userdata('isLoggedIn')) {
-            return redirect(base_url());
-        }
+        // if ($this->session->userdata('isLoggedIn')) {
+        //     return redirect(base_url());
+        // }
         $this->load->view('login');
     }
 
     public function auth()
     {
-        if ($this->session->userdata('isLoggedIn')) {
-            return redirect(base_url());
-        }
+        // if ($this->session->userdata('isLoggedIn')) {
+        //     return redirect(base_url());
+        // }
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $curl = curl_init();

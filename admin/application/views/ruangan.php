@@ -48,7 +48,7 @@
                                                         <a data-toggle="modal" data-target="#detailModal<?= $row['id_ruangan']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-eye" style="color:darkblue;"></i></i></a>
                                                         <a href="<?= base_url('ruangan/hapus'); ?>/<?= $row['id_ruangan']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                                                     </td>
-                                                    <td><?php echo $row['nama']; ?></td>
+                                                    <td><?php echo $row['nama']; ?> || Lantai : <?php echo $row['lantai']; ?></td>
                                                     <td><?php echo $row['kapasitas']; ?> Orang</td>
                                                     <td><?php echo $row['luas']; ?></td>
                                                     <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
@@ -67,27 +67,33 @@
                                                                 <form action="<?= base_url('ruangan/ubah'); ?>/<?= $row['id_ruangan']; ?>" method="POST"  enctype="multipart/form-data">
                                                                     <input type="hidden" name="id" value="<?= $row['id_ruangan']; ?>">
                                                                     <div class="form-group row">
-                                                                        <label for="nama<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Nama Ruangan</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Nama Ruangan</label>
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" name="nama" class="form-control" id="nama<?= $row['id_ruangan']; ?>" value="<?= $row['nama']; ?>">
+                                                                            <input type="text" name="nama" class="form-control" value="<?= $row['nama']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="kapasitas<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Lantai Ruangan</label>
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" name="kapasitas" class="form-control" id="kapasitas<?= $row['id_ruangan']; ?>" value="<?= $row['kapasitas']; ?>">
+                                                                            <input type="text" name="lantai" class="form-control" value="<?= $row['lantai']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="luas<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Luas Ruangan</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" name="luas" class="form-control" id="luas<?= $row['id_ruangan']; ?>" value="<?= $row['luas']; ?>">
+                                                                            <input type="text" name="kapasitas" class="form-control" value="<?= $row['kapasitas']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="deskripsi<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
+                                                                        <label for="" class="col-sm-2 col-form-label">Luas Ruangan</label>
                                                                         <div class="col-sm-10">
-                                                                            <textarea type="text" name="deskripsi" class="form-control" id="deskripsi<?= $row['id_ruangan']; ?>"><?= $row['deskripsi']; ?></textarea>
+                                                                            <input type="text" name="luas" class="form-control" value="<?= $row['luas']; ?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
+                                                                        <div class="col-sm-10">
+                                                                            <textarea type="text" name="deskripsi" class="form-control"><?= $row['deskripsi']; ?></textarea>
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
@@ -151,31 +157,37 @@
                                                                     <div class="col-md-6">
                                                                         <form method="GET" enctype="multipart/form-data">
                                                                             <div class="form-group row">
-                                                                                <label for="nama<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Nama Ruangan</label>
+                                                                                <label for="" class="col-sm-2 col-form-label">Nama Ruangan</label>
                                                                                 <div class="col-sm-10">
-                                                                                    <input type="text" name="nama" class="form-control" id="nama<?= $row['id_ruangan']; ?>" value="<?= $row['nama']; ?>" disabled>
+                                                                                    <input type="text" name="nama" class="form-control" value="<?= $row['nama']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="kapasitas<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
+                                                                                <label for="" class="col-sm-2 col-form-label">Lantai Ruangan</label>
                                                                                 <div class="col-sm-10">
-                                                                                    <input type="text" name="kapasitas" class="form-control" id="kapasitas<?= $row['id_ruangan']; ?>" value="<?= $row['kapasitas']; ?>" disabled>
+                                                                                    <input type="text" name="lantai" class="form-control" value="<?= $row['lantai']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="luas<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Luas Ruangan</label>
+                                                                                <label for="" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
                                                                                 <div class="col-sm-10">
-                                                                                    <input type="text" name="luas" class="form-control" id="luas<?= $row['id_ruangan']; ?>" value="<?= $row['luas']; ?>" disabled>
+                                                                                    <input type="text" name="kapasitas" class="form-control" value="<?= $row['kapasitas']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="deskripsi<?= $row['id_ruangan']; ?>" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
+                                                                                <label for="" class="col-sm-2 col-form-label">Luas Ruangan</label>
                                                                                 <div class="col-sm-10">
-                                                                                    <textarea type="text" name="deskripsi" class="form-control" id="deskripsi<?= $row['id_ruangan']; ?>" disabled><?= $row['deskripsi']; ?></textarea>
+                                                                                    <input type="text" name="luas" class="form-control" value="<?= $row['luas']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="file_image_edit" class="col-sm-2 col-form-label">Thumbnail Ruangan</label>
+                                                                                <label for="" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
+                                                                                <div class="col-sm-10">
+                                                                                    <textarea type="text" name="deskripsi" class="form-control" disabled><?= $row['deskripsi']; ?></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label for="" class="col-sm-2 col-form-label">Thumbnail Ruangan</label>
                                                                                 <div class="col-sm-8">
                                                                                     <img src="<?= base_url('/uploads/img_ruangan') ?>/<?= $row['thumbnail']; ?>" width="250" class="img-thumbnail" style="margin-top:10px;">
                                                                                 </div>
@@ -223,31 +235,37 @@
             <div class="modal-body">
                 <form action="<?= base_url('ruangan/tambah'); ?>" method="POST" enctype=multipart/form-data>
                     <div class="form-group row">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama Ruangan</label>
+                        <label for="" class="col-sm-2 col-form-label">Nama Ruangan</label>
                         <div class="col-sm-10">
                             <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Ruangan">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="kapasitas" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
+                        <label for="" class="col-sm-2 col-form-label">Lantai Ruangan</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="lantai" class="form-control" id="lantai" placeholder="Masukkan Lantai Ruangan">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Kapasitas Ruangan</label>
                         <div class="col-sm-10">
                             <input type="text" name="kapasitas" class="form-control" id="kapasitas" placeholder="Masukkan Kapasitas Ruangan">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="luas" class="col-sm-2 col-form-label">Luas Ruangan</label>
+                        <label for="" class="col-sm-2 col-form-label">Luas Ruangan</label>
                         <div class="col-sm-10">
                             <input type="text" name="luas" class="form-control" id="luas" placeholder="Masukkan Luas Ruangan">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
+                        <label for="" class="col-sm-2 col-form-label">Deskripsi Ruangan</label>
                         <div class="col-sm-10">
                             <textarea type="text" name="deskripsi" class="form-control" id="deskripsi" placeholder="Masukkan Deskripsi Ruangan"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="file_image" class="col-sm-2 col-form-label">Thumbnail Ruangan</label>
+                        <label for="" class="col-sm-2 col-form-label">Thumbnail Ruangan</label>
                         <div class="col-sm-8 row">
                             <div class="col-md-6">
                                 <input type="file" name="file_image_thumbnail" class="form-control" id="sampul" onchange="previewImg()">
@@ -259,7 +277,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-2">
-                            <label for="file_image">Images Ruangan (Max : 4)</label>
+                            <label for="">Images Ruangan (Max : 4)</label>
                         </div>
                         <div class="col-md-10">
                             <input type="file" name="file_image[]" class="form-control" multiple="">

@@ -66,21 +66,21 @@
                                                                 <form action="<?= base_url('admin/ubah'); ?>/<?= $row['id']; ?>" method="POST"  enctype="multipart/form-data">
                                                                     <input type="hidden" name="id" value="<?= $row['id']; ?>">
                                                                     <div class="form-group row">
-                                                                        <label for="nama<?= $row['id']; ?>" class="col-sm-4 col-form-label">Nama Admin</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Nama Admin</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="name" class="form-control" id="nama<?= $row['id']; ?>" placeholder="Nama Admin" value="<?= $row['name']; ?>">
+                                                                            <input type="text" name="name" class="form-control" placeholder="Nama Admin" value="<?= $row['name']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="username<?= $row['id']; ?>" class="col-sm-4 col-form-label">Email Admin</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Email Admin</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="username" class="form-control" id="username<?= $row['id']; ?>" placeholder="Email Admin" value="<?= $row['username']; ?>">
+                                                                            <input type="text" name="username" class="form-control" placeholder="Email Admin" value="<?= $row['username']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="status<?= $row['id']; ?>" class="col-sm-4 col-form-label">Status</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Status</label>
                                                                         <div class="col-sm-8">
-                                                                        <select id="status<?= $row['id']; ?>" class="form-control" type="text" name="status" placeholder="Status">
+                                                                        <select class="form-control" type="text" name="status" placeholder="Status">
                                                                             <option value="<?= $row['status']; ?>" selected disabled><?= $row['status']; ?></option>
                                                                             <option value="primary">Primary</option>
                                                                             <option value="secondary">Secondary</option>

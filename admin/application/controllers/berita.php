@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-require 'vendor/autoload.php';
 
-class Berita extends CI_Controller
+class Berita extends MY_Controller
 {
 
     function __construct()
@@ -16,27 +15,24 @@ class Berita extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
+        $url = 'http://127.0.0.1:8000/api/berita';
+        $method = 'GET';
         $session = $this->session->userdata('login_data')['token'];
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/berita',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['berita'] = $res;
-        // $data['count'] = sizeof($res['data']);
+        
+        $request = $this->SendWithRequest($url, $method, $session);
+
+        // Cek Auth
+        if($request['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Tampilan
+        $data['berita'] = $request;
         $data['title'] = "Data Berita & Artikel";
         $data['menuLink'] = "berita";
         $data['menuName'] = "Data Berita & Artikel";
+        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('berita', $data);
         $this->load->view('include/footer');
@@ -44,28 +40,16 @@ class Berita extends CI_Controller
 
     function tambah()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Berita_model->tambahBerita();
-        redirect('berita');
     }
 
     function ubah($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Berita_model->ubahBerita($id);
-        redirect('berita');
     }
 
     public function hapus($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->Berita_model->deleteBerita($id);
-        redirect('berita');
     }
 }

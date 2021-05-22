@@ -71,33 +71,33 @@
                                                                 <form action="<?= base_url('user/ubah'); ?>/<?= $row['id']; ?>" method="POST"  enctype="multipart/form-data">
                                                                     <input type="hidden" name="id" value="<?= $row['id']; ?>">
                                                                     <div class="form-group row">
-                                                                        <label for="nama<?= $row['id']; ?>" class="col-sm-4 col-form-label">Name</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Name</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="name" class="form-control" id="nama<?= $row['id']; ?>" placeholder="Name" value="<?= $row['name']; ?>">
+                                                                            <input type="text" name="name" class="form-control" placeholder="Name" value="<?= $row['name']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="email<?= $row['id']; ?>" class="col-sm-4 col-form-label">Email Aktif</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Email Aktif</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="email" class="form-control" id="email<?= $row['id']; ?>" placeholder="Email" value="<?= $row['email']; ?>">
+                                                                            <input type="text" name="email" class="form-control" placeholder="Email" value="<?= $row['email']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="username<?= $row['id']; ?>" class="col-sm-4 col-form-label">Username</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Username</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="username" class="form-control" id="username<?= $row['id']; ?>" placeholder="Username" value="<?= $row['username']; ?>">
+                                                                            <input type="text" name="username" class="form-control" placeholder="Username" value="<?= $row['username']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="organisasi<?= $row['id']; ?>" class="col-sm-4 col-form-label">Organisasi / Lembaga / Komunitas</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Organisasi / Lembaga / Komunitas</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="organisasi" class="form-control" id="organisasi<?= $row['id']; ?>" value="<?= $row['organisasi']; ?>">
+                                                                            <input type="text" name="organisasi" class="form-control" value="<?= $row['organisasi']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="nohp<?= $row['id']; ?>" class="col-sm-4 col-form-label">Nomor Handphone Aktif</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Nomor Handphone Aktif</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" name="nohp" class="form-control" id="nohp<?= $row['id']; ?>" value="<?= $row['nohp']; ?>">
+                                                                            <input type="text" name="nohp" class="form-control" value="<?= $row['nohp']; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
@@ -112,7 +112,7 @@
                                             <?php } ?>
                                         <?php }else{?>
                                             <tr>
-                                                <td colspan="5" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                                <td colspan="7" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

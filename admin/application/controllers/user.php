@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-require 'vendor/autoload.php';
 
-class User extends CI_Controller
+class User extends MY_Controller
 {
 
     function __construct()
@@ -16,27 +15,24 @@ class User extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
+        $url = 'http://127.0.0.1:8000/api/user';
+        $method = 'GET';
         $session = $this->session->userdata('login_data')['token'];
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request(
-            'GET',
-            'http://127.0.0.1:8000/api/user',
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer $session"
-                ]
-            ]
-        );
-        $res = json_decode($response->getBody(), true);
-        $data['datauser'] = $res;
-        // $data['count'] = sizeof($res['data']);
+        
+        $request = $this->SendWithRequest($url, $method, $session);
+
+        // Cek Auth
+        if($request['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Tampilan
+        $data['datauser'] = $request;
         $data['title'] = "Data User";
         $data['menuLink'] = "datauser";
         $data['menuName'] = "Data User";
+        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('user', $data);
         $this->load->view('include/footer');
@@ -44,19 +40,11 @@ class User extends CI_Controller
 
     function ubah($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->User_model->ubahUser($id);
-        redirect('user');
     }
 
     public function hapus($id)
     {
-        if (!$this->session->userdata('isLoggedIn')) {
-			return redirect(base_url() . 'login');
-		}
         $this->User_model->deleteUser($id);
-        redirect('user');
     }
 }

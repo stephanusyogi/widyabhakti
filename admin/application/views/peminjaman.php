@@ -81,68 +81,76 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Nama Kegiatan</label>
+                                                                                <label for="nama_kegiatan" class="col-sm-4 col-form-label">Nama Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_kegiatan']; ?>" disabled>
+                                                                                    <input type="text" name="nama_kegiatan" class="form-control" value="<?= $row['nama_kegiatan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
+                                                                                <label for="pemilik_kegiatan" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" id="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" value="<?= $row['pemilik_kegiatan']; ?>" disabled>
+                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" value="<?= $row['pemilik_kegiatan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_user<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Peminjam</label>
+                                                                                <label for="nama_user" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_user" class="form-control" id="nama_user<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_user']; ?>" disabled>
+                                                                                    <input type="text" name="nama_user" class="form-control" value="<?= $row['nama_user']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_ruangan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Ruangan</label>
+                                                                                <label for="nama_ruangan" class="col-sm-4 col-form-label">Ruangan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_ruangan" class="form-control" id="nama_ruangan<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_ruangan']; ?>" disabled>
+                                                                                    <input type="text" name="nama_ruangan" class="form-control" value="<?= $row['nama_ruangan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jumlah_orang<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jumlah Orang</label>
+                                                                                <label for="jumlah_orang" class="col-sm-4 col-form-label">Jumlah Orang</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="jumlah_orang" class="form-control" id="jumlah_orang<?= $row['id_peminjaman']; ?>" value="<?= $row['jumlah_orang']; ?> Orang" disabled>
+                                                                                    <input type="text" name="jumlah_orang" class="form-control" value="<?= $row['jumlah_orang']; ?> Orang" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jadwal<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
+                                                                                <label for="jadwal" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="input" name="jadwal" class="form-control" id="jadwal<?= $row['id_peminjaman']; ?>" value="<?php echo $row['jadwal'] ?>" disabled>
+                                                                                    <input type="input" name="jadwal" class="form-control" value="<?php echo $row['jadwal'] ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="waktu<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
+                                                                                <label for="waktu_mulai" class="col-sm-4 col-form-label">Waktu Mulai Kegiatan</label>
                                                                                 <div class="col-sm-8">
                                                                                     <div class="input-group">
-                                                                                        <input type="text" name="waktu" class="form-control" value="<?php echo $row['waktu'] ?>" disabled/>
+                                                                                        <input type="text" name="waktu_mulai" class="form-control" value="<?php echo $row['waktu_mulai'] ?>" disabled/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label for="waktu_selesai" class="col-sm-4 col-form-label">Waktu Selesai Kegiatan</label>
+                                                                                <div class="col-sm-8">
+                                                                                    <div class="input-group">
+                                                                                        <input type="text" name="waktu_selesai" class="form-control" value="<?php echo $row['waktu_selesai'] ?>" disabled/>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
+                                                                                <label for="deskripsi_kegiatan" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" id="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>"disabled><?= $row['deskripsi_kegiatan']; ?></textarea>
+                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" disabled><?= $row['deskripsi_kegiatan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="keterangan_tambahan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
+                                                                                <label for="keterangan_tambahan" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" id="keterangan_tambahan<?= $row['id_peminjaman']; ?>" disabled><?= $row['keterangan_tambahan']; ?></textarea>
+                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" disabled><?= $row['keterangan_tambahan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Verifikator</label>
+                                                                                <label for="nama_admin" class="col-sm-4 col-form-label">Verifikator</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_admin" class="form-control" id="nama_admin<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_admin']; ?>" disabled>
+                                                                                    <input type="text" name="nama_admin" class="form-control" value="<?= $row['nama_admin']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
@@ -158,9 +166,9 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pesan_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pesan Admin</label>
+                                                                                <label for="pesan_admin" class="col-sm-4 col-form-label">Pesan Admin</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="pesan_admin" class="form-control" id="pesan_admin<?= $row['id_peminjaman']; ?>" disabled><?= $row['pesan_admin']; ?></textarea>
+                                                                                    <textarea type="text" name="pesan_admin" class="form-control" disabled><?= $row['pesan_admin']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -189,49 +197,60 @@
                                                                         <div class="col-md-6">
                                                                             <input type="hidden" name="id_peminjaman" value="<?= $row['id_peminjaman']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Nama Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Nama Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Nama Kegiatan" value="<?= $row['nama_kegiatan']; ?>">
+                                                                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="Nama Kegiatan" value="<?= $row['nama_kegiatan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" id="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Pemilik Kegiatan" value="<?= $row['pemilik_kegiatan']; ?>">
+                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" placeholder="Pemilik Kegiatan" value="<?= $row['pemilik_kegiatan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_user<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Peminjam</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_user" class="form-control" id="nama_user<?= $row['id_peminjaman']; ?>" placeholder="Peminjam" value="<?= $row['nama_user']; ?>" disabled>
+                                                                                    <input type="text" name="nama_user" class="form-control" placeholder="Peminjam" value="<?= $row['nama_user']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_ruangan" value="<?= $row['id_ruangan']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_ruangan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Ruangan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Ruangan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_ruangan" class="form-control" id="nama_ruangan<?= $row['id_peminjaman']; ?>" placeholder="Ruangan" value="<?= $row['nama_ruangan']; ?>">
+                                                                                    <input type="text" name="nama_ruangan" class="form-control" placeholder="Ruangan" value="<?= $row['nama_ruangan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jumlah_orang<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jumlah Orang</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jumlah Orang</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="jumlah_orang" class="form-control" id="jumlah_orang<?= $row['id_peminjaman']; ?>" placeholder="Jumlah Orang" value="<?= $row['jumlah_orang']; ?> Orang">
+                                                                                    <input type="text" name="jumlah_orang" class="form-control" placeholder="Jumlah Orang" value="<?= $row['jumlah_orang']; ?> Orang">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jadwal<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="date" name="jadwal" class="form-control" id="jadwal<?= $row['id_peminjaman']; ?>" value="<?php echo $row['jadwal'] ?>">
+                                                                                    <input type="date" name="jadwal" class="form-control" value="<?php echo $row['jadwal'] ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="waktu<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Waktu Mulai Kegiatan</label>
                                                                                 <div class="col-sm-8">
                                                                                     <div class="input-group date" id="timepicker" data-target-input="nearest">
-                                                                                        <input type="text" name="waktu" class="form-control datetimepicker-input" data-target="#timepicker" value="<?php echo $row['waktu'] ?>" />
+                                                                                        <input type="text" name="waktu_mulai" class="form-control datetimepicker-input" data-target="#timepicker" value="<?php echo $row['waktu_mulai'] ?>" />
                                                                                         <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                                                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label for="" class="col-sm-4 col-form-label">Waktu Selesai Kegiatan</label>
+                                                                                <div class="col-sm-8">
+                                                                                    <div class="input-group date" id="timepicker1" data-target-input="nearest">
+                                                                                        <input type="text" name="waktu_selesai" class="form-control datetimepicker-input" data-target="#timepicker1" value="<?php echo $row['waktu_selesai'] ?>" />
+                                                                                        <div class="input-group-append" data-target="#timepicker1" data-toggle="datetimepicker">
                                                                                             <div class="input-group-text"><i class="far fa-clock"></i></div>
                                                                                         </div>
                                                                                     </div>
@@ -240,28 +259,28 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" id="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Deskripsi Kegiatan"><?= $row['deskripsi_kegiatan']; ?></textarea>
+                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" placeholder="Deskripsi Kegiatan"><?= $row['deskripsi_kegiatan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="keterangan_tambahan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" id="keterangan_tambahan<?= $row['id_peminjaman']; ?>" placeholder="Keterangan Tambahan"><?= $row['keterangan_tambahan']; ?></textarea>
+                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" placeholder="Keterangan Tambahan"><?= $row['keterangan_tambahan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Verifikator</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Verifikator</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_admin" class="form-control" id="nama_admin<?= $row['id_peminjaman']; ?>" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
+                                                                                    <input type="text" name="nama_admin" class="form-control" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="rutin" class="col-sm-4 col-form-label">Peminjam Rutin ?</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjam Rutin ?</label>
                                                                                 <input type="hidden" name="hiddenrutin" value="<?= $row['rutin']; ?>">
                                                                                 <div class="col-sm-8">
-                                                                                <select id="rutin" class="form-control" type="text" name="rutin" placeholder="">
+                                                                                <select class="form-control" type="text" name="rutin" placeholder="">
                                                                                     <option value="<?= $row['rutin']; ?>" selected disabled><?php echo $row['rutin'] ? 'Peminjam Rutin' : 'Bukan Peminjam Rutin' ?></option>
                                                                                     <option value="1">Peminjam Rutin</option>
                                                                                     <option value="0">Bukan Peminjam Rutin</option>
@@ -269,10 +288,10 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="status" class="col-sm-4 col-form-label">Status</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Status</label>
                                                                                 <input type="hidden" name="hiddenstatus" value="<?= $row['status']; ?>">
                                                                                 <div class="col-sm-8">
-                                                                                <select id="status" class="form-control" type="text" name="status" placeholder="Masukan Status">
+                                                                                <select class="form-control" type="text" name="status" placeholder="Masukan Status">
                                                                                     <option value="<?= $row['status']; ?>" selected disabled><?php echo $row['status']=='approved' ? 'Disetujui' : ($row['status']=='rejected' ? 'Tidak Disetujui' : 'Pending' ) ?></option>
                                                                                     <option value="approved">Disetujui</option>
                                                                                     <option value="rejected">Tidak Disetujui</option>
@@ -281,9 +300,9 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pesan_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pesan Admin</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pesan Admin</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="pesan_admin" class="form-control" id="pesan_admin<?= $row['id_peminjaman']; ?>" placeholder="Pesan Admin"><?= $row['pesan_admin']; ?></textarea>
+                                                                                    <textarea type="text" name="pesan_admin" class="form-control" placeholder="Pesan Admin"><?= $row['pesan_admin']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -359,44 +378,44 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Nama Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Nama Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_kegiatan']; ?>" disabled>
+                                                                                    <input type="text" name="nama_kegiatan" class="form-control" value="<?= $row['nama_kegiatan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" id="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" value="<?= $row['pemilik_kegiatan']; ?>" disabled>
+                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" value="<?= $row['pemilik_kegiatan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_user<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Peminjam</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_user" class="form-control" id="nama_user<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_user']; ?>" disabled>
+                                                                                    <input type="text" name="nama_user" class="form-control" value="<?= $row['nama_user']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_ruangan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Ruangan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Ruangan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_ruangan" class="form-control" id="nama_ruangan<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_ruangan']; ?>" disabled>
+                                                                                    <input type="text" name="nama_ruangan" class="form-control" value="<?= $row['nama_ruangan']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jumlah_orang<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jumlah Orang</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jumlah Orang</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="jumlah_orang" class="form-control" id="jumlah_orang<?= $row['id_peminjaman']; ?>" value="<?= $row['jumlah_orang']; ?> Orang" disabled>
+                                                                                    <input type="text" name="jumlah_orang" class="form-control" value="<?= $row['jumlah_orang']; ?> Orang" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jadwal<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="input" name="jadwal" class="form-control" id="jadwal<?= $row['id_peminjaman']; ?>" value="<?php echo $row['jadwal'] ?>" disabled>
+                                                                                    <input type="input" name="jadwal" class="form-control" value="<?php echo $row['jadwal'] ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="waktu<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
                                                                                 <div class="col-sm-8">
                                                                                     <div class="input-group">
                                                                                         <input type="text" name="waktu" class="form-control" value="<?php echo $row['waktu'] ?>" disabled/>
@@ -406,39 +425,39 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" id="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>"disabled><?= $row['deskripsi_kegiatan']; ?></textarea>
+                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" disabled><?= $row['deskripsi_kegiatan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="keterangan_tambahan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" id="keterangan_tambahan<?= $row['id_peminjaman']; ?>" disabled><?= $row['keterangan_tambahan']; ?></textarea>
+                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" disabled><?= $row['keterangan_tambahan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Verifikator</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Verifikator</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_admin" class="form-control" id="nama_admin<?= $row['id_peminjaman']; ?>" value="<?= $row['nama_admin']; ?>" disabled>
+                                                                                    <input type="text" name="nama_admin" class="form-control" value="<?= $row['nama_admin']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="rutin" class="col-sm-4 col-form-label">Peminjaman Rutin</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjaman Rutin</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="text" class="form-control" value="<?php echo $row['rutin'] ? 'Ya' : 'Bukan' ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="status" class="col-sm-4 col-form-label">Status</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Status</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="text" class="form-control" value="<?php echo $row['status']=='approved' ? 'Disetujui' : ($row['status']=='rejected' ? 'Tidak Disetujui' : 'Pending' ) ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pesan_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pesan Admin</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pesan Admin</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="pesan_admin" class="form-control" id="pesan_admin<?= $row['id_peminjaman']; ?>" disabled><?= $row['pesan_admin']; ?></textarea>
+                                                                                    <textarea type="text" name="pesan_admin" class="form-control" disabled><?= $row['pesan_admin']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -467,45 +486,45 @@
                                                                         <div class="col-md-6">
                                                                             <input type="hidden" name="id_peminjaman" value="<?= $row['id_peminjaman']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Nama Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Nama Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Nama Kegiatan" value="<?= $row['nama_kegiatan']; ?>">
+                                                                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="Nama Kegiatan" value="<?= $row['nama_kegiatan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pemilik Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" id="pemilik_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Pemilik Kegiatan" value="<?= $row['pemilik_kegiatan']; ?>">
+                                                                                    <input type="text" name="pemilik_kegiatan" class="form-control" placeholder="Pemilik Kegiatan" value="<?= $row['pemilik_kegiatan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_user<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Peminjam</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_user" class="form-control" id="nama_user<?= $row['id_peminjaman']; ?>" placeholder="Peminjam" value="<?= $row['nama_user']; ?>" disabled>
+                                                                                    <input type="text" name="nama_user" class="form-control" placeholder="Peminjam" value="<?= $row['nama_user']; ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_ruangan" value="<?= $row['id_ruangan']; ?>">
                                                                             <div class="form-group row">
-                                                                                <label for="nama_ruangan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Ruangan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Ruangan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_ruangan" class="form-control" id="nama_ruangan<?= $row['id_peminjaman']; ?>" placeholder="Ruangan" value="<?= $row['nama_ruangan']; ?>">
+                                                                                    <input type="text" name="nama_ruangan" class="form-control" placeholder="Ruangan" value="<?= $row['nama_ruangan']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jumlah_orang<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jumlah Orang</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jumlah Orang</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="jumlah_orang" class="form-control" id="jumlah_orang<?= $row['id_peminjaman']; ?>" placeholder="Jumlah Orang" value="<?= $row['jumlah_orang']; ?> Orang">
+                                                                                    <input type="text" name="jumlah_orang" class="form-control" placeholder="Jumlah Orang" value="<?= $row['jumlah_orang']; ?> Orang">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="jadwal<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Jadwal Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="date" name="jadwal" class="form-control" id="jadwal<?= $row['id_peminjaman']; ?>" value="<?php echo $row['jadwal'] ?>">
+                                                                                    <input type="date" name="jadwal" class="form-control" value="<?php echo $row['jadwal'] ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="waktu<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Waktu Kegiatan</label>
                                                                                 <div class="col-sm-8">
                                                                                     <div class="input-group date" id="timepicker" data-target-input="nearest">
                                                                                         <input type="text" name="waktu" class="form-control datetimepicker-input" data-target="#timepicker" value="<?php echo $row['waktu'] ?>" />
@@ -518,28 +537,28 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group row">
-                                                                                <label for="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Deskripsi Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" id="deskripsi_kegiatan<?= $row['id_peminjaman']; ?>" placeholder="Deskripsi Kegiatan"><?= $row['deskripsi_kegiatan']; ?></textarea>
+                                                                                    <textarea type="text" name="deskripsi_kegiatan" class="form-control" placeholder="Deskripsi Kegiatan"><?= $row['deskripsi_kegiatan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="keterangan_tambahan<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Keterangan Tambahan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" id="keterangan_tambahan<?= $row['id_peminjaman']; ?>" placeholder="Keterangan Tambahan"><?= $row['keterangan_tambahan']; ?></textarea>
+                                                                                    <textarea type="text" name="keterangan_tambahan" class="form-control" placeholder="Keterangan Tambahan"><?= $row['keterangan_tambahan']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="nama_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Verifikator</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Verifikator</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input type="text" name="nama_admin" class="form-control" id="nama_admin<?= $row['id_peminjaman']; ?>" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
+                                                                                    <input type="text" name="nama_admin" class="form-control" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="rutin" class="col-sm-4 col-form-label">Peminjam Rutin ?</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Peminjam Rutin ?</label>
                                                                                 <input type="hidden" name="hiddenrutin" value="<?= $row['rutin']; ?>">
                                                                                 <div class="col-sm-8">
-                                                                                <select id="rutin" class="form-control" type="text" name="rutin" placeholder="">
+                                                                                <select class="form-control" type="text" name="rutin" placeholder="">
                                                                                     <option value="<?= $row['rutin']; ?>" selected disabled><?php echo $row['rutin'] ? 'Peminjam Rutin' : 'Bukan Peminjam Rutin' ?></option>
                                                                                     <option value="1">Peminjam Rutin</option>
                                                                                     <option value="0">Bukan Peminjam Rutin</option>
@@ -547,10 +566,10 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="status" class="col-sm-4 col-form-label">Status</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Status</label>
                                                                                 <input type="hidden" name="hiddenstatus" value="<?= $row['status']; ?>">
                                                                                 <div class="col-sm-8">
-                                                                                <select id="status" class="form-control" type="text" name="status" placeholder="Masukan Status">
+                                                                                <select class="form-control" type="text" name="status" placeholder="Masukan Status">
                                                                                     <option value="<?= $row['status']; ?>" selected disabled><?php echo $row['status']=='approved' ? 'Disetujui' : ($row['status']=='rejected' ? 'Tidak Disetujui' : 'Pending' ) ?></option>
                                                                                     <option value="approved">Disetujui</option>
                                                                                     <option value="rejected">Tidak Disetujui</option>
@@ -559,9 +578,9 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
-                                                                                <label for="pesan_admin<?= $row['id_peminjaman']; ?>" class="col-sm-4 col-form-label">Pesan Admin</label>
+                                                                                <label for="" class="col-sm-4 col-form-label">Pesan Admin</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <textarea type="text" name="pesan_admin" class="form-control" id="pesan_admin<?= $row['id_peminjaman']; ?>" placeholder="Pesan Admin"><?= $row['pesan_admin']; ?></textarea>
+                                                                                    <textarea type="text" name="pesan_admin" class="form-control" placeholder="Pesan Admin"><?= $row['pesan_admin']; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

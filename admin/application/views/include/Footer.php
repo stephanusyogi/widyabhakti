@@ -41,9 +41,6 @@
 <script src="<?php echo base_url(); ?>/public/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="<?php echo base_url(); ?>/public/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="<?php echo base_url(); ?>/public/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?php echo base_url(); ?>/public/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url(); ?>/public/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -61,8 +58,6 @@
 <script src="<?php echo base_url(); ?>/public/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>/public/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard.js"></script>
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Script -->
@@ -75,7 +70,6 @@
   var windowURL = window.location.href;
   pageURL = '<?php echo base_url() . $menuLink ?>';
   var x = $('a[href="' + pageURL + '"]');
-  console.log(x);
   x.addClass('active');
   x.parent().parent().parent().addClass('menu-open');
   x.parent().parent().parent().children().first().addClass('active');
