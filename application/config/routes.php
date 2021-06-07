@@ -57,3 +57,6 @@ $route['translate_uri_dashes'] = FALSE;
 // Authentication
 $route['auth'] = 'auth/auth';
 $route['logout'] = 'auth/logout';
+
+// Check Ruangan to Formulir Peminjaman
+$route['peminjaman/formulir/(:num)/(:any)'] = 'peminjaman/formulirpeminjaman/$1/$2';

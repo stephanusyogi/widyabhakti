@@ -13,29 +13,10 @@ class Main extends CI_Controller {
 	}
 
 	public function index(){
-		$this->load->view('include/header');
+		$data['menuLink'] = "main";
+		$this->load->view('include/header', $data);
         $this->load->view('v_index');
         $this->load->view('include/footer');
 	}
-
-	// public function tentang(){
-	// 	$this->load->view('v_tentang');
-	// }
-
-	// public function fasilitas(){
-	// 	$this->load->view('v_fasilitas');
-	// }
-
-	// public function detailfasilitas(){
-	// 	$this->load->view('v_detailfasilitas');
-	// }
-
-	// public function berita(){
-	// 	$this->load->view('v_berita');
-	// }
-
-	// public function detailberita(){
-	// 	$this->load->view('v_detailberita');
-	// }
 
 }

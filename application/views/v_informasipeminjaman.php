@@ -22,7 +22,7 @@
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12 informasi">
                     <h1 class="title">Informasi Peminjaman Gedung dan Ruangan WidyaBhakti Pastoral Center</h1>
                     <p style="font-size:14px;">Harap membaca langkah-langkah alur peminjaman dibawah ini,<span class="hubungiadmin" id="hubungiadmin" style="color:#8C2D25;">hubungi admin</span> apabila mengalami kendala.</p>
-                    <button class="btn btn-primary" onclick="window.location='<?php echo base_url('peminjaman/formulirpeminjaman') ?>';">Isi Formulir Peminjaman</button>
+                    <button class="btn btn-primary" <?php if(($this->session->userdata('isLoggedIn'))){ ?> onclick="window.location='<?php echo base_url('peminjaman/formulirpeminjaman') ?>';" <?php }else{ ?> data-toggle="modal" data-target="#loginModal" <?php } ?> >Isi Formulir Peminjaman</button>
                     <h4 class="mt-4">Data Yang Perlu Disiapkan :</h4>
                     <ul class="data">
                         <li>Nama kegiatan,</li>

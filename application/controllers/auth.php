@@ -34,9 +34,6 @@ class Auth extends CI_Controller
 
     public function auth()
     {
-        if ($this->session->userdata('isLoggedIn')) {
-            return redirect(base_url());
-        }
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $curl = curl_init();
@@ -64,13 +61,57 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('successMsg', $response['message']);
             $this->session->set_userdata('login_data', $response['data']);
             $this->session->set_userdata('isLoggedIn', true);
-            redirect(base_url());
+            redirect(base_url('profil'));
         } else {
             $this->session->set_flashdata('errorMsg', 'Login Gagal');
             redirect(base_url());
         }
     }
 
+    
+    public function register()
+    {
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $organisasi = $this->input->post('organisasi');
+        $nohp = $this->input->post('nohp');
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $this->_apiURL . "api/registeruser",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array(
+                'name' => $name,
+                'email' => $email,
+                'username' => $username,
+                'password' => $password,
+                'organisasi' => $organisasi,
+                'nohp' => $nohp
+            ),
+            CURLOPT_HTTPHEADER => array(
+                "Accept: application/json"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+        $response = json_decode($response, true);
+        if ($response['success']) {
+            $this->session->set_flashdata('successMsg', $response['message']);
+            redirect(base_url());
+        } else {
+            $this->session->set_flashdata('errorMsg', 'Login Gagal');
+            redirect(base_url());
+        }
+    }
 
     public function logout()
     {

@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/toastr/toastr.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- TimePicker -->
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/timepicker/jquery.timepicker.css">
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/timepicker/jquery.timepicker.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- JQVMap -->

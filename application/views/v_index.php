@@ -21,9 +21,9 @@
                 <div class="main-text hidden-xs" data-aos="fade-right">
                     <div class="text-left">
                         <h1>Widya Bhakti Pastoral Center</h1>
-                        <p class="desc-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, voluptatibus animi? Ea odit fugit non quam cumque magni expedita fuga quasi quod qui, corrupti quia voluptates pariatur? Aut, architecto suscipit.</p>
+                        <p class="desc-title">Gedung layanan pusat pastoral paroki untuk kegiatan juga aktivitias umat. Kami siap melayani anda, klik tombol dibawah untuk mengetahui selebihnya tentang kami.</p>
                         <p class="lead flex-btn">
-                            <a class="btn btn-banner btn-lg" href="<?php echo base_url('main/tentang') ?>" role="button">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                            <a class="btn btn-banner btn-lg" href="<?php echo base_url('tentang') ?>" role="button">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                         </p>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="linknews">
-                <a href="<?php echo base_url('main/berita') ?>">Lihat Semua Berita&nbsp;<i class="fas fa-angle-right"></i></a>
+                <a href="<?php echo base_url('berita') ?>">Lihat Semua Berita&nbsp;<i class="fas fa-angle-right"></i></a>
             </div>
         </div>
     </section>

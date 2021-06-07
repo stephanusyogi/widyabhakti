@@ -20,6 +20,9 @@
     <!-- CSS -->
     <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/bootstrap/css/style.less') ?>" />
 
+    <!-- Timepicker -->
+    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
+
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -34,8 +37,12 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- JQuery -->
+    <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.5.1.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/bootstrap/js/jquery.js') ?>"></script>
     <script src="<?php echo base_url('assets/bootstrap/js/jquery.min.js') ?>"></script>
+    
+    <!-- TimePicker -->
+    <script src="<?php echo base_url('assets/plugins'); ?>/datetimepicker/jquery.datetimepicker.full.min.js"></script>
     
     <!-- Fixed -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
@@ -52,7 +59,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 5000
+            timer: 4000
           });
 
           Toast.fire({
@@ -71,7 +78,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 5000
+            timer: 4000
           });
           Toast.fire({
             icon: 'success',
@@ -97,17 +104,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item nav-hover nav-active">
-                            <a class="nav-link" href="#">Beranda</a>
+                        <li class="nav-item nav-hover <?php if($menuLink=='main') { echo 'nav-active'; } ?>">
+                            <a class="nav-link" href="<?php echo site_url('main') ?>">Beranda</a>
                         </li>
-                        <li class="nav-item nav-hover">
-                            <a class="nav-link" href="<?php echo base_url('main/tentang') ?>">Tentang Kami</a>
+                        <li class="nav-item nav-hover <?php if($menuLink=='tentang') { echo 'nav-active'; } ?>">
+                            <a class="nav-link" href="<?php echo site_url('tentang') ?>">Tentang Kami</a>
                         </li>
-                        <li class="nav-item nav-hover">
-                            <a class="nav-link" href="<?php echo base_url('main/fasilitas') ?>">Fasilitas</a>
+                        <li class="nav-item nav-hover <?php if($menuLink=='fasilitas') { echo 'nav-active'; } ?>">
+                            <a class="nav-link" href="<?php echo base_url('fasilitas') ?>">Fasilitas</a>
                         </li>
-                        <li class="nav-item nav-hover nav-right">
-                            <a class="nav-link" href="<?php echo base_url('main/berita') ?>">Berita</a>
+                        <li class="nav-item nav-hover <?php if($menuLink=='berita') { echo 'nav-active'; } ?> nav-right">
+                            <a class="nav-link" href="<?php echo base_url('berita') ?>">Berita</a>
                         </li>
                         <li class="item-button mr-2">
                             <button class="btn-infopinjam">
@@ -122,7 +129,7 @@
                                 <i class="fas fa-user"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" class="dropdown-item">Profil Saya</a>
+                                    <a href="<?php echo base_url('profil') ?>" class="dropdown-item">Profil Saya</a>
                                     <a href="<?php echo base_url('logout'); ?>" class="dropdown-item log_out">Log out</a>
                                 </div>
                             </div>
@@ -159,15 +166,97 @@
                         <input type="email" name="email" class="wb-form-control" id="email1" placeholder="Masukkan Email Anda">
                         </div>
                         <div class="form-group">
-                        <input type="password" name="password" class="wb-form-control" id="password1" placeholder="Masukkan Password">
+                            <input type="password" name="password" class="wb-form-control" id="passwordlogin" placeholder="Masukkan Password Anda">
+                            <input type="checkbox" class="" onclick="myFunctionLogin()">&nbsp;Show Password
+                            <script>
+                                function myFunctionLogin() {
+                                    var x = document.getElementById("passwordlogin");
+                                    if (x.type === "password") {
+                                        x.type = "text";
+                                    } else {
+                                        x.type = "password";
+                                    }
+                                }
+                            </script>
                         </div>
-                        <button type="submit" class="btn btn-block btn-round" style="background:#8C2D25!important;">Login</button>
+                        <button type="submit" class="btn btn-block btn-round" style="color: #fff;background:#8C2D25!important;">Login</button>
                     </form>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <div class="signup-section">Belum memiliki akun? <a style="color:#8C2D25!important;" href="#" class="text-info"> Daftar</a>.</div>
+                <div class="signup-section">Belum memiliki akun? <a class="daftar-akun" style="color:#8C2D25!important;" data-dismiss="modal" data-toggle="modal" data-target="#registerModal"> Daftar</a>.</div>
             </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal Register -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-title text-center mb-4">
+                <h4>Daftarkan Diri Anda</h4>
+                </div>
+                <div class="d-flex flex-column text-center">
+                    <form class="form-login" method="POST" action="<?php echo base_url('auth/register'); ?>" enctype="multipart/form-data" style="padding:0px 50px;">
+                        <div class="form-group row">
+                            <label for="" class="col-md-4" style="text-align:end;">Nama Lengkap :</label>
+                            <div class="col-md-8">
+                            <input type="text" name="name" class="wb-form-control " placeholder="Masukkan Nama Lengkap Anda">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4"  style="text-align:end;">Email Aktif :</label>
+                            <div class="col-md-8">
+                            <input type="email" name="email" class="wb-form-control " placeholder="Masukkan Email Aktif Anda">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4" style="text-align:end;">Username / Nama Panggilan / Nama Lain :</label>
+                            <div class="col-md-8">
+                            <input type="text" name="username" class="wb-form-control " placeholder="Masukkan Username Anda">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4" style="text-align:end;">Password (Harap masukkan password yang mudah diingat) :</label>
+                            <div class="col-md-8" style="display:block;text-align:start;">
+                                <input type="password" name="password" class="wb-form-control" id="passreg" placeholder="Masukkan Password Anda">
+                                <input type="checkbox" class="" onclick="myFunction()">&nbsp;Show Password
+                                <script>
+                                    function myFunction() {
+                                        var x = document.getElementById("passreg");
+                                        if (x.type === "password") {
+                                            x.type = "text";
+                                        } else {
+                                            x.type = "password";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4" style="text-align:end;">Organisasi / Lembaga / Komunitas / Instansi :</label>
+                            <div class="col-md-8">
+                            <input type="text" name="organisasi" class="wb-form-control " placeholder="Masukkan Nama">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4" style="text-align:end;">Nomor Handphone :</label>
+                            <div class="col-md-8">
+                            <input type="text" name="nohp" class="wb-form-control " placeholder="Masukkan Nomor Handphone">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-round" style="float:right;width:35%;color: #fff;background:#8C2D25!important;">Daftar</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    

@@ -68,7 +68,6 @@
         AOS.init();
     </script>
 
-
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -82,7 +81,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Toast -->
     <script src="<?php echo base_url('assets/plugins'); ?>/toastr/toastr.min.js"></script>  
-    
+    <!-- TimePicker -->
+    <script src="<?php echo base_url('assets/plugins'); ?>/datetimepicker/jquery.datetimepicker.full.min.js"></script>
     <!-- Jquery Interval Carousel -->
     <script>
         $('.carousel').carousel({
@@ -123,6 +123,5 @@
         }
         });
     </script>
-    
 </body>
 </html>
