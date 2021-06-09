@@ -41,7 +41,7 @@
                 <div class="row">
                     <?php foreach($beritaberanda['data'] as $rows) { ?>
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card" onclick="window.location = '<?php echo base_url() ?>berita/detail-berita/<?= str_replace(' ', '-' , $rows['title']); ?>/<?= $rows['id_berita'] ?>';">
                             <img class="card-img-top" src="<?php echo base_url() ?>admin/uploads/img_thumbnail_berita/<?= $rows['img_dir'] ?>" alt="">
                             <div class="card-body">
                                 <div class="card-text">
@@ -49,7 +49,7 @@
                                     Publis : <?= date('m/d/Y H:i:s',strtotime($rows['created_at'])); ?>
                                 </p>
                                 <h5><?= $rows['title'] ?></h5>
-                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                <a onclick="window.location = '<?php echo base_url() ?>berita/detail-berita/<?= str_replace(' ', '-' , $rows['title']); ?>/<?= $rows['id_berita'] ?>';">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +73,13 @@
                         <p>Kami menyediakan fasilitas dan ruangan untuk menunjang dan mendukung umat berkegiatan dan beraktivitas di gedung Widya Bhakti Pastoral Center.</p>
                     </div>
                     <div class="buttonpagefasilitas">
-                        <a href="<?php echo base_url('main/fasilitas') ?>"><button class="buttonfasilitas">Lihat Semua Fasilitas&nbsp;<i class="fas fa-angle-right"></i></button></a>
-                        <a href="#"><button class="buttonfasilitas">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></button></a>
+                        <a href="<?php echo base_url('fasilitas') ?>"><button class="buttonfasilitas">Lihat Semua Fasilitas&nbsp;<i class="fas fa-angle-right"></i></button></a>
+                        <a href="<?php echo base_url() ?>peminjaman/informasi"><button class="buttonfasilitas">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></button></a>
                     </div>
                   </div>
                   <div class="col-md-6">
-                     <div class="fasilitas" data-aos="flip-up">
-                     <?php if ($ruanganberanda['data']) { ?>
+                    <div class="fasilitas" data-aos="flip-up">
+                    <?php if ($ruanganberanda['data']) { ?>
                         <div id="carouselFasilitas" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <?php $i=0; foreach($ruanganberanda['data'] as $rows): ?>
@@ -189,9 +189,20 @@
                 </div>
                 <div class="col-md-6" data-aos="fade-down">
                     <div class="album-kegiatan">
-                        <div class="cropgaleri">
-                            <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
+                    <?php if ($galeriberanda['data']) { ?>
+                        <div id="carouselGaleri" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php $i=0; foreach($galeriberanda['data'] as $rows): ?>
+  	                                <?php if ($i==0) {$set_ = 'active'; } else {$set_ = ''; } ?> 
+                                    <div class="carousel-item <?= $set_; ?>">
+                                        <div class="cropgaleri">
+                                            <a class="test-popup-link" href="<?php echo base_url() ?>admin/uploads/img_galeri/<?= $rows['img_dir'] ?>"><img class="img-fluid" src="<?php echo base_url() ?>admin/uploads/img_galeri/<?= $rows['img_dir'] ?>"></a>
+                                        </div>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>
                         </div>
+                    <?php } ?>
                     </div>
                 </div>
             </div>

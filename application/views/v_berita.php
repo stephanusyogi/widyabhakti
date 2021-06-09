@@ -1,3 +1,4 @@
+<?php include('include/header.php'); ?>
     <!-- Section Carousel Jumbotron -->
     <section class="carjumbotronberita">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -22,22 +23,12 @@
                             <h4>Berita Terkini</h4>
                             <hr>
                             <div class="newslist">
+                            <?php foreach($beritaterkini['data'] as $rows){ ?>
                                 <div class="titlelist">
-                                    <a href="<?php echo base_url('berita/detail') ?>"><h5>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h5></a>
-                                    <p>21 Januari 2020</p>
+                                    <a class="newest-news" onclick="window.location = '<?php echo base_url() ?>berita/detail-berita/<?= str_replace(' ', '-' , $rows['title']); ?>/<?= $rows['id_berita'] ?>';"><h5><?= $rows['title'] ?></h5></a>
+                                    <p><?= date('m/d/Y H:i:s',strtotime($rows['created_at'])); ?></p>
                                 </div>
-                                <div class="titlelist">
-                                    <a href="<?php echo base_url('berita/detail') ?>"><h5>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h5></a>
-                                    <p>21 Januari 2020</p>
-                                </div>
-                                <div class="titlelist">
-                                    <a href="<?php echo base_url('berita/detail') ?>"><h5>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h5></a>
-                                    <p>21 Januari 2020</p>
-                                </div>
-                                <div class="titlelist">
-                                    <a href="<?php echo base_url('berita/detail') ?>"><h5>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h5></a>
-                                    <p>21 Januari 2020</p>
-                                </div>
+                            <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -97,3 +88,5 @@
             </div>
         </div>
     </section>
+
+<?php include('include/footer.php'); ?>    

@@ -59,4 +59,11 @@ $route['auth'] = 'auth/auth';
 $route['logout'] = 'auth/logout';
 
 // Check Ruangan to Formulir Peminjaman
-$route['peminjaman/formulir/(:num)/(:any)'] = 'peminjaman/formulirpeminjaman/$1/$2';
+// $route['peminjaman/formulir/(:num)/(:any)'] = 'peminjaman/formulirpeminjaman/$1/$2';
+
+
+// Detail Berita
+$route['berita/detail-berita/(:any)/(:num)'] = 'berita/detailberita/$1/$2';
+
+// Detail Ruangan
+$route['fasilitas/detail-fasilitas/(:num)'] = 'fasilitas/detailfasilitas/$1';

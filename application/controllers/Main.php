@@ -22,11 +22,17 @@ class Main extends MY_Controller {
         $url_ruangan = 'http://127.0.0.1:8000/api/ruanganberanda';
         $method_ruangan = 'GET';
         $ruangan = $this->SendRequest($url_ruangan, $method_ruangan);
+
+		// Gallery
+        $url_galeri = 'http://127.0.0.1:8000/api/galeriuser';
+        $method_galeri = 'GET';
+        $galeri = $this->SendRequest($url_galeri, $method_galeri);
 		
 		// Tampilan
 		$data['menuLink'] = "main";
 		$data['ruanganberanda'] = $ruangan;
 		$data['beritaberanda'] = $berita;
+		$data['galeriberanda'] = $galeri;
         $this->load->view('v_index', $data);
 	}
 

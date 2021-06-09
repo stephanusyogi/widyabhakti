@@ -1,3 +1,9 @@
+<style>
+.selengkapnya:hover{
+    cursor:pointer;
+}
+</style>
+<?php include('include/header.php'); ?>
     <!-- Section Carousel Jumbotron -->
     <section class="carjumbotronfasilitas">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -31,100 +37,21 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-prince" role="tabpanel" aria-labelledby="list-prince-list">
                             <div class="row">
+                            <?php foreach($ruangan['data'] as $rows){ ?>
                                 <div class="col-md-4">    
                                     <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
+                                        <img class="card-img-top" src="<?php echo base_url() ?>admin/uploads/img_ruangan/<?= $rows['thumbnail'] ?>" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                            <h5 class="card-title"><?= $rows['nama'] ?></h5>
+                                            <a onclick="window.location = '<?php echo base_url() ?>fasilitas/detail-fasilitas/<?= $rows['id_ruangan'] ?>';" class="btn btn-primary selengkapnya">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php } ?>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="list-wild" role="tabpanel" aria-labelledby="list-wild-list">
                         <div class="row">
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">    
-                                    <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-4">    
                                     <div class="card" >
                                         <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
@@ -141,3 +68,5 @@
             </div>
         </div>
     </section>
+
+<?php include('include/footer.php'); ?>

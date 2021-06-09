@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/fontawesome-free/css/all.min.css">
+  <!-- PopUp -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/magnific-popup.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Datetimepicker -->
@@ -201,8 +203,8 @@
             </li>
             <li class="nav-header">ALBUMS</li>
             <li class="nav-item">
-            <a href="<?php echo site_url('transaksi');?>" class="nav-link">
-              <i class="nav-icon fas fa-wallet"></i>
+            <a href="<?php echo site_url('galeri');?>" class="nav-link">
+              <i class="nav-icon fas fa-photo-video"></i>
                 <p>Foto & Gallery</p>
             </a>
             </li>
