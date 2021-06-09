@@ -1,3 +1,4 @@
+<?php include('include/header.php'); ?>
 <!-- Section Carousel Jumbotron -->
     <section class="carjumbotron">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -38,48 +39,22 @@
             <!-- Slider News -->
             <div class="galeri-slider" data-aos="fade-up">
                 <div class="row">
+                    <?php foreach($beritaberanda['data'] as $rows) { ?>
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top" src="<?php echo base_url('assets/img/berita1.jpg') ?>" alt="">
+                            <img class="card-img-top" src="<?php echo base_url() ?>admin/uploads/img_thumbnail_berita/<?= $rows['img_dir'] ?>" alt="">
                             <div class="card-body">
                                 <div class="card-text">
                                 <p>
-                                    Publis : 22 Juli 2020
+                                    Publis : <?= date('m/d/Y H:i:s',strtotime($rows['created_at'])); ?>
                                 </p>
-                                <h5>Pelayanan Widya Bhakti Dibuka Selama Jam Kerja</h5>
+                                <h5><?= $rows['title'] ?></h5>
                                 <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="<?php echo base_url('assets/img/berita2.jpg') ?>" alt="">
-                            <div class="card-body">
-                                <div class="card-text">
-                                <p>
-                                    Publis : 22 Juli 2020
-                                </p>
-                                <h5>Widya Bhakti Footage Gedung Lampau Kota Malang</h5>
-                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="<?php echo base_url('assets/img/berita3.jpg') ?>" alt="">
-                            <div class="card-body">
-                                <div class="card-text">
-                                <p>
-                                    Publis : 22 Juli 2020
-                                </p>
-                                <h5>Kapel Adorasi Dibuka Kembali dengan Protokol Kesehatan</h5>
-                                <a href="<?php echo base_url('main/detailberita') ?>">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="linknews">
@@ -92,181 +67,47 @@
     <section class="section-fasilitas">
         <div class="container">
                <div class="row">
-                  <div class="col-md-6 col-sm-10" data-aos="fade-right">
+                  <div class="col-md-6" data-aos="fade-right">
                     <div class="title-fasilitas">
                         <h2>Fasilitas Gedung</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sunt molestiae commodi dolore. Maiores voluptas.</p>
+                        <p>Kami menyediakan fasilitas dan ruangan untuk menunjang dan mendukung umat berkegiatan dan beraktivitas di gedung Widya Bhakti Pastoral Center.</p>
                     </div>
                     <div class="buttonpagefasilitas">
                         <a href="<?php echo base_url('main/fasilitas') ?>"><button class="buttonfasilitas">Lihat Semua Fasilitas&nbsp;<i class="fas fa-angle-right"></i></button></a>
                         <a href="#"><button class="buttonfasilitas">Informasi Peminjaman&nbsp;<i class="fas fa-angle-right"></i></button></a>
                     </div>
                   </div>
-                  <div class="col-md-6 col-sm-2">
-                     <div class="arrow" data-aos="fade-up">
-                        <div class="arrowleft">
-                           <a class="buttonleft"><i class="fas fa-long-arrow-alt-left"></i></a>
+                  <div class="col-md-6">
+                     <div class="fasilitas" data-aos="flip-up">
+                     <?php if ($ruanganberanda['data']) { ?>
+                        <div id="carouselFasilitas" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php $i=0; foreach($ruanganberanda['data'] as $rows): ?>
+  	                                <?php if ($i==0) {$set_ = 'active'; } else {$set_ = ''; } ?> 
+                                    <div class="carousel-item <?= $set_; ?>">
+                                        <div class="card-fasilitas">
+                                            <div class="card-fasilitas-overlay"></div>
+                                            <img class="card-faslitas-image" src="<?php echo base_url() ?>admin/uploads/img_ruangan/<?= $rows['thumbnail'] ?>">
+                                            <div class="card-fasilitas-details card-fasilitas-fade">
+                                                <h3 class="wg-box-content-title"><?= $rows['nama'] ?></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselFasilitas" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselFasilitas" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <div class="arrowright">
-                           <a class="buttonright"><i class="fas fa-long-arrow-alt-right"></i></a>
-                        </div>
-                     </div>
+                    <?php } ?>
+                    </div>
                   </div>
                </div>
-            <div class="fasilitas" data-aos="flip-up">
-               <div class="swiper-container s1">
-                  <div class="swiper-wrapper">
-                     <!-- slide 1 -->
-                     <div class="swiper-slide">
-                        <div class="row">
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas1.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruang Kesehatan</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div> 
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas2.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat A</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas3.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat B</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas4.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Kapel Adorasi</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                        </div>
-                     </div>
-                    <!-- slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="row">
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas1.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruang Kesehatan</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div> 
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas2.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat A</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas3.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat B</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas4.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Kapel Adorasi</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- slide 1 -->
-                     <div class="swiper-slide">
-                        <div class="row">
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas1.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruang Kesehatan</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div> 
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas2.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat A</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas3.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Ruangan Rapat B</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                           <div class="col-md-3">
-                                <div class="card-fasilitas">
-                                    <a href="#">
-                                    <div class="card-fasilitas-overlay"></div>
-                                    <img class="card-faslitas-image" src="<?php echo base_url('assets/img/fasilitas4.jpg') ?>">
-                                    <div class="card-fasilitas-details card-fasilitas-fade">
-                                        <h3 class="wg-box-content-title">Kapel Adorasi</h3>
-                                    </div>
-                                    </a>
-                                </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="swiper-pagination-1"></div>
-               </div>
-            </div>
          </div>
     </section>
 
@@ -334,126 +175,59 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Section Galeri -->
-      <section class="section-galeri">
+    <!-- Section Galeri -->
+    <section class="section-galeri">
         <div class="container">
-            <div class="title-galeri" data-aos="fade-down">
-                <h4>Galeri Kegiatan</h4>
-            </div>
-            <div class="album-kegiatan" data-aos="fade-down">
-                <div class="swiper-container s2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri4.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri4.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri4.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri4.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri5.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri5.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri3.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri3.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri4.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri4.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-none d-md-block">
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri4.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri4.jpg') ?>"></a>
-                                    </div>
-                                    <div class="cropgaleri">
-                                        <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri5.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri5.jpg') ?>"></a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-down">
+                    <div class="title-galeri">
+                        <h4>Galeri Kegiatan</h4>
+                        <p>Berikut potret kegiatan dan aktivitas umat di gedung Widya Bhakti Pastoral Center.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-down">
+                    <div class="album-kegiatan">
+                        <div class="cropgaleri">
+                            <a class="test-popup-link" href="<?php echo base_url('assets/img/galeri2.jpg') ?>"><img class="img-fluid" src="<?php echo base_url('assets/img/galeri2.jpg') ?>"></a>
                         </div>
                     </div>
-                    <div class="swiper-pagination-2"></div>
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 
     <!-- JQuery Number Counter -->
     <script>
-    var a = 0;
-    $(window).scroll(function() {
-    var oTop = $('#counter').offset().top - window.innerHeight;
-    if (a == 0 && $(window).scrollTop() > oTop) {
-        $('.counter-value').each(function() {
-        var $this = $(this),
-            countTo = $this.attr('data-count');
-        $({
-            countNum: $this.text()
-        }).animate({
-            countNum: countTo
-            },
-            {
-            duration: 3000,
-            easing: 'swing',
-            step: function() {
-                $this.text(Math.floor(this.countNum));
-            },
-            complete: function() {
-                $this.text(this.countNum);
-                //alert('finished');
-            }
+        var a = 0;
+        $(window).scroll(function() {
+        var oTop = $('#counter').offset().top - window.innerHeight;
+        if (a == 0 && $(window).scrollTop() > oTop) {
+            $('.counter-value').each(function() {
+            var $this = $(this),
+                countTo = $this.attr('data-count');
+            $({
+                countNum: $this.text()
+            }).animate({
+                countNum: countTo
+                },
+                {
+                duration: 3000,
+                easing: 'swing',
+                step: function() {
+                    $this.text(Math.floor(this.countNum));
+                },
+                complete: function() {
+                    $this.text(this.countNum);
+                    //alert('finished');
+                }
+                });
             });
-        });
-        a = 1;
-    }
+            a = 1;
+        }
 
-    });
+        });
     </script>
     
 
@@ -484,3 +258,5 @@
           });
         });
     </script>
+
+    <?php include('include/footer.php'); ?>

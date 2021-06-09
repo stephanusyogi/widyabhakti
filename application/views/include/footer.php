@@ -89,39 +89,5 @@
         interval: 5000
         })
     </script>
-    <!-- Swiper JS -->
-    <script>
-        var swiper = new Swiper('.s1', {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.buttonright',
-            prevEl: '.buttonleft',
-        },
-        });
-    </script>
-
-    <script>
-        var swiper = new Swiper('.s2', {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 109999999,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination-2',
-            clickable: true,
-        }
-        });
-    </script>
 </body>
 </html>

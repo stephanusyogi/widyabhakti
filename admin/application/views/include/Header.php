@@ -179,11 +179,17 @@
                 <p>Data Peminjaman</p>
             </a>
             </li>
-            <li class="nav-header">RUANGAN</li>
+            <li class="nav-header">RUANGAN & FASILITAS</li>
             <li class="nav-item">
             <a href="<?php echo site_url('ruangan');?>" class="nav-link">
                 <i class="nav-icon fas fa-building"></i>
                 <p>Data Ruangan</p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="<?php echo site_url();?>" class="nav-link">
+              <i class="nav-icon fas fa-hand-holding-heart"></i>
+                <p>Data Fasilitas Umum</p>
             </a>
             </li>
             <li class="nav-header">BERITA</li>
@@ -193,11 +199,11 @@
                 <p>Data Berita & Artikel</p>
             </a>
             </li>
-            <li class="nav-header">TRANSAKSI</li>
+            <li class="nav-header">ALBUMS</li>
             <li class="nav-item">
             <a href="<?php echo site_url('transaksi');?>" class="nav-link">
               <i class="nav-icon fas fa-wallet"></i>
-                <p>Data Donasi Partisipasi</p>
+                <p>Foto & Gallery</p>
             </a>
             </li>
             <li class="nav-header">KOMUNIKASI</li>

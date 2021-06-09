@@ -120,7 +120,7 @@
                                                                     <div class="col-md-6" style="display:flex;align-items:center;padding:0px 25px;">
                                                                         <!-- Carousel -->
                                                                         <div class="container">
-                                                                            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+                                                                            <div id="carousel-thumb<?= $row['id_ruangan']; ?>" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                                                                 <!--Slides-->
                                                                                 <div class="carousel-inner carousel-resp text-center" role="listbox">
                                                                                     <?php foreach ($ruangan['data'][0]['photos'] as $key => $photos) { ?>
@@ -134,19 +134,19 @@
                                                                                 <!--/.Slides-->
                                                                                 <!--Controls-->
                                                                                 <a class="carousel-control-prev" style="position: absolute; font-size:xx-large; 
-                                                                                color:#8C2D25;" href="#carousel-thumb" role="button" data-slide="prev">
+                                                                                color:#8C2D25;" href="#carousel-thumb<?= $row['id_ruangan']; ?>" role="button" data-slide="prev">
                                                                                     <i class="fas fa-chevron-circle-left btn-detail-left"></i>
                                                                                     <span class="sr-only">prev</span>
                                                                                 </a>
                                                                                 <a class="carousel-control-next" style="position: absolute; font-size:xx-large; 
-                                                                                color:#8C2D25;" href="#carousel-thumb" role="button" data-slide="next">
+                                                                                color:#8C2D25;" href="#carousel-thumb<?= $row['id_ruangan']; ?>" role="button" data-slide="next">
                                                                                     <i class="fas fa-chevron-circle-right btn-detail-right"></i>
                                                                                     <span class="sr-only">Next</span>
                                                                                 </a>
                                                                                 <!--/.Controls-->
                                                                                 <ol class="carousel-indicators" style="border-radius: 50%;">
                                                                                     <?php foreach ($ruangan['data'][0]['photos'] as $key => $photos) { ?>
-                                                                                        <li style="border-radius: 50%; width:10px; height:10px; border:1px solid white;" data-target="#carousel-thumb" data-slide-to="<?php echo $key ?>">
+                                                                                        <li style="border-radius: 50%; width:10px; height:10px; border:1px solid white;" data-target="#carousel-thumb<?= $row['id_ruangan']; ?>a-slide-to="<?php echo $key ?>">
                                                                                             <img src="<?php echo base_url().'/uploads/img_ruangan/'.$photos['src'] ?>" width="100">
                                                                                         </li>
                                                                                     <?php } ?>

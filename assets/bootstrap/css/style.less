@@ -527,131 +527,78 @@ body {
 		}
 	}
 
-	.arrow{
-		padding-top: 50px;
+	.fasilitas {
 		display: flex;
 		justify-content: flex-end;
-		@media screen and (max-width: 991px) {
-			display: none;
-		}
-
-		i{
-			color: #8C2D25;
-			font-size: 20px;
-		}
-
-		.arrowleft {
-			i{
-				padding-right: 10px;
-				&:hover{
-					color: #6e2b25;
-					cursor: pointer;
-				}
-			}
-			a:focus{
-				outline: none!important;
-			}
-		}
-
-		.arrowright {
-			i {
-				padding-right: 50px;
-				&:hover{
-					color: #6e2b25;
-					cursor: pointer;
-				}
-			}
-			a:focus{
-				outline: none!important;
-			}
-		}
-	}
-
-	.fasilitas {
-		text-align: center;
-		margin-top: 25px;
-		padding: 50px 20px;
 		@media screen and (max-width: 767px) {
 			display: none;
 		}
 
-		.s1 {
-			background-color: transparent!important;
-
-			.swiper-pagination-1 {
-				position: relative!important;
-				margin-top: 30px;
+		.card-fasilitas {
+			position: relative;
+			width: 100%;
+			max-width: 400px;
+			margin: auto;
+			overflow: hidden;
+			border-radius: 5px;
+			&:hover .card-fasilitas-overlay {
+				opacity: 1;
+				cursor: pointer;
 			}
 
-			.swiper-pagination-bullet-active{
-				background-color: #8C2D25!important;
+			&:hover .card-fasilitas-details{
+				top: 50%;
+				left: 50%;
+				opacity: 1;
 			}
 
-			.card-fasilitas {
-				position: relative;
+			.card-fasilitas-overlay {
+				background: rgba(134, 86, 86, 0.7);
+				position: absolute;
+				height: 100%;
 				width: 100%;
-				max-width: 400px;
-				margin: auto;
-				overflow: hidden;
-				border-radius: 5px;
-				&:hover .card-fasilitas-overlay {
-					opacity: 1;
-				}
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				opacity: 0;
+				-webkit-transition: all 0.4s ease-in-out 0s;
+				-moz-transition: all 0.4s ease-in-out 0s;
+				transition: all 0.4s ease-in-out 0s;
+			}
 
-				&:hover .card-fasilitas-details{
-					top: 50%;
-					left: 50%;
-					opacity: 1;
-				}
+			.card-faslitas-image{
+				width: 100%;
+			}
 
-				.card-fasilitas-overlay {
-					background: rgba(134, 86, 86, 0.7);
-					position: absolute;
-					height: 99%;
-					width: 100%;
-					left: 0;
-					top: 0;
-					bottom: 0;
-					right: 0;
-					opacity: 0;
-					-webkit-transition: all 0.4s ease-in-out 0s;
-					-moz-transition: all 0.4s ease-in-out 0s;
-					transition: all 0.4s ease-in-out 0s;
-				}
+			.card-fasilitas-details {
+				position: absolute;
+				text-align: center;
+				padding-left: 1em;
+				padding-right: 1em;
+				width: 100%;
+				top: 50%;
+				left: 50%;
+				opacity: 0;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				-webkit-transition: all 0.3s ease-in-out 0s;
+				-moz-transition: all 0.3s ease-in-out 0s;
+				transition: all 0.3s ease-in-out 0s;
 
-				.card-faslitas-image{
-					width: 100%;
+				h3{
+					color: #fff;
+					font-weight: 500;
+					letter-spacing: 0.15em;
+					margin-bottom: 0.5em;
+					font-size: 20px;
+					text-transform: uppercase;
 				}
+			}
 
-				.card-fasilitas-details {
-					position: absolute;
-					text-align: center;
-					padding-left: 1em;
-					padding-right: 1em;
-					width: 100%;
-					top: 50%;
-					left: 50%;
-					opacity: 0;
-					-webkit-transform: translate(-50%, -50%);
-					-moz-transform: translate(-50%, -50%);
-					transform: translate(-50%, -50%);
-					-webkit-transition: all 0.3s ease-in-out 0s;
-					-moz-transition: all 0.3s ease-in-out 0s;
-					transition: all 0.3s ease-in-out 0s;
-
-					h3{
-						color: #fff;
-						font-weight: 500;
-						letter-spacing: 0.15em;
-						margin-bottom: 0.5em;
-						font-size: 20px;
-						text-transform: uppercase;
-					}
-				}
-
-				.card-fasilitas-fade {
-					top: 80%;
-				}
+			.card-fasilitas-fade {
+				top: 80%;
 			}
 		}
 	}
@@ -714,42 +661,40 @@ body {
 	}
 
 	.title-galeri {
-		text-align: center;
-
 		h4 {
 			font-size: 40px;
 			color: #8C2D25;
-			line-height: 20px;
+			line-height: 25px;
+			margin-bottom: 25px;
 			@media screen and (max-width: 506px) {
 				font-size: 25px;
+			}
+		}
+		
+		p {
+			font-size: 20px;
+			line-height: 30px;
+			color: #8C2D25;
+			@media screen and (max-width: 506px) {
+				font-size: 18px;
 			}
 		}
 	}
 
 	.album-kegiatan {
-		margin-top: 80px;
-		text-align: center;
+		display: flex;
+		justify-content: center;
 
 			img{
 				object-fit: cover;
 			}
 
 			.cropgaleri {
-				width: 100%;
+				width: 90%;
 				border-radius: 10px;
 				overflow: hidden;
 				margin-bottom: 15px;
 			}
-		
-
-		.swiper-pagination-2 {
-			position: relative!important;
-			margin-top: 30px;
-		}
-
-		.swiper-pagination-bullet-active{
-			background-color: #8C2D25!important;
-		}
 	}
 }
 
