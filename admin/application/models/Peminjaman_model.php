@@ -5,13 +5,14 @@ class Peminjaman_model extends CI_model
     // Edit Adv
     public function ubahPeminjaman($id)
     {   
-        $session = $this->session->userdata('login_data')['token'];
-        $id_admin = $this->session->userdata('login_data')['userdata']['id'];
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $id_admin = $this->session->userdata('login_data_admin')['userdata']['id'];
         $id_peminjaman = $this->input->post('id_peminjaman', true);
         $nama_kegiatan = $this->input->post('nama_kegiatan', true);
         $pemilik_kegiatan = $this->input->post('pemilik_kegiatan', true);
         $jadwal = $this->input->post('jadwal', true);
-        $waktu = $this->input->post('waktu', true);
+        $waktu_mulai = $this->input->post('waktu_mulai', true);
+        $waktu_selesai = $this->input->post('waktu_selesai', true);
         $id_user = $this->input->post('id_user', true);
         $id_ruangan = $this->input->post('id_ruangan', true);
         $jumlah_orang = $this->input->post('jumlah_orang', true);
@@ -50,7 +51,8 @@ class Peminjaman_model extends CI_model
                 'nama_kegiatan' => $nama_kegiatan,
                 'pemilik_kegiatan' => $pemilik_kegiatan,
                 'jadwal' => $jadwal,
-                'waktu' => $waktu,
+                'waktu_mulai' => $waktu_mulai,
+                'waktu_selesai' => $waktu_selesai,
                 'jumlah_orang' => $jumlah_orang,
                 'deskripsi_kegiatan' => $deskripsi_kegiatan,
                 'keterangan_tambahan' => $keterangan_tambahan,
@@ -88,7 +90,7 @@ class Peminjaman_model extends CI_model
     // Delete Ads
     public function deletePeminjaman($id)
     {
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
 
         $curl = curl_init();
 

@@ -4,7 +4,7 @@ class Galeri_model extends CI_model
 {
     public function tambahGaleri()
     {   
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
 
         // Upload Image
         $upload_file_image = $_FILES['file_image'];
@@ -64,7 +64,7 @@ class Galeri_model extends CI_model
     // Delete Ads
     public function deleteGaleri($id)
     {
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
 
         $curl = curl_init();
 

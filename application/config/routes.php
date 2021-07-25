@@ -58,9 +58,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['auth'] = 'auth/auth';
 $route['logout'] = 'auth/logout';
 
-// Check Ruangan to Formulir Peminjaman
-// $route['peminjaman/formulir/(:num)/(:any)'] = 'peminjaman/formulirpeminjaman/$1/$2';
-
+// Berita Per Page
+$route['berita/halaman/(:num)'] = 'berita/paginateberita/$1';
 
 // Detail Berita
 $route['berita/detail-berita/(:any)/(:num)'] = 'berita/detailberita/$1/$2';

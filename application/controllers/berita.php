@@ -19,12 +19,37 @@ class berita extends MY_Controller {
         $method = 'GET';
         $beritaterkini = $this->SendRequest($url, $method);
 
+		// Berita Page Pertama
+		$url = 'http://127.0.0.1:8000/api/beritauser?page=1'; 
+        $method = 'GET';
+        $berita = $this->SendRequest($url, $method);
+
 		// Tampilan
 		$data['menuLink'] = "berita";
 		$data['beritaterkini'] = $beritaterkini;
+		$data['berita'] = $berita;
         $this->load->view('v_berita', $data);
 	}
     
+	public function paginateberita($page_now){
+		
+		// 3 Berita Terkini
+        $url = 'http://127.0.0.1:8000/api/beritaberanda';
+        $method = 'GET';
+        $beritaterkini = $this->SendRequest($url, $method);
+
+		// Berita Page Pertama
+		$url = 'http://127.0.0.1:8000/api/beritauser?page='.$page_now; 
+        $method = 'GET';
+        $berita = $this->SendRequest($url, $method);
+
+		// Tampilan
+		$data['menuLink'] = "berita";
+		$data['beritaterkini'] = $beritaterkini;
+		$data['berita'] = $berita;
+        $this->load->view('v_berita', $data);
+	}
+
 	public function detailberita($title, $id_berita){
 
 		// 3 Berita Terkini

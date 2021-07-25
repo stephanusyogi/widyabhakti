@@ -16,7 +16,7 @@ class Ruangan extends MY_Controller
     {
         $url = 'http://127.0.0.1:8000/api/ruangan';
         $method = 'GET';
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         
         $request = $this->SendWithRequest($url, $method, $session);
 
@@ -38,8 +38,8 @@ class Ruangan extends MY_Controller
 
     function tambah()
     {   
-        $session = $this->session->userdata('login_data')['token'];
-        $id_admin = $this->session->userdata('login_data')['userdata']['id'];
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $id_admin = $this->session->userdata('login_data_admin')['userdata']['id'];
         $nama = $this->input->post('nama', true);
         $lantai = $this->input->post('lantai', true);
         $thumbnail = $this->input->post('thumbnail', true);

@@ -1,23 +1,34 @@
 <?php
 
-class Ruangan_model extends CI_model
+class Fasilitasumum_model extends CI_model
 {
-    // Edit Adv
-    public function ubahRuangan($id)
+    public function tambahFasilitas()
     {   
         $session = $this->session->userdata('login_data_admin')['token'];
-        $id_admin = $this->session->userdata('login_data_admin')['userdata']['id'];
-        $id_ruangan = $this->input->post('id', true);
         $nama = $this->input->post('nama', true);
-        $lantai = $this->input->post('lantai', true);
-        $kapasitas = $this->input->post('kapasitas', true);
-        $deskripsi = $this->input->post('deskripsi', true);
-        $luas = $this->input->post('luas', true);
+
+        // Upload Image
+        $upload_file_image = $_FILES['file_image'];
+        $new_file_image = NULL;
+        
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['max_size']      = '10991';
+        $config['upload_path']   = './uploads/img_ruangan';
+        $this->load->library('upload', $config);
+
+        if ($upload_file_image) {
+
+            if ($this->upload->do_upload('file_image')) {
+                $new_file_image = $this->upload->data('file_name');
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
         
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/ruangan/update',
+            CURLOPT_URL => 'http://127.0.0.1:8000/api/fasilitas',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -26,13 +37,8 @@ class Ruangan_model extends CI_model
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
-                'id_ruangan' => $id_ruangan,
                 'nama' => $nama,
-                'lantai' => $lantai,
-                'kapasitas' => $kapasitas,
-                'luas' => $luas,
-                'deskripsi' => $deskripsi,
-                'id_admin' => $id_admin
+                'img_dir' => $new_file_image
             ),
             CURLOPT_HTTPHEADER => array(
                 'Accept: application/json',
@@ -46,26 +52,26 @@ class Ruangan_model extends CI_model
 
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-            redirect('ruangan');
+            redirect('fasilitasumum');
 		} elseif ($response['message']=='Unauthenticated.'){
             $this->session->set_flashdata('error', 'Your Session Has Expired!');
 			return redirect(base_url() . 'login');
         } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
-            redirect('ruangan');
+            redirect('fasilitasumum');
 		}
                 
     }
 
     // Delete Ads
-    public function deleteRuangan($id)
+    public function deleteFasilitas($id)
     {
         $session = $this->session->userdata('login_data_admin')['token'];
-        
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/ruangan/'. $id,
+            CURLOPT_URL => 'http://127.0.0.1:8000/api/fasilitas/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -85,13 +91,13 @@ class Ruangan_model extends CI_model
 
 		if ($response['success']) {
 			$this->session->set_flashdata('successMsg', $response['message']);
-            redirect('ruangan');
+            redirect('fasilitasumum');
 		} elseif ($response['message']=='Unauthenticated.'){
             $this->session->set_flashdata('error', 'Your Session Has Expired!');
 			return redirect(base_url() . 'login');
         } else {
 			$this->session->set_flashdata('errorMsg', $response['message']);
-            redirect('ruangan');
+            redirect('fasilitasumum');
 		}
     }
 

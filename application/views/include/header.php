@@ -122,7 +122,7 @@
                             </button>
                         </li>
                         <li class="br-line"><i class="fas fa-grip-lines-vertical" style="color:#8C2D25;font-size:40px;"></i></li>
-                        <?php if ($this->session->userdata('isLoggedIn')) { ?>
+                        <?php if ($this->session->userdata('isLoggedIn_user')) { ?>
                         <li class="item-button">
                             <div class="dropdown">
                                 <button style="color:white;padding:10px 15px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-login dropdown-toggle">

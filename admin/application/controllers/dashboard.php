@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		if (!$this->session->userdata('isLoggedIn')) {
+		if (!$this->session->userdata('isLoggedIn_admin')) {
 			return redirect(base_url() . 'login');
 		}
 		$data['title'] = "Dashboard";

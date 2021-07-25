@@ -5,7 +5,7 @@ class Admin_model extends CI_model
 
     public function tambahAdmin()
     {   
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
         $password = $this->input->post('password', true);
@@ -54,7 +54,7 @@ class Admin_model extends CI_model
     // Edit Adv
     public function ubahAdmin($id)
     {   
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         $id = $this->input->post('id', true);
         $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
@@ -103,7 +103,7 @@ class Admin_model extends CI_model
     // Delete Ads
     public function deleteAdmin($id)
     {
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         
         $curl = curl_init();
 

@@ -19,8 +19,10 @@ class Peminjaman extends MY_Controller
         // Peminjaman All
         $url = 'http://127.0.0.1:8000/api/peminjaman';
         $method = 'GET';
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         $requestpeminjaman = $this->SendWithRequest($url, $method, $session);
+        
+        // die(var_dump($requestpeminjaman));
         // Cek Auth
         if($requestpeminjaman['message']=='Unauthenticated.'){
             $this->session->set_flashdata('error', 'Your Session Has Expired!');
@@ -30,7 +32,7 @@ class Peminjaman extends MY_Controller
         // Peminjaman Rutin
         $url = 'http://127.0.0.1:8000/api/peminjamanrutin';
         $method = 'GET';
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         $requestpeminjamanrutin = $this->SendWithRequest($url, $method, $session);
         // Cek Auth
         if($requestpeminjamanrutin['message']=='Unauthenticated.'){

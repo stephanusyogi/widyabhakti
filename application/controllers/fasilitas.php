@@ -18,9 +18,15 @@ class fasilitas extends MY_Controller {
         $method = 'GET';
         $ruangan = $this->SendRequest($url, $method);
 
+		// Get Data Fasilitas
+		$url_fasilitas = 'http://127.0.0.1:8000/api/fasilitasuser';
+        $method_fasilitas = 'GET';
+        $fasilitas = $this->SendRequest($url_fasilitas, $method_fasilitas);
+
 		// Tampilan
 		$data['menuLink'] = "fasilitas";
 		$data['ruangan'] = $ruangan;
+		$data['fasilitas'] = $fasilitas;
         $this->load->view('v_fasilitas', $data);
 	}
 

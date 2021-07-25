@@ -59,8 +59,8 @@ class Auth extends CI_Controller
         $response = json_decode($response, true);
         if ($response['success']) {
             $this->session->set_flashdata('successMsg', $response['message']);
-            $this->session->set_userdata('login_data', $response['data']);
-            $this->session->set_userdata('isLoggedIn', true);
+            $this->session->set_userdata('login_data_user', $response['data']);
+            $this->session->set_userdata('isLoggedIn_user', true);
             redirect(base_url('profil'));
         } else {
             $this->session->set_flashdata('errorMsg', 'Login Gagal');

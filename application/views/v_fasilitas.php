@@ -51,16 +51,17 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="list-wild" role="tabpanel" aria-labelledby="list-wild-list">
-                        <div class="row">
+                            <div class="row">
+                            <?php foreach($fasilitas['data'] as $rows){ ?>
                                 <div class="col-md-4">    
                                     <div class="card" >
-                                        <img class="card-img-top" src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="Card image cap">
+                                        <img class="card-img-top" src="<?php echo base_url() ?>admin/uploads/img_ruangan/<?= $rows['img_dir'] ?>" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Aula Bersama Lantai 1</h5>
-                                            <a href="<?php echo base_url('fasilitas/detail') ?>" class="btn btn-primary">Baca Selengkapnya&nbsp;<i class="fas fa-angle-right"></i></a>
+                                            <h5 class="card-title text-center"><?= $rows['nama'] ?></h5>
                                         </div>
                                     </div>
                                 </div>
+                            <?php } ?>
                             </div>
                         </div>
                     </div>

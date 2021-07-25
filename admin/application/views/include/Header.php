@@ -189,7 +189,7 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url();?>" class="nav-link">
+            <a href="<?php echo site_url('fasilitasumum');?>" class="nav-link">
               <i class="nav-icon fas fa-hand-holding-heart"></i>
                 <p>Data Fasilitas Umum</p>
             </a>

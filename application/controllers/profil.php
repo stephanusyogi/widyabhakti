@@ -15,7 +15,7 @@ class profil extends MY_Controller {
 	public function index(){
         $url = 'http://127.0.0.1:8000/api/ruanganpeminjaman';
         $method = 'GET';
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_user')['token'];
         
         $request = $this->SendWithRequest($url, $method, $session);
 
@@ -25,7 +25,7 @@ class profil extends MY_Controller {
 			return redirect(base_url('auth/logout'));
         }
 
-        $id_user = $this->session->userdata('login_data')['userdata']['id'];
+        $id_user = $this->session->userdata('login_data_user')['userdata']['id'];
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -47,6 +47,7 @@ class profil extends MY_Controller {
         $response = curl_exec($curl);
         curl_close($curl);
         $datapeminjaman = json_decode($response, true);
+        
         
         // Tampilan
         $data['datapeminjaman'] = $datapeminjaman;

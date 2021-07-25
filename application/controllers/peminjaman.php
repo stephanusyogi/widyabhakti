@@ -19,7 +19,7 @@ class peminjaman extends MY_Controller {
 	}
 
 	public function formulir($dateruangan, $idruangan){
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_user')['token'];
 		$id_ruangan = $idruangan;
 		$datepeminjaman = $dateruangan;
 		// Get Detail Ruangan
@@ -95,8 +95,8 @@ class peminjaman extends MY_Controller {
 
 	// Create Peminjaman
 	public function create(){
-		$session = $this->session->userdata('login_data')['token'];
-		$id_user = $this->session->userdata('login_data')['userdata']['id'];
+		$session = $this->session->userdata('login_data_user')['token'];
+		$id_user = $this->session->userdata('login_data_user')['userdata']['id'];
 		$nama_kegiatan = $this->input->post('nama_kegiatan', true);
 		$pemilik_kegiatan = $this->input->post('organisasi', true);
 		$jadwal = $this->input->post('jadwal', true);

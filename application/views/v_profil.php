@@ -22,8 +22,8 @@
                     <div class="card">
                         <img class="card-img-top" src="<?= base_url('assets/img/avatar_user.png'); ?>" alt="Card image cap">
                         <div class="card-body text-center">
-                            <h4 class="card-title" style="color:#77322c;"><?= $this->session->userdata('login_data')['userdata']['name'] ?></h4>
-                            <h5 class="card-title" style="color:#77322c;font-weight:500!important;"><?= $this->session->userdata('login_data')['userdata']['email'] ?></h5>
+                            <h4 class="card-title" style="color:#77322c;"><?= $this->session->userdata('login_data_user')['userdata']['name'] ?></h4>
+                            <h5 class="card-title" style="color:#77322c;font-weight:500!important;"><?= $this->session->userdata('login_data_user')['userdata']['email'] ?></h5>
                         </div>
                     </div>
                 </div>
@@ -43,6 +43,7 @@
                             </li>
                             </ul>
                         <div class="tab-content tab-dataprofil" id="myTabContent">
+                            <!-- Check Ketersediaan Ruangan -->
                             <div class="tab-pane fade show active" id="formulir" role="tabpanel" aria-labelledby="formulir-tab">
                                 <div class="section-checkroom">
                                     <h5>Ketersedian Ruangan</h5>
@@ -70,9 +71,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Identitas Diri -->
                             <div class="tab-pane fade " id="identitas" role="tabpanel" aria-labelledby="identitas-tab">
                                 <div class="btnaction">
-                                    <button class="btn btn-info">Edit Data</button>
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#editIdentitas">Edit Data</button>
+                                </div>
+                                <!-- Modal Edit Profil-->
+                                <div class="modal fade" id="editIdentitas" tabindex="-1" role="dialog" aria-labelledby="editIdentitasLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Identitas Diri</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </div>
+                                        </div>
+                                    </div>  
                                 </div>
                                 <form action="" class="section-form-profil">
                                     <div class="form-group row">
@@ -80,7 +100,7 @@
                                             <label for="">Nama :</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
+                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data_user')['userdata']['name'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -88,7 +108,7 @@
                                             <label for="">Email :</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data')['userdata']['email'] ?>" disabled>
+                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data_user')['userdata']['email'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -96,7 +116,7 @@
                                             <label for="">Username :</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data')['userdata']['username'] ?>" disabled>
+                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data_user')['userdata']['username'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -104,7 +124,7 @@
                                             <label for="">Organisasi / Komunitas / Lembaga :</label>
                                         </div>
                                         <div class="col-md-10" style="display:flex;align-items:center;">
-                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data')['userdata']['organisasi'] ?>" disabled>
+                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data_user')['userdata']['organisasi'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -112,58 +132,65 @@
                                             <label for="">Nomor Handphone :</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data')['userdata']['nohp'] ?>" disabled>
+                                            <input class="wb-form-control" type="text" value="<?= $this->session->userdata('login_data_user')['userdata']['nohp'] ?>" disabled>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+                            <!-- Halaman Data Data Peminjaman -->
                             <div class="tab-pane fade section-datapeminjaman" id="peminjaman" role="tabpanel" aria-labelledby="peminjaman-tab">
-                                <div class="row">
-                                    <?php foreach($datapeminjaman['data'] as $rows){ ?>
-                                    <div class="col-md-4">
-                                        <div class="card" style="position:relative;overflow:hidden;">
-                                            <div class="ribbon-tag" style="background:
-                                                <?php if($rows['status']=='approved'){
-                                                    echo 'green';
-                                                    }
-                                                    elseif($rows['status']=='rejected'){
-                                                        echo 'red';
-                                                    }else{
-                                                        echo 'yellow';
-                                                    }
-                                                 ?>;color:#000;">
-                                                <?php
-                                                    if($rows['status']=='approved'){
-                                                        echo 'Approved';
-                                                    }elseif($rows['status']=='rejected'){
-                                                        echo 'Rejected';
-                                                    }else{
-                                                        echo 'Pending';
-                                                    }
-                                                ?>
-                                                </div>
-                                            <img class="card-img-top" src="<?= base_url() ?>/admin/uploads/img_ruangan/<?= $rows['thumbnail'] ?>" alt="">
-                                            <div class="card-body">
-                                                <h5><?= $rows['nama_kegiatan'] ?></h5>
-                                                <hr>
-                                                <div class="row" style="font-size:14px;">
-                                                    <div class="col-md-6">
-                                                        <p><?= $rows['jadwal'] ?></p>
+                                <?php if($datapeminjaman['success']) { ?>
+                                    <div class="row">
+                                        <?php foreach($datapeminjaman['data'] as $rows){ ?>
+                                        <div class="col-md-4">
+                                            <div class="card" style="position:relative;overflow:hidden;">
+                                                <div class="ribbon-tag" style="background:
+                                                    <?php if($rows['status']=='approved'){
+                                                        echo 'green';
+                                                        }
+                                                        elseif($rows['status']=='rejected'){
+                                                            echo 'red';
+                                                        }else{
+                                                            echo 'yellow';
+                                                        }
+                                                    ?>;color:#000;">
+                                                    <?php
+                                                        if($rows['status']=='approved'){
+                                                            echo 'Approved';
+                                                        }elseif($rows['status']=='rejected'){
+                                                            echo 'Rejected';
+                                                        }else{
+                                                            echo 'Pending';
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <p><?= $rows['waktu_mulai'] ?><span> - </span><?= $rows['waktu_selesai'] ?></p>
+                                                <img class="card-img-top" src="<?= base_url() ?>/admin/uploads/img_ruangan/<?= $rows['thumbnail'] ?>" alt="">
+                                                <div class="card-body">
+                                                    <h5><?= $rows['nama_kegiatan'] ?></h5>
+                                                    <hr>
+                                                    <div class="row" style="font-size:14px;">
+                                                        <div class="col-md-6">
+                                                            <p><?= $rows['jadwal'] ?></p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p><?= $rows['waktu_mulai'] ?><span> - </span><?= $rows['waktu_selesai'] ?></p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="btn-act">
-                                                    <button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detail Ajuan Peminjaman"><span><i class="fas fa-eye"></i></span></button>
-                                                    <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Ajuan Peminjaman"><span><i class="fas fa-edit"></i></span></button>
-                                                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus Ajuan Peminjaman"><span><i class="fas fa-trash-alt"></i></span></button>
+                                                    <div class="btn-act">
+                                                        <button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detail Ajuan Peminjaman"><span><i class="fas fa-eye"></i></span></button>
+                                                        <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Ajuan Peminjaman"><span><i class="fas fa-edit"></i></span></button>
+                                                        <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus Ajuan Peminjaman"><span><i class="fas fa-trash-alt"></i></span></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php } ?>
                                     </div>
-                                    <?php } ?>
-                                </div>
+                                <?php }else {?>
+                                    <div style="text-align:center;padding:25px;">
+                                        <h2 style="color:#77322c;">Data Peminjaman Anda Kosong.</h2>
+                                    </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
@@ -176,7 +203,7 @@
 <script>
     $("#checkruangan").click(function(evt) {
         evt.preventDefault();
-        var token = '<?= $this->session->userdata('login_data')['token'] ?>' ;
+        var token = '<?= $this->session->userdata('login_data_user')['token'] ?>' ;
         var datepeminjaman = document.getElementById("datepeminjaman").value;
         var ruanganpeminjaman = document.getElementById("ruanganpeminjaman").value;
         if(datepeminjaman){

@@ -20,28 +20,7 @@
                 <div class="col-md-6">
                     <div class="tentang-prgf">
                         <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique lorem id dolor 
-                        pharetra euismod. Aliquam tincidunt viverra turpis, vel lacinia ante vulputate non. Etiam 
-                        auctor sodales justo, quis sodales enim varius sed. Integer facilisis tellus felis, ut 
-                        consectetur mauris dapibus a. Morbi pharetra luctus dui ac congue. Vestibulum consectetur 
-                        quis elit in dapibus. Sed a tortor sit amet mi luctus tempus sagittis sed magna. Nulla 
-                        pellentesque quam id nibh ultricies, ac tincidunt tortor facilisis. Suspendisse ornare eu 
-                        libero in venenatis. Vestibulum semper lacus enim, vel viverra leo facilisis in.
-                        </p>
-                        <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Aliquam erat volutpat. Maecenas interdum fermentum porta. Nunc molestie mattis dui, 
-                        ut rhoncus nunc tincidunt non. Pellentesque vestibulum maximus mi, non efficitur diam 
-                        egestas et. Sed vitae sem tortor. Cras pretium augue vel purus vestibulum, eget tempus
-                         quam luctus. Nulla a vehicula eros. Nullam ut quam id risus egestas ornare. Aenean at consequat diam.
-                        </p>
-                        <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Morbi vel varius magna, a auctor ligula. Maecenas placerat faucibus tortor id ornare. Quisque cursus 
-                        ullamcorper nibh quis accumsan. Suspendisse porta orci ligula, at lobortis risus iaculis nec. Nam eu leo
-                         gravida, efficitur ligula ut, semper ante. Orci varius natoque penatibus et magnis dis parturient montes,
-                          nascetur ridiculus mus. Maecenas sit amet pharetra ex. Nullam tempor diam sed dolor lobortis malesuada. 
-                          Ut lacinia neque nec ante ultricies, id ullamcorper tellus egestas. Duis et sem nunc. Nunc viverra turpis est, 
-                          et placerat nunc ornare id. Phasellus vestibulum tellus neque. Nullam sit amet turpis ut ex scelerisque egestas.
-                           Mauris augue urna, molestie at nisi quis, cursus tincidunt orci.
+                        &nbsp;&nbsp;&nbsp;&nbsp;Gedung layanan pusat pastoral paroki untuk kegiatan juga aktivitias umat. Kami siap melayani anda, klik tombol dibawah untuk mengetahui selebihnya tentang kami. Gedung WidyaBhakti berlokasi di jalan Guntur No.1 Kota Malang.
                         </p>
                     </div>
                 </div>

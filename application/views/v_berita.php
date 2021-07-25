@@ -34,52 +34,38 @@
                     </div>
                     <div class="col-md-8 col-sm-12">
                         <div class="beritapost">
-                            <div class="news">
-                                <img src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="">
-                                <div class="deskripsititle">
-                                    <div class="timeline">
-                                        <i class="far fa-calendar-alt"><span>&nbsp;&nbsp;21 Januari 2020&nbsp;&nbsp;&nbsp;16:02</span></i>
-                                        <i class="far fa-user"><span>&nbsp;&nbsp;Admin</span></i>
+                            <?php foreach($berita['data']['data'] as $rows) { ?>
+                                <div class="news">
+                                    <img onclick="window.location = '<?php echo base_url() ?>berita/detail-berita/<?= str_replace(' ', '-' , $rows['title']); ?>/<?= $rows['id_berita'] ?>';" src="<?php echo base_url() ?>admin/uploads/img_thumbnail_berita/<?= $rows['img_dir'] ?>" alt="">
+                                    <div class="deskripsititle">
+                                        <div class="timeline">
+                                            <i class="far fa-calendar-alt"><span>&nbsp;&nbsp;<?= date('m/d/Y H:i:s',strtotime($rows['created_at'])); ?></span></i>
+                                            <i class="far fa-user"><span>&nbsp;&nbsp;Administrator</span></i>
+                                        </div>
+                                        <h1><?= $rows['title'] ?></h1>
+                                        <p><?= $rows['excerpt'] ?></p>
+                                        <a onclick="window.location = '<?php echo base_url() ?>berita/detail-berita/<?= str_replace(' ', '-' , $rows['title']); ?>/<?= $rows['id_berita'] ?>';">Baca Selengkapnya</a>
                                     </div>
-                                    <h1>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam vel alias non repellendus nisi odio cumque. Eveniet modi mollitia excepturi....</p>
-                                    <a href="<?php echo base_url('berita/detail') ?>">Baca Selengkapnya</a>
                                 </div>
-                            </div>
-                            <div class="news">
-                                <img src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="">
-                                <div class="deskripsititle">
-                                    <div class="timeline">
-                                        <i class="far fa-calendar-alt"><span>&nbsp;&nbsp;21 Januari 2020&nbsp;&nbsp;&nbsp;16:02</span></i>
-                                        <i class="far fa-user"><span>&nbsp;&nbsp;Admin</span></i>
-                                    </div>
-                                    <h1>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam vel alias non repellendus nisi odio cumque. Eveniet modi mollitia excepturi....</p>
-                                    <a href="<?php echo base_url('berita/detail') ?>">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                            <div class="news">
-                                <img src="<?php echo base_url('assets/img/galeri4.jpg') ?>" alt="">
-                                <div class="deskripsititle">
-                                    <div class="timeline">
-                                        <i class="far fa-calendar-alt"><span>&nbsp;&nbsp;21 Januari 2020&nbsp;&nbsp;&nbsp;16:02</span></i>
-                                        <i class="far fa-user"><span>&nbsp;&nbsp;Admin</span></i>
-                                    </div>
-                                    <h1>Peresmian Gedung WidyaBhakti Oleh Walikota Malang</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam vel alias non repellendus nisi odio cumque. Eveniet modi mollitia excepturi....</p>
-                                    <a href="<?php echo base_url('berita/detail') ?>">Baca Selengkapnya</a>
-                                </div>
-                            </div>
+                            <?php } ?>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    <li class="page-item <?php if($berita['data']['prev_page_url'] == null){ echo 'disabled';} else { echo '';} ?>">
+                                    <a class="page-link" onclick="window.location = '<?php echo base_url() ?>berita/halaman/<?= substr($berita['data']['prev_page_url'], strpos($berita['data']['prev_page_url'], '=') + 1) ?>';" tabindex="-1" >Previous</a>
                                     </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
+                                    <?php
+                                        $total_page = $berita['data']['last_page'];
+                                        for ($i=1; $i <= $total_page; $i++) :
+                                            if($berita['data']['current_page'] == $i){
+                                                $active = 'active';
+                                            }else{
+                                                $active = '';
+                                            }
+                                    ?>
+                                    <li class="page-item <?= $active ?>"><a class="page-link" onclick="window.location = '<?php echo base_url() ?>berita/halaman/<?= $i ?>';"><?= $i ?></a></li>
+                                    <?php endfor; ?>
+                                    <li class="page-item <?php if($berita['data']['next_page_url'] == null){ echo 'disabled';} else { echo '';} ?>">
+                                    <a class="page-link" onclick="window.location = '<?php echo base_url() ?>berita/halaman/<?= substr($berita['data']['next_page_url'], strpos($berita['data']['next_page_url'], '=') + 1) ?>';">Next</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -89,4 +75,11 @@
         </div>
     </section>
 
-<?php include('include/footer.php'); ?>    
+<?php include('include/footer.php'); ?> 
+
+<?php 
+    // $total_page = 5;
+    // for ($i=1; $i <= $total_page ; $i++) { 
+    //     echo $i;
+    // }
+?>

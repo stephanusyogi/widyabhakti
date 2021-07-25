@@ -4,9 +4,9 @@ class Berita_model extends CI_model
 {
     public function tambahBerita()
     {   
-        $session = $this->session->userdata('login_data')['token'];
-        $id_admin = $this->session->userdata('login_data')['userdata']['id'];
-        $publisher = $this->session->userdata('login_data')['userdata']['name'];
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $id_admin = $this->session->userdata('login_data_admin')['userdata']['id'];
+        $publisher = $this->session->userdata('login_data_admin')['userdata']['name'];
         $title = $this->input->post('title', true);
         $excerpt = $this->input->post('excerpt', true);
         $content = $this->input->post('content', true);
@@ -73,9 +73,9 @@ class Berita_model extends CI_model
     // Edit Adv
     public function ubahBerita($id)
     {   
-        $session = $this->session->userdata('login_data')['token'];
-        $id_admin = $this->session->userdata('login_data')['userdata']['id'];
-        $publisher = $this->session->userdata('login_data')['userdata']['name'];
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $id_admin = $this->session->userdata('login_data_admin')['userdata']['id'];
+        $publisher = $this->session->userdata('login_data_admin')['userdata']['name'];
         $id_berita = $this->input->post('id', true);
         $title = $this->input->post('title', true);
         $excerpt = $this->input->post('excerpt', true);
@@ -147,7 +147,7 @@ class Berita_model extends CI_model
     // Delete Ads
     public function deleteBerita($id)
     {
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
 
         $curl = curl_init();
 

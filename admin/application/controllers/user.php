@@ -17,7 +17,7 @@ class User extends MY_Controller
     {
         $url = 'http://127.0.0.1:8000/api/user';
         $method = 'GET';
-        $session = $this->session->userdata('login_data')['token'];
+        $session = $this->session->userdata('login_data_admin')['token'];
         
         $request = $this->SendWithRequest($url, $method, $session);
 

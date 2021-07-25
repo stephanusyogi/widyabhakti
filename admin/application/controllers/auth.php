@@ -70,8 +70,8 @@ class Auth extends CI_Controller
         curl_close($curl);
         $response = json_decode($response, true);
         if ($response['success']) {
-            $this->session->set_userdata('login_data', $response['data']);
-            $this->session->set_userdata('isLoggedIn', true);
+            $this->session->set_userdata('login_data_admin', $response['data']);
+            $this->session->set_userdata('isLoggedIn_admin', true);
             redirect(base_url());
         } else {
             $this->session->set_flashdata('err', $response['error']);
