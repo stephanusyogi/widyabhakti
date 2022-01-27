@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Main Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,7 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>150</h3>
-                <p>Peminjaman Ruangan</p>
+                <p>Peminjaman (<strong>Pending</strong>)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-filing"></i>
@@ -37,49 +37,6 @@
               <a href="<?php echo base_url();?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>14</h3>
-                <p>Ruangan</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-home"></i>
-              </div>
-              <a href="<?php echo base_url();?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-                <p>User Terdaftar</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="<?php echo base_url();?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-                <p>Artikel Ter-Publish</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-paper-airplane"></i>
-              </div>
-              <a href="<?php echo base_url();?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

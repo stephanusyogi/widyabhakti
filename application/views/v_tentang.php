@@ -20,7 +20,7 @@
                 <div class="col-md-6">
                     <div class="tentang-prgf">
                         <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Gedung layanan pusat pastoral paroki untuk kegiatan juga aktivitias umat. Kami siap melayani anda, klik tombol dibawah untuk mengetahui selebihnya tentang kami. Gedung WidyaBhakti berlokasi di jalan Guntur No.1 Kota Malang.
+                        &nbsp;&nbsp;&nbsp;&nbsp;Gedung layanan pusat pastoral paroki untuk kegiatan juga aktivitias umat.  Gedung WidyaBhakti berlokasi di jalan Guntur No.1 Kota Malang. Kami siap melayani anda.
                         </p>
                     </div>
                 </div>

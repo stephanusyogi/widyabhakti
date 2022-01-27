@@ -65,7 +65,7 @@
                                 <h4>Deskripsi</h4>
                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;<?= $detailruangan['data'][0]['deskripsi'] ?></p>
                             </div>
-                            <a href="<?= base_url() ?>peminjaman/informasi" class="btn btn-primary">Informasi Peminjaman</a>
+                            <a href="<?= base_url('peminjaman/informasi') ?>peminjaman/informasi" class="btn btn-primary">Informasi Peminjaman</a>
                         </div>
                     </div>
                 </div>

@@ -37,19 +37,11 @@
 <script src="<?php echo base_url('public/plugins'); ?>/toastr/toastr.min.js"></script>  
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>/public/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="<?php echo base_url(); ?>/public/plugins/sparklines/sparkline.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="<?php echo base_url(); ?>/public/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?php echo base_url(); ?>/public/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>/public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="<?php echo base_url(); ?>/public/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- Select2 -->
 <script src="<?php echo base_url(); ?>/public/plugins/select2/js/select2.full.min.js"></script>
 <!-- overlayScrollbars -->
@@ -67,6 +59,7 @@
 <!-- date-range-picker -->
 <script src="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- TimePicker -->
+<script src="<?php echo base_url('public/plugins'); ?>/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 <script src="<?php echo base_url(); ?>/public/plugins/timepicker/jquery.timepicker.js"></script>
 <script src="<?php echo base_url(); ?>/public/plugins/timepicker/jquery.timepicker.min.js"></script>
 <script type="text/javascript">
@@ -95,6 +88,11 @@
       theme: 'bootstrap4'
     });
   });
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+     $('#editRuanganPeminjaman', '#editUserPeminjaman').select2();
+ });
 </script>
 </body>
 </html>

@@ -51,7 +51,7 @@
                                         <form>
                                             <div class="input-flex">
                                                 <div class="sub mr-2">
-                                                    <p>Tanggal :</p>
+                                                    <p>Tanggal Peminjaman:</p>
                                                     <input class="wb-form-control" type="date" id="datepeminjaman" required>
                                                 </div>
                                                 <div class="sub">
@@ -236,7 +236,7 @@
                     waktu.push('<p>Pkl. '+res.data.jadwal_terpakai[i].waktu_mulai+'<span> - </span>Pkl. '+res.data.jadwal_terpakai[i].waktu_selesai+'</p>');
                     }
                     
-                    $(".resultjadwalruangan").empty().append('<div class="col-md-6 img-ruangan"><img '+img_src+' alt="" style="width:350px;"></div><div class="col-md-6 jadwal-ruangan"><div class="title-btn row"><div class="col-md-6"><h5>Jadwal Terpakai</h5></div><div class="col-md-6"><a '+href+'><button class="btn btn-info">Pinjam Ruangan Ini</button></a></div></div><hr><div class="waktuterpakai">'+waktu+'</div><p style="font-size:14px;color:red;"><br>* Waktu diatas merupakan keterangan bahwa ruangan telah terpakai pada range waktu tersebut.</p></div>');
+                    $(".resultjadwalruangan").empty().append('<div class="col-md-6 img-ruangan"><img '+img_src+' alt="" style="width:350px;"></div><div class="col-md-6 jadwal-ruangan"><div class="title-btn row"><div class="col-md-6"><h5>Jadwal Terpakai</h5></div><div class="col-md-6"><a '+href+'><button class="btn btn-info">Pinjam Ruangan Ini</button></a></div></div><hr><div class="waktuterpakai">'+waktu+'</div><p style="font-size:14px;color:red;"><br>* Waktu diatas merupakan keterangan bahwa ruangan telah terpakai pada jarak waktu tersebut.</p></div>');
 
                 }else if(res.status == 'onlyruangan'){
 

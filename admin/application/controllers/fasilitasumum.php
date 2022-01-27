@@ -30,7 +30,7 @@ class Fasilitasumum extends MY_Controller
         // Tampilan
         $data['fasilitasumum'] = $request;
         $data['title'] = "Data Fasilitas Umum";
-        $data['menuLink'] = "galeri";
+        $data['menuLink'] = "fasilitasumum";
         $data['menuName'] = "Data Fasilitas Umum";
         // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);

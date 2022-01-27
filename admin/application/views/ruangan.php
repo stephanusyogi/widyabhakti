@@ -24,7 +24,6 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="active tab-pane" id="menu1">
-                            <a class="btn btn-success btn-sm float-right" style="color: white;cursor: pointer;"><i class="far fa-file-excel"></i> Export</a>
                             <div class="row">
                                 <a style="color: white;cursor: pointer;" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i> Add</a>&nbsp;
                             </div>
@@ -48,7 +47,7 @@
                                                         <a data-toggle="modal" data-target="#detailModal<?= $row['id_ruangan']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-eye" style="color:darkblue;"></i></i></a>
                                                         <a href="<?= base_url('ruangan/hapus'); ?>/<?= $row['id_ruangan']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                                                     </td>
-                                                    <td><?php echo $row['nama']; ?> || Lantai : <?php echo $row['lantai']; ?></td>
+                                                    <td><?php echo $row['nama']; ?> || Lantai : <?= ($row['lantai']=='0') ? 'Ground' : $row['lantai']; ?></td>
                                                     <td><?php echo $row['kapasitas']; ?> Orang</td>
                                                     <td><?php echo $row['luas']; ?></td>
                                                     <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>

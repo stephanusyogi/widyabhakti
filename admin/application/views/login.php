@@ -40,7 +40,6 @@
             title: '&nbsp;<?php echo $error ?>'
           })
         });
-            console.log('test');
     </script>
   <?php }
   ?>
@@ -133,6 +132,9 @@
         text-decoration: underline;
       }
     }
+    .fa-eye:hover{
+      cursor: pointer;
+    }
   </style>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -154,10 +156,20 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input name="password" type="password" class="form-control" placeholder="Password">
+          <input name="password" id="password" type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <script>
+                  function pswVisibilty(){
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                      x.type = "text";
+                    } else {
+                      x.type = "password";
+                    }
+                  }
+              </script>
+              <span class="fas fa-eye" onclick="pswVisibilty()"></span>
             </div>
           </div>
         </div>

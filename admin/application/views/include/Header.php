@@ -22,33 +22,22 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Datetimepicker -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Toast -->
   <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/toastr/toastr.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- TimePicker -->
-  <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/timepicker/jquery.timepicker.css">
-  <link rel="stylesheet" href="<?php echo base_url('/public/plugins'); ?>/timepicker/jquery.timepicker.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/summernote/summernote-bs4.min.css">
   <!-- jQuery -->
   <script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
-<!-- DateTimePicker -->
-<script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.js"></script>
-<script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+  <!-- DateTimePicker -->
+  <script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
   <?php $error = $this->session->flashdata('errorMsg');
     if ($error) { ?>
@@ -84,6 +73,7 @@
             icon: 'success',
             title: '&nbsp;<?php echo $success ?>'
           })
+          console.log('<?php echo $success ?>');
         });
       </script>
     <?php } ?>
@@ -97,7 +87,7 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <div class="preloader flex-column justify-content-center align-items-center" >
     <img class="animation__shake" src="<?php echo base_url(); ?>/public/dist/img/logo.png" alt="WidyaBhaktiLogo" height="60" width="60">
   </div>
 
@@ -160,13 +150,6 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-header">USER</li>
-            <li class="nav-item">
-            <a href="<?php echo site_url('user');?>" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Data User</p>
-            </a>
-            </li>
             <li class="nav-header">ADMIN</li>
             <li class="nav-item">
             <a href="<?php echo site_url('admin');?>" class="nav-link">
@@ -206,13 +189,6 @@
             <a href="<?php echo site_url('galeri');?>" class="nav-link">
               <i class="nav-icon fas fa-photo-video"></i>
                 <p>Foto & Gallery</p>
-            </a>
-            </li>
-            <li class="nav-header">KOMUNIKASI</li>
-            <li class="nav-item">
-            <a href="<?php echo site_url('komunikasi');?>" class="nav-link">
-              <i class="nav-icon fas fa-envelope-open-text"></i>
-                <p>Call Center Message</p>
             </a>
             </li>
         </ul>

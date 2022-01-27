@@ -26,10 +26,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group  floating-label-form-group">
-                            <input type="hidden" name="id_ruangan" value="">
                             <label for="">Ruangan Yang Akan Dipinjam</label>
                             <span class="btn btn-info" style="font-size:14px;float:right;" data-toggle="modal" data-target="#informasiruangan">Informasi Ruangan</span>
-                            <input type="hidden" name="idruangan" value="<?= $ruangan['data'][0]['id_ruangan']; ?>">
+                            <input type="hidden" id="id_ruangan" name="id_ruangan" value="<?= $ruangan['data'][0]['id_ruangan']; ?>">
                             <input class="form-control mt-1" type="text" name="ruangan" placeholder="Masukkan Ruangan" value="<?= $ruangan['data'][0]['nama']; ?>" disabled>
                         </div>
                         <!-- Modal Informasi Peminjaman -->
@@ -171,9 +170,10 @@
                 <script>
                     function validateForm1() {
                         var fdatepeminjaman = document.forms["peminjaman"]["jadwal"].value;
+                        var fid_ruangan = document.forms["peminjaman"]["id_ruangan"].value;
                         var fwaktu_mulai = document.forms["peminjaman"]["waktu_mulai"].value;
                         var fwaktu_selesai = document.forms["peminjaman"]["waktu_selesai"].value;
-                        var token = '<?= $this->session->userdata('login_data')['token'] ?>' ;
+                        var token = '<?= $this->session->userdata('login_data_user')['token'] ?>' ;
                         if (fwaktu_mulai == null || fwaktu_mulai == "") {
                             alert("Waktu Mulai Peminjaman Harus Diisi");
                             return false;
@@ -185,6 +185,7 @@
                             form.append("waktu_mulai", fwaktu_mulai);
                             form.append("waktu_selesai", fwaktu_selesai);
                             form.append("datepeminjaman", fdatepeminjaman);
+                            form.append("id_ruangan", fid_ruangan);
                             var request = {
                                 "url": "http://127.0.0.1:8000/api/validasiwaktu",
                                 "method": "POST",
@@ -200,6 +201,7 @@
                             };
                             $.ajax(request).done(function (response) {
                                 var res = JSON.parse(response);
+                                console.log = res;
                                 if(res.success == true){
                                     alert('Waktu yang anda masukkan telah digunakan oleh peminjam lain, cek tombol jadwal ruangan untuk melihat jadwal yang terpakai.');
                                     return false;
@@ -217,8 +219,8 @@
             <div class="container create" id="step-1" style="display: none;">
                 <div class="form-group  floating-label-form-group">
                     <label for="">Nama Pengaju</label>
-                    <input type="hidden" name="id_user" value="<?= $this->session->userdata('login_data')['userdata']['id'] ?>">
-                    <input class="form-control" type="text" name="nama_user" placeholder="Masukkan Nama Pengaju" value="<?= $this->session->userdata('login_data')['userdata']['name'] ?>" disabled>
+                    <input type="hidden" name="id_user" value="<?= $this->session->userdata('login_data_user')['userdata']['id'] ?>">
+                    <input class="form-control" type="text" name="nama_user" placeholder="Masukkan Nama Pengaju" value="<?= $this->session->userdata('login_data_user')['userdata']['name'] ?>" disabled>
                 </div>
                 <div class="form-group  floating-label-form-group">
                     <label for="">Nama Kegiatan</label>
@@ -226,7 +228,7 @@
                 </div>
                 <div class="form-group  floating-label-form-group">
                     <label for="">Lembaga/Organisasi/Komunitas</label>
-                    <input class="form-control" type="text" name="organisasi" placeholder="Masukkan Lembaga/Organisasi/Komunitas Penanggun Jawab Kegiatan" value="<?= $this->session->userdata('login_data')['userdata']['organisasi'] ?>" required>
+                    <input class="form-control" type="text" name="organisasi" placeholder="Masukkan Lembaga/Organisasi/Komunitas Penanggun Jawab Kegiatan" value="<?= $this->session->userdata('login_data_user')['userdata']['organisasi'] ?>" required>
                 </div>
                 <div class="form-group  floating-label-form-group">
                     <label for="">Jumlah Orang / Partisipan Kegiatan</label>

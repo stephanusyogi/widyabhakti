@@ -1,4 +1,15 @@
+<style>
+    .dibawahini{
+        color: blue;
+        text-decoration: underline;
+    }
+    .dibawahini:hover{
+        cursor: pointer;
+    }
 
+</style>
+    
+    
     <!-- Section Carousel Jumbotron -->
     <section class="carjumbotronpeminjaman">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -18,59 +29,147 @@
     <!-- Section Deskripsi Peminjaman -->
     <section class="section-peminjaman" data-aos="fade-up">
         <div class="container">
+            <h1 class="title">Informasi Peminjaman Gedung dan Ruangan WidyaBhakti Pastoral Center</h1>
             <div class="row">
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12 informasi">
-                    <h1 class="title">Informasi Peminjaman Gedung dan Ruangan WidyaBhakti Pastoral Center</h1>
-                    <p style="font-size:14px;">Harap membaca langkah-langkah alur peminjaman dibawah ini,<span class="hubungiadmin" id="hubungiadmin" style="color:#8C2D25;">hubungi admin</span> apabila mengalami kendala.</p>
-                    <button class="btn btn-primary" <?php if(($this->session->userdata('isLoggedIn_user'))){ ?> onclick="window.location='<?php echo base_url('peminjaman/formulirpeminjaman') ?>';" <?php }else{ ?> data-toggle="modal" data-target="#loginModal" <?php } ?> >Isi Formulir Peminjaman</button>
-                    <div class="img-alur mt-5">
-                        <img src="<?php echo base_url('assets/img/alurpeminjamanwb.png') ?>" alt="alurpeminjamanwidyabhakti" style="width:100%;">
+                <div class="col-md-6">
+                    <p class="my-0" >Harap membaca langkah-langkah alur peminjaman <span class="dibawahini" onclick="scrollToStep()">dibawah ini</span>,hubungi contact center berikut apabila mengalami kendala.</p>
+                    <p >+62231418941 (WA) || 0341-2131414</p>
+                    <p style="font-weight:500;">Klik tombol dibawah untuk mengisi formulir peminjaman.</p>
+                    <button class="btn btn-primary mt-2" style="font-size:14px;"  onclick="window.location='<?= base_url('peminjaman/formulirpeminjaman') ?>';">Isi Formulir Peminjaman</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Periksa Jadwal Ruangan Yang Ingin Anda Pinjam</h5>
+                            <hr>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>Ruangan Yang Akan Dipinjam :</p>
+                                            <div class="image-ruangan"></div>
+                                            <select class="wb-form-control" id="ruanganpeminjaman">
+                                                <option selected disable>Pilih Ruangan</option>
+                                                <?php foreach($dataruangan['data'] as $row ){?>
+                                                    <option value="<?= $row['id_ruangan']; ?>"><strong><?= $row['nama_ruangan']; ?></strong> - Lt. <?= $row['lantai'] == '0' ? 'Ground' : $row['lantai'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            <p class="mt-2">Tanggal Peminjaman:</p>
+                                            <input class="wb-form-control" type="date" id="datepeminjaman" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Jadwal Pemakaian :</p>
+                                            <div class="resultjadwalruangan"></div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-info mt-2" id="checkruangan">Check Ruangan</button>
+                                </form>
+                        </div>    
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 call-center">
-                    <!-- Stick on Top -->
-                    <div class="card stickycallcenter mt-4" id="callcenter">
-                        <div class="card-header text-center" style="background-color: #8C2D25;color:white;">Administrator Call Center</div>
-                        <div class="card-body text-center">
-                            <button class="btn btn-info" style="color:#fff;font-style:24px;"><span><i class="fas fa-user-cog"></i></span>&nbsp;Hubungi Admin</button>
-                        </div>
-                        <hr>
-                        <div class="text-center" style="font-size:14px;">
-                            <p>Official Website Widya Bhakti Pastoral Center</p>
-                        </div>
-                    </div>
-                    <!-- Pop Up Contact Us -->
-                    <div class="modal fade" id="ContactUsModal" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <h4 class="text-center" style="color:green;">Contact Us</h4>
-                                </div>
-                                <div class="modal-body">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="alur-peminjaman mt-4" id="imgalur">
+                <h1 style="text-align: center;color:#8C2D25;font-weight: 500;">Langkah - Langkah Prosedur Peminjaman</h1>
+                <hr style="border:1px solid #9c514b;">
             </div>
         </div>
     </section>
 
     <script>
-        var x = window.matchMedia("(min-width: 991px)")
-        var hubungiadmin = document.getElementById("hubungiadmin");
-        if (x.matches) { // If media query matches
-            hubungiadmin.classList.remove("hubungiadmin");
-        } else {
-            hubungiadmin.classList.add("hubungiadmin");
+        function scrollToStep() {
+            var elmnt = document.getElementById("imgalur");
+            elmnt.scrollIntoView({behavior: 'smooth'});
         }
-        
-        $(".hubungiadmin").click(function() {
-                $('html,body').animate({
-                    scrollTop: $(".data").offset().top},
-                    'slow');
+
+        $(document).ready(function() {
+            // Lihat Gambar Ruangan
+            $('#ruanganpeminjaman').change(function() {
+                // Get value selected option
+                var id_item = $(this).val();
+
+                var settings = {
+                    "url": `http://127.0.0.1:8000/api/detailruangan/${id_item}`,
+                    "method": "GET",
+                    "timeout": 0,
+                };
+
+                $.ajax(settings).done(function (res) {
+                    // Append Element Image
+                    var src = 'src="<?php echo base_url() ?>admin/uploads/img_ruangan/'+ res.data[0].thumbnail +'"';
+                    var image = $(`<img class="rounded mb-2" ${src} alt="" style="width: 100%;">`);
+
+                    $('.image-ruangan').empty().append(image);
+                });
             });
+
+            // Check Jadwal Ruangan
+            $("#checkruangan").click(function(evt) {
+            evt.preventDefault();
+            var datepeminjaman = document.getElementById("datepeminjaman").value;
+            var ruanganpeminjaman = document.getElementById("ruanganpeminjaman").value;
+                if(datepeminjaman){
+                    
+                    $(function() {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 4000
+                        });
+                        Toast.fire({
+                            icon: 'info',
+                            title: '&nbsp;Please Wait!'
+                        })
+                    });
+
+                    var form = new FormData();
+                    form.append("datepeminjaman", datepeminjaman);
+                    form.append("ruanganpeminjaman", ruanganpeminjaman);
+                    var getdata = {
+                            "url": "http://127.0.0.1:8000/api/checkpeminjaman",
+                            "method": "POST",
+                            "timeout": 0,
+                            "headers": {
+                                "Accept": "application/json"
+                            },
+                            "processData": false,
+                            "mimeType": "multipart/form-data",
+                            "contentType": false,
+                            "data": form
+                        };
+
+                        $.ajax(getdata).done(function (response) {
+
+                        $(function() {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                            Toast.fire({
+                                icon: 'success',
+                                title: '&nbsp;Data Jadwal Berhasil Ditampilkan'
+                            })
+                        });
+                        
+                        var res = JSON.parse(response);
+                        if(res.status == 'dateandruangan'){
+
+                            let waktu = [];
+                            for(i=0 ; i < res.data.jadwal_terpakai.length ; ++i){
+                            waktu.push('<p>Pkl. '+res.data.jadwal_terpakai[i].waktu_mulai+'<span> - </span>Pkl. '+res.data.jadwal_terpakai[i].waktu_selesai+'</p>');
+                            }
+                            
+                            $(".resultjadwalruangan").empty().append('<div class="jadwal-ruangan"><hr><div class="waktuterpakai">'+waktu.join('')+'</div><p style="font-size:14px;color:red;">* Waktu diatas merupakan keterangan bahwa ruangan telah terpakai pada jarak waktu tersebut.</p></div><hr>');
+                        }else{
+
+                            $(".resultjadwalruangan").empty().append('<div class="text-center"><h4 style="color:#683a3a;">Ruangan Belum Terpakai Di Jadwal Yang Anda Cari.</h4></div>');
+                        }
+                    });
+                }else{
+                    alert("Dimohon Untuk Mengisi Field Data Yang Kosong.");
+                    return false;
+                }
+            });
+        });
     </script>

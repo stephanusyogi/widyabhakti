@@ -13,8 +13,26 @@ class peminjaman extends MY_Controller {
 	}
 
 	public function informasi(){
+		$url = 'http://127.0.0.1:8000/api/ruanganpeminjaman';
+        $method = 'GET';
+        $request = $this->SendRequest($url, $method);
+
+		$data['dataruangan'] = $request;
+
 		$this->load->view('include/headernomenu');
-        $this->load->view('v_informasipeminjaman');
+        $this->load->view('v_informasipeminjaman', $data);
+        $this->load->view('include/footer');
+	}
+
+	public function formulirpeminjaman(){
+		$url = 'http://127.0.0.1:8000/api/ruanganpeminjaman';
+        $method = 'GET';
+        $request = $this->SendRequest($url, $method);
+
+		$data['dataruangan'] = $request;
+
+		$this->load->view('include/headernomenu');
+        $this->load->view('v_formulir', $data);
         $this->load->view('include/footer');
 	}
 
@@ -95,16 +113,17 @@ class peminjaman extends MY_Controller {
 
 	// Create Peminjaman
 	public function create(){
-		$session = $this->session->userdata('login_data_user')['token'];
-		$id_user = $this->session->userdata('login_data_user')['userdata']['id'];
 		$nama_kegiatan = $this->input->post('nama_kegiatan', true);
-		$pemilik_kegiatan = $this->input->post('organisasi', true);
+		$nama_peminjam = $this->input->post('nama_peminjam', true);
+		$nohp = $this->input->post('nohp', true);
+		$pemilik_kegiatan = $this->input->post('pemilik_kegiatan', true);
 		$jadwal = $this->input->post('jadwal', true);
 		$waktu_mulai = $this->input->post('waktu_mulai', true);
 		$waktu_selesai = $this->input->post('waktu_selesai', true);
-		$id_ruangan = $this->input->post('idruangan', true);
+		$id_ruangan = $this->input->post('id_ruangan', true);
 		$jumlah_ruangan = $this->input->post('jumlah_ruangan', true);
-		$deskripsi_kegiatan = $this->input->post('deskripsi', true);
+		$jumlah_orang = $this->input->post('jumlah_orang', true);
+		$deskripsi_kegiatan = $this->input->post('deskripsi_kegiatan', true);
 		$keterangan_tambahan = $this->input->post('keterangan_tambahan', true);
 
 		$curl = curl_init();
@@ -119,20 +138,20 @@ class peminjaman extends MY_Controller {
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => 'POST',
 			CURLOPT_POSTFIELDS => array(
-				'id_user' => $id_user,
 				'nama_kegiatan' => $nama_kegiatan,
+				'nama_peminjam' => $nama_peminjam,
+				'nohp' => $nohp,
 				'pemilik_kegiatan' => $pemilik_kegiatan,
 				'jadwal' => $jadwal,
 				'waktu_mulai' => $waktu_mulai,
 				'waktu_selesai' => $waktu_selesai,
 				'id_ruangan' => $id_ruangan,
-				'jumlah_orang' => $id_user,
+				'jumlah_orang' => $jumlah_orang,
 				'deskripsi_kegiatan' => $deskripsi_kegiatan,
 				'keterangan_tambahan' => $keterangan_tambahan,
 			),
 			CURLOPT_HTTPHEADER => array(
-				'Accept: application/json',
-				'Authorization: Bearer ' . $session
+				'Accept: application/json'
 			),
 		));
 
@@ -141,14 +160,11 @@ class peminjaman extends MY_Controller {
         $response = json_decode($res, true);
 
 		if ($response['success']) {
-			$this->session->set_flashdata('successMsg', $response['message']);
-            redirect('profil');
-		} elseif ($response['message']=='Unauthenticated.'){
-            $this->session->set_flashdata('error', 'Your Session Has Expired!');
-			return redirect(base_url() . 'login');
-        } else {
-			$this->session->set_flashdata('errorMsg', $response['message']);
-            redirect('profil');
+			$this->session->set_flashdata('successMsg', 'Peminjaman Berhasil Diajukan');
+            redirect('peminjaman/informasi');
+		} else {
+			$this->session->set_flashdata('errorMsg', 'Peminjaman Gagal Diajukan');
+            redirect('peminjaman/informasi');
 		}
 		curl_close($curl);
 	}

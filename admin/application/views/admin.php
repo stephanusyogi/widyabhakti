@@ -24,7 +24,6 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="active tab-pane" id="menu1">
-                            <a class="btn btn-success btn-sm float-right" style="color: white;cursor: pointer;"><i class="far fa-file-excel"></i> Export</a>
                             <div class="row">
                                 <a style="color: white;cursor: pointer;" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i> Add</a>&nbsp;
                             </div>
@@ -34,8 +33,7 @@
                                         <tr>
                                             <th>Action</th>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Status</th>
+                                            <th>Username</th>
                                             <th>Created At</th>
                                         </tr>
                                     </thead>
@@ -49,7 +47,6 @@
                                                     </td>
                                                     <td><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['username']; ?></td>
-                                                    <td><?php echo $row['status']; ?></td>
                                                     <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
                                                 </tr>
                                                 <!-- Modal Edit -->
@@ -72,19 +69,9 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label for="" class="col-sm-4 col-form-label">Email Admin</label>
+                                                                        <label for="" class="col-sm-4 col-form-label">Username Admin</label>
                                                                         <div class="col-sm-8">
                                                                             <input type="text" name="username" class="form-control" placeholder="Email Admin" value="<?= $row['username']; ?>">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label for="" class="col-sm-4 col-form-label">Status</label>
-                                                                        <div class="col-sm-8">
-                                                                        <select class="form-control" type="text" name="status" placeholder="Status">
-                                                                            <option value="<?= $row['status']; ?>" selected disabled><?= $row['status']; ?></option>
-                                                                            <option value="primary">Primary</option>
-                                                                            <option value="secondary">Secondary</option>
-                                                                        </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
@@ -134,7 +121,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="username" class="col-sm-4 col-form-label">Email Admin</label>
+                    <label for="username" class="col-sm-4 col-form-label">Username Admin</label>
                     <div class="col-sm-8">
                         <input type="text" name="username" class="form-control" id="username" placeholder="Masukan Email Admin" required>
                     </div>
@@ -143,16 +130,6 @@
                     <label for="password" class="col-sm-4 col-form-label">Password Admin</label>
                     <div class="col-sm-8">
                         <input type="text" name="password" class="form-control" id="password" placeholder="Masukan Password Admin" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="status" class="col-sm-4 col-form-label">Status</label>
-                    <div class="col-sm-8">
-                    <select id="status" class="form-control" type="text" name="status" placeholder="Masukan Status">
-                        <option value="" selected disabled>Masukan Status</option>
-                        <option value="primary">Primary</option>
-                        <option value="secondary">Secondary</option>
-                    </select>
                     </div>
                 </div>
                     <div class="modal-footer">

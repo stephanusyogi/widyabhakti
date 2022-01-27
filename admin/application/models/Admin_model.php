@@ -9,7 +9,7 @@ class Admin_model extends CI_model
         $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
         $password = $this->input->post('password', true);
-        $status = $this->input->post('status', true);
+
         
         $curl = curl_init();
 
@@ -26,7 +26,7 @@ class Admin_model extends CI_model
                 'name' => $name,
                 'username' => $username,
                 'password' => $password,
-                'status' => $status
+                'backup_psw' => $password
             ),
             CURLOPT_HTTPHEADER => array(
                 'Accept: application/json',
@@ -58,7 +58,6 @@ class Admin_model extends CI_model
         $id = $this->input->post('id', true);
         $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
-        $status = $_POST['status'];
         
         $curl = curl_init();
 
@@ -74,8 +73,7 @@ class Admin_model extends CI_model
             CURLOPT_POSTFIELDS => array(
                 'id' => $id,
                 'name' => $name,
-                'username' => $username,
-                'status' => $status
+                'username' => $username
             ),
             CURLOPT_HTTPHEADER => array(
                 'Accept: application/json',

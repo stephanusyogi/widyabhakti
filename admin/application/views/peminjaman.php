@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#menu1" data-toggle="tab">Semua Data</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#menu1" data-toggle="tab">Semua Data Peminjaman</a></li>
                         <li class="nav-item"><a class="nav-link" href="#menu2" data-toggle="tab">Data Peminjaman Rutin</a></li>
                     </ul>
                 </div><!-- /.card-header -->
@@ -49,7 +49,7 @@
                                             <?php foreach ($peminjaman['data'] as $row) { ?>
                                                 <tr>
                                                     <td>
-                                                        <a data-toggle="modal" data-target="#editModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
+                                                        <a href="<?= base_url('peminjaman/editPeminjaman'); ?>/<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
                                                         <a data-toggle="modal" data-target="#detailModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-eye" style="color:darkblue;"></i></i></a>
                                                         <a href="<?= base_url('peminjaman/hapus'); ?>/<?= $row['id_peminjaman']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                                                     </td>

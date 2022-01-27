@@ -24,7 +24,6 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="active tab-pane" id="menu1">
-                            <a class="btn btn-success btn-sm float-right" style="color: white;cursor: pointer;"><i class="far fa-file-excel"></i> Export</a>
                             <div class="row">
                                 <a style="color: white;cursor: pointer;" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i> Post</a>&nbsp;
                             </div>
