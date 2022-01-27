@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="<?php echo base_url('assets/img/logo.png') ?>" />
+    <meta property="og:title" content="Official Website - WidyaBhakti Pastoral Center" />
+    <meta property="og:image" content="<?php echo base_url('assets/img/banner1.jpg') ?>" />
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
