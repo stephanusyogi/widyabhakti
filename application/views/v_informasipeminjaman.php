@@ -87,7 +87,7 @@
                 var id_item = $(this).val();
 
                 var settings = {
-                    "url": `http://apiwidyabhakti.parokikatedralmalang.org/api/detailruangan/${id_item}`,
+                    "url": `https://apiwidyabhakti.parokikatedralmalang.org/api/detailruangan/${id_item}`,
                     "method": "GET",
                     "timeout": 0,
                 };
@@ -125,7 +125,7 @@
                     form.append("datepeminjaman", datepeminjaman);
                     form.append("ruanganpeminjaman", ruanganpeminjaman);
                     var getdata = {
-                            "url": "http://apiwidyabhakti.parokikatedralmalang.org/api/checkpeminjaman",
+                            "url": "https://apiwidyabhakti.parokikatedralmalang.org/api/checkpeminjaman",
                             "method": "POST",
                             "timeout": 0,
                             "headers": {

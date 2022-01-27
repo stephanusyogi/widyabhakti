@@ -13,17 +13,17 @@ class Main extends MY_Controller {
 
 	public function index(){
 		// 3 Berita Terkini
-        $url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritaberanda';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/beritaberanda';
         $method = 'GET';
         $berita = $this->SendRequest($url, $method);
 
 		// Thumbnail Ruangan
-        $url_ruangan = 'http://apiwidyabhakti.parokikatedralmalang.org/api/ruanganberanda';
+        $url_ruangan = 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruanganberanda';
         $method_ruangan = 'GET';
         $ruangan = $this->SendRequest($url_ruangan, $method_ruangan);
 
 		// Gallery
-        $url_galeri = 'http://apiwidyabhakti.parokikatedralmalang.org/api/galeriuser';
+        $url_galeri = 'https://apiwidyabhakti.parokikatedralmalang.org/api/galeriuser';
         $method_galeri = 'GET';
         $galeri = $this->SendRequest($url_galeri, $method_galeri);
 		
