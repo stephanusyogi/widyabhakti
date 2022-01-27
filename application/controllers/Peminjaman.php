@@ -12,7 +12,7 @@ class peminjaman extends MY_Controller {
 	}
 
 	public function informasi(){
-		$url = 'http://127.0.0.1:8000/api/ruanganpeminjaman';
+		$url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/ruanganpeminjaman';
         $method = 'GET';
         $request = $this->SendRequest($url, $method);
 
@@ -24,7 +24,7 @@ class peminjaman extends MY_Controller {
 	}
 
 	public function formulirpeminjaman(){
-		$url = 'http://127.0.0.1:8000/api/ruanganpeminjaman';
+		$url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/ruanganpeminjaman';
         $method = 'GET';
         $request = $this->SendRequest($url, $method);
 
@@ -43,7 +43,7 @@ class peminjaman extends MY_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => 'http://127.0.0.1:8000/api/dataforform',
+		CURLOPT_URL => 'http://apiwidyabhakti.parokikatedralmalang.org/api/dataforform',
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => '',
 		CURLOPT_MAXREDIRS => 10,
@@ -75,7 +75,7 @@ class peminjaman extends MY_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => 'http://127.0.0.1:8000/api/checkpeminjaman',
+		CURLOPT_URL => 'http://apiwidyabhakti.parokikatedralmalang.org/api/checkpeminjaman',
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => '',
 		CURLOPT_MAXREDIRS => 10,
@@ -128,7 +128,7 @@ class peminjaman extends MY_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-			CURLOPT_URL => 'http://127.0.0.1:8000/api/peminjamanuser',
+			CURLOPT_URL => 'http://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanuser',
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => '',
 			CURLOPT_MAXREDIRS => 10,

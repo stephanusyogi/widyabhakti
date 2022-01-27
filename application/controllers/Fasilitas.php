@@ -13,12 +13,12 @@ class fasilitas extends MY_Controller {
 
 	public function index(){
 		// Get Data Ruangan
-		$url = 'http://127.0.0.1:8000/api/ruanganberanda';
+		$url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/ruanganberanda';
         $method = 'GET';
         $ruangan = $this->SendRequest($url, $method);
 
 		// Get Data Fasilitas
-		$url_fasilitas = 'http://127.0.0.1:8000/api/fasilitasuser';
+		$url_fasilitas = 'http://apiwidyabhakti.parokikatedralmalang.org/api/fasilitasuser';
         $method_fasilitas = 'GET';
         $fasilitas = $this->SendRequest($url_fasilitas, $method_fasilitas);
 
@@ -35,7 +35,7 @@ class fasilitas extends MY_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => 'http://127.0.0.1:8000/api/detailruangan/'.$id_ruangan,
+		CURLOPT_URL => 'http://apiwidyabhakti.parokikatedralmalang.org/api/detailruangan/'.$id_ruangan,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => '',
 		CURLOPT_MAXREDIRS => 10,

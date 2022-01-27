@@ -124,7 +124,7 @@
                 var id_item = $(this).val();
 
                 var settings = {
-                    "url": `http://127.0.0.1:8000/api/detailruangan/${id_item}`,
+                    "url": `http://apiwidyabhakti.parokikatedralmalang.org/api/detailruangan/${id_item}`,
                     "method": "GET",
                     "timeout": 0,
                 };

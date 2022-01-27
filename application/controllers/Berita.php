@@ -14,12 +14,12 @@ class berita extends MY_Controller {
 	public function index(){
 
 		// 3 Berita Terkini
-        $url = 'http://127.0.0.1:8000/api/beritaberanda';
+        $url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritaberanda';
         $method = 'GET';
         $beritaterkini = $this->SendRequest($url, $method);
 
 		// Berita Page Pertama
-		$url = 'http://127.0.0.1:8000/api/beritauser?page=1'; 
+		$url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritauser?page=1'; 
         $method = 'GET';
         $berita = $this->SendRequest($url, $method);
 
@@ -33,12 +33,12 @@ class berita extends MY_Controller {
 	public function paginateberita($page_now){
 		
 		// 3 Berita Terkini
-        $url = 'http://127.0.0.1:8000/api/beritaberanda';
+        $url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritaberanda';
         $method = 'GET';
         $beritaterkini = $this->SendRequest($url, $method);
 
 		// Berita Page Pertama
-		$url = 'http://127.0.0.1:8000/api/beritauser?page='.$page_now; 
+		$url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritauser?page='.$page_now; 
         $method = 'GET';
         $berita = $this->SendRequest($url, $method);
 
@@ -52,7 +52,7 @@ class berita extends MY_Controller {
 	public function detailberita($title, $id_berita){
 
 		// 3 Berita Terkini
-        $url = 'http://127.0.0.1:8000/api/beritaberanda';
+        $url = 'http://apiwidyabhakti.parokikatedralmalang.org/api/beritaberanda';
         $method = 'GET';
         $berita = $this->SendRequest($url, $method);
 
@@ -60,7 +60,7 @@ class berita extends MY_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => 'http://127.0.0.1:8000/api/detailberita/'.$id_berita,
+		CURLOPT_URL => 'http://apiwidyabhakti.parokikatedralmalang.org/api/detailberita/'.$id_berita,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => '',
 		CURLOPT_MAXREDIRS => 10,
