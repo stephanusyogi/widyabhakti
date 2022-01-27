@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require 'vendor/autoload.php';
 
 class fasilitas extends MY_Controller {
 	
