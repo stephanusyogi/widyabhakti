@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Official Website - WidyaBhakti Pastoral Center" />
+    <meta name="description" content="This is the official website of WidyaBhakti Pastoral Center. Come visit us!">
     <meta property="og:image" content="<?php echo base_url('assets/img/logo.png') ?>" />
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="WidyaBhakti Pastoral Center Malang">
+    <meta itemprop="description" content="Official Website WidyaBhakti Pastoral Center Malang. Kunjungi Kami !">
+    <meta itemprop="image" content="<?php echo base_url('assets/img/logo.png') ?>">
+
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
