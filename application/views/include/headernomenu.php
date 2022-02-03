@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Official Website - WidyaBhakti Pastoral Center" />
     <meta property="og:image" content="<?php echo base_url('assets/img/banner1.jpg') ?>" />
+    
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
@@ -26,7 +27,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Timepicker -->
-    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
     
     <!-- Toast -->
     <link rel="stylesheet" href="<?php echo base_url('/assets/plugins'); ?>/toastr/toastr.min.css">

@@ -17,7 +17,7 @@ class Ruangan_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/ruangan/update',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruangan/update',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -65,7 +65,7 @@ class Ruangan_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/ruangan/'. $id,
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruangan/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

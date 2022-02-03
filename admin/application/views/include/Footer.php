@@ -39,7 +39,6 @@
 <script src="<?php echo base_url(); ?>/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?php echo base_url(); ?>/public/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>/public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Select2 -->
@@ -56,12 +55,8 @@
 <script src="<?= base_url(); ?>/public/dist/js/myscript.js"></script>
 <!-- CKEDITOR -->
 <script type="text/javascript" src="<?php echo base_url(); ?>/public/plugins/ckeditor/ckeditor.js"></script>
-<!-- date-range-picker -->
-<script src="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- TimePicker -->
 <script src="<?php echo base_url('public/plugins'); ?>/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-<script src="<?php echo base_url(); ?>/public/plugins/timepicker/jquery.timepicker.js"></script>
-<script src="<?php echo base_url(); ?>/public/plugins/timepicker/jquery.timepicker.min.js"></script>
 <script type="text/javascript">
   var windowURL = window.location.href;
   pageURL = '<?php echo base_url() . $menuLink ?>';

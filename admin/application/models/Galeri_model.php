@@ -27,7 +27,7 @@ class Galeri_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/galericms',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/galericms',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -69,7 +69,7 @@ class Galeri_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/galericms/'. $id,
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/galericms/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

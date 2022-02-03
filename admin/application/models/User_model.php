@@ -18,7 +18,7 @@ class User_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/user/update',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/user/update',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -66,7 +66,7 @@ class User_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/user/'. $id,
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/user/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

@@ -15,7 +15,7 @@ class Fasilitasumum extends MY_Controller
 
     public function index()
     {
-        $url = 'http://127.0.0.1:8000/api/fasilitas';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/fasilitas';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         

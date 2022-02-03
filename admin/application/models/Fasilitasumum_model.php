@@ -28,7 +28,7 @@ class Fasilitasumum_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/fasilitas',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/fasilitas',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -71,7 +71,7 @@ class Fasilitasumum_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/fasilitas/'. $id,
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/fasilitas/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

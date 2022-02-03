@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/magnific-popup.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Datetimepicker -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Toast -->
@@ -32,10 +30,15 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/daterangepicker/daterangepicker.css">
+  
+  <!-- Timepicker -->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('/public/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
+
   <!-- jQuery -->
+  <script src="<?php echo base_url(); ?>/public/dist/js/jquery-3.5.1.min.js"></script>
+  <script src="<?php echo base_url('/public/dist/js/jquery.js') ?>"></script>
   <script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
+
   <!-- DateTimePicker -->
   <script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 

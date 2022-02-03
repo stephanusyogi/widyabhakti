@@ -29,7 +29,7 @@ class Auth extends CI_Controller
 		$this->load->library('session');
 		$this->load->helper('url');
 		$this->load->helper('cookie');
-        $this->_apiURL = 'http://127.0.0.1:8000/';
+        $this->_apiURL = 'https://apiwidyabhakti.parokikatedralmalang.org/';
     }
 
     public function login()

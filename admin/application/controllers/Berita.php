@@ -15,7 +15,7 @@ class Berita extends MY_Controller
 
     public function index()
     {
-        $url = 'http://127.0.0.1:8000/api/berita';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/berita';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         

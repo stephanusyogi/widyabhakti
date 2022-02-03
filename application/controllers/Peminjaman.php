@@ -144,6 +144,7 @@ class peminjaman extends MY_Controller {
 				'jadwal' => $jadwal,
 				'waktu_mulai' => $waktu_mulai,
 				'waktu_selesai' => $waktu_selesai,
+				'status' => 'pending',
 				'id_ruangan' => $id_ruangan,
 				'jumlah_orang' => $jumlah_orang,
 				'deskripsi_kegiatan' => $deskripsi_kegiatan,

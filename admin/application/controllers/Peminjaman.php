@@ -16,37 +16,53 @@ class Peminjaman extends MY_Controller
 
     public function index()
     {   
-        // Peminjaman All
-        $url = 'http://127.0.0.1:8000/api/peminjaman';
+        // Peminjaman Accepted
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanapproved';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
-        $requestpeminjaman = $this->SendWithRequest($url, $method, $session);
+        $requestpeminjamanapproved = $this->SendWithRequest($url, $method, $session);
         
-        // die(var_dump($requestpeminjaman));
         // Cek Auth
-        if($requestpeminjaman['message']=='Unauthenticated.'){
+        if($requestpeminjamanapproved['message']=='Unauthenticated.'){
             $this->session->set_flashdata('error', 'Your Session Has Expired!');
 			return redirect(base_url() . 'login');
         }
 
-        // Peminjaman Rutin
-        $url = 'http://127.0.0.1:8000/api/peminjamanrutin';
+        // Peminjaman Pending
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanpending';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
-        $requestpeminjamanrutin = $this->SendWithRequest($url, $method, $session);
+        $requestpeminjamanpending = $this->SendWithRequest($url, $method, $session);
         // Cek Auth
-        if($requestpeminjamanrutin['message']=='Unauthenticated.'){
+        if($requestpeminjamanpending['message']=='Unauthenticated.'){
             $this->session->set_flashdata('error', 'Your Session Has Expired!');
 			return redirect(base_url() . 'login');
         }
+
+        // Peminjaman Rejected
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanrejected';
+        $method = 'GET';
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $requestpeminjamanrejected = $this->SendWithRequest($url, $method, $session);
+        // Cek Auth
+        if($requestpeminjamanrejected['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+        // Get All Ruangan
+		$url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruanganpeminjaman';
+        $method = 'GET';
+        $dataruangan = $this->SendRequest($url, $method);
 
         // Tampilan
-        $data['peminjaman'] = $requestpeminjaman;
-        $data['peminjamanrutin'] = $requestpeminjamanrutin;
+        $data['peminjamanapproved'] = $requestpeminjamanapproved;
+        $data['peminjamanpending'] = $requestpeminjamanpending;
+        $data['peminjamanrejected'] = $requestpeminjamanrejected;
+        $data['dataruangan'] = $dataruangan;
         $data['title'] = "Data Peminjaman";
         $data['menuLink'] = "peminjaman";
         $data['menuName'] = "Data Peminjaman";
-        // $data['count'] = sizeof($res['data']);
         $this->load->view('include/header', $data);
         $this->load->view('peminjaman', $data);
         $this->load->view('include/footer');
@@ -54,7 +70,7 @@ class Peminjaman extends MY_Controller
 
     public function editPeminjaman($id){
         // Peminjaman By Id
-        $url = 'http://127.0.0.1:8000/api/peminjamanById/'.$id;
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanById/'.$id;
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         $requestpeminjaman = $this->SendWithRequest($url, $method, $session);
@@ -66,13 +82,13 @@ class Peminjaman extends MY_Controller
         }
 
         // All Ruangan
-        $url = 'http://127.0.0.1:8000/api/ruangan/';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruangan/';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         $requestruangan = $this->SendWithRequest($url, $method, $session);
 
         // All User
-        $url = 'http://127.0.0.1:8000/api/user/';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/user/';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         $requestuser = $this->SendWithRequest($url, $method, $session);
@@ -94,8 +110,14 @@ class Peminjaman extends MY_Controller
         $this->Peminjaman_model->ubahPeminjaman($id);
     }
 
+    function tambah()
+    {
+        $this->Peminjaman_model->tambahPeminjaman();
+    }
+
     public function hapus($id)
     {
         $this->Peminjaman_model->deletePeminjaman($id);
     }
 }
+

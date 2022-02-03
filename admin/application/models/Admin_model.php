@@ -14,7 +14,7 @@ class Admin_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/admin',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/admin',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -62,7 +62,7 @@ class Admin_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/admin/update',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/admin/update',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -106,7 +106,7 @@ class Admin_model extends CI_model
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/admin/'. $id,
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/admin/'. $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

@@ -14,7 +14,7 @@ class Ruangan extends MY_Controller
 
     public function index()
     {
-        $url = 'http://127.0.0.1:8000/api/ruangan';
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruangan';
         $method = 'GET';
         $session = $this->session->userdata('login_data_admin')['token'];
         
@@ -67,7 +67,7 @@ class Ruangan extends MY_Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://127.0.0.1:8000/api/ruangan',
+            CURLOPT_URL => 'https://apiwidyabhakti.parokikatedralmalang.org/api/ruangan',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
