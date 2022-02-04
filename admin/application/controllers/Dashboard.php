@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // use http\Client;
 // use http\Client\Request;
 
-class Dashboard extends CI_Controller
+class Dashboard extends MY_Controller
 {
 
 	/**
@@ -36,6 +36,32 @@ class Dashboard extends CI_Controller
 		if (!$this->session->userdata('isLoggedIn_admin')) {
 			return redirect(base_url() . 'login');
 		}
+
+        // Peminjaman Accepted
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanapproved';
+        $method = 'GET';
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $requestpeminjamanapproved = $this->SendWithRequest($url, $method, $session);
+        
+        // Cek Auth
+        if($requestpeminjamanapproved['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+		
+        // Peminjaman Pending
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanpending';
+        $method = 'GET';
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $requestpeminjamanpending = $this->SendWithRequest($url, $method, $session);
+        // Cek Auth
+        if($requestpeminjamanpending['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+		$data['datapending'] = $requestpeminjamanpending;
+		$data['dataaccepted'] = $requestpeminjamanapproved;
 		$data['title'] = "Dashboard";
 		$data['menuLink'] = "dashboard";
 		$data['menuName'] = "Dashboard";

@@ -30,7 +30,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  
+  <!-- FullCalendar -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/fullcalendar/main.css">
   <!-- Timepicker -->
   <link rel="stylesheet" type="text/css" href="<?= base_url('/public/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
 
@@ -41,6 +42,8 @@
 
   <!-- DateTimePicker -->
   <script src="<?php echo base_url(); ?>/public/plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+  <!-- FullCalendar -->
+  <script src="<?php echo base_url(); ?>/public/plugins/fullcalendar/main.js"></script>
 
   <?php $error = $this->session->flashdata('errorMsg');
     if ($error) { ?>

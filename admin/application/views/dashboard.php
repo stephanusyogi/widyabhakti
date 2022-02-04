@@ -28,21 +28,76 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?= ($datapending['success']==true) ? count($datapending['data']) : '' ?></h3>
                 <p>Peminjaman (<strong>Pending</strong>)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-filing"></i>
               </div>
-              <a href="<?php echo base_url();?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('peminjaman');?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
         <!-- /.row -->
+        <div class="card">
+          <div class="card-body">
+          <button type="button" style="color: white;cursor: pointer;float: right;" class="btn btn-success btn-sm  text-right" disabled><i class="fas fa-print"></i> Export</button>&nbsp;
+          <hr>
+          <?php 
+          foreach($dataaccepted['data'] as $todo) {
+            $peminjaman['start'] = $todo['jadwal']."T".$todo['waktu_mulai'];
+            $peminjaman['end'] = $todo['jadwal']."T".$todo['waktu_selesai'];
+            $peminjaman['title'] = $todo['nama_kegiatan'];
+
+            $events[] = $peminjaman;
+          } 
+            $res_events = json_encode($events);
+          ?>
+          <script type="text/javascript">
+              document.addEventListener('DOMContentLoaded', function() {
+                  var calendarEl = document.getElementById('calendar');
+                  var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'timeGridWeek',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,dayGridWeek,timeGridDay'
+                    },
+                    eventClick:  function(arg) {
+                        $('#modalBody > #title').text(arg.event.title);
+                        $('#modalStart').text(arg.event.start);
+                        $('#modalEnd').text(arg.event.end);
+                        $('#calendarModal').modal();
+                    },
+                    events: <?= $res_events ?>
+                  });
+                  calendar.render();
+                });
+          </script>
+            <div id="calendar"></div>
+            <div id="calendarModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h4 class="modal-title">Event Details</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div id="modalBody" class="modal-body">
+                        <h4 id="title" class="modal-title"></h4> 
+                        Jadwal Waktu Mulai & Waktu Selesai :
+                        <div id="modalStart" style="margin-top:5px;"></div>
+                        <div id="modalEnd" style="margin-top:5px;"></div>
+                      </div>
+                      <div class="modal-footer">
+                          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  
