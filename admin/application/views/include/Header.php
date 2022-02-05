@@ -9,6 +9,8 @@
   <!-- Style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/adminlte.min.css">
+  <!-- JqueryUI -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Select2 -->
@@ -141,7 +143,7 @@
           <img src="<?php echo base_url(); ?>/public/dist/img/img_avatar.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block">Hai, <?= strtok($this->session->userdata('login_data_admin')['userdata']['name'], " ") ?></a>
         </div>
       </div>
 

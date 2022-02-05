@@ -148,7 +148,7 @@
 
       <form action="<?php echo base_url() ?>auth" method="POST">
         <div class="input-group mb-3">
-          <input name="username" type="text" class="form-control" placeholder="Username">
+          <input name="username" id="username" type="text" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -180,15 +180,14 @@
             $error = $this->session->flashdata('error');
             if ($error) {
             ?>
-              <label for="remember" class="login-message">
+              <p for="remember" class="login-message">
                 <?php echo $error; ?>
-              </label>
-
-            <?php }
-            ?>
+              </p>
+            <?php } ?>
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe" style="font-weight: normal;">Remember me</label>
           </div>
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" onclick="lsRememberMe()" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -198,6 +197,31 @@
   </div>
 </div>
 <!-- /.login-box -->
+
+
+    <!-- Script Remember Me -->
+    <script>
+        const rmCheck = document.getElementById("rememberMe"),
+        emailInput = document.getElementById("username");
+
+        if (localStorage.checkbox && localStorage.checkbox !== "") {
+          rmCheck.setAttribute("checked", "checked");
+          emailInput.value = localStorage.username;
+        } else {
+          rmCheck.removeAttribute("checked");
+          emailInput.value = "";
+        }
+
+        function lsRememberMe() {
+          if (rmCheck.checked && emailInput.value !== "") {
+            localStorage.username = emailInput.value;
+            localStorage.checkbox = rmCheck.value;
+          } else {
+            localStorage.username = "";
+            localStorage.checkbox = "";
+          }
+        }
+    </script>
 
 <!-- jQuery -->
 <script src="<?php echo base_url()?>/public/plugins/jquery/jquery.min.js"></script>

@@ -69,4 +69,26 @@ class Dashboard extends MY_Controller
 		$this->load->view('dashboard', $data);
 		$this->load->view('include/footer');
 	}
+
+	public function cetakData(){
+		// Peminjaman Accepted
+        $url = 'https://apiwidyabhakti.parokikatedralmalang.org/api/peminjamanapproved';
+        $method = 'GET';
+        $session = $this->session->userdata('login_data_admin')['token'];
+        $requestpeminjamanapproved = $this->SendWithRequest($url, $method, $session);
+        
+        // Cek Auth
+        if($requestpeminjamanapproved['message']=='Unauthenticated.'){
+            $this->session->set_flashdata('error', 'Your Session Has Expired!');
+			return redirect(base_url() . 'login');
+        }
+
+		$date = $this->input->post('startDate', true);
+		$initialDate = date("Y-m-d", strtotime($date));
+
+		$data['initialDate'] = $initialDate;
+		$data['onlyDate'] = $date;
+		$data['dataaccepted'] = $requestpeminjamanapproved;
+		$this->load->view('cetak', $data);
+	}
 }

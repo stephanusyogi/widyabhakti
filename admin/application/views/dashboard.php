@@ -1,4 +1,8 @@
-
+<style>
+  .ui-datepicker-calendar {
+    display: none;
+  }
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,7 +45,17 @@
         <!-- /.row -->
         <div class="card">
           <div class="card-body">
-          <button type="button" style="color: white;cursor: pointer;float: right;" class="btn btn-success btn-sm  text-right" disabled><i class="fas fa-print"></i> Export</button>&nbsp;
+          <h4>Cetak Laporan Peminjaman Bulanan :</h4>
+          <form action="<?= base_url("dashboard/cetakData") ?>" method="POST">
+            <div class="row">
+              <div class="col-md-8"> 
+                <input name="startDate" id="startDate" class="date-picker form-control" placeholder="Masukkan Bulan & Tahun Laporan" required/>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" style="color: white;cursor: pointer;" class="btn btn-success  text-right"><i class="fas fa-print"></i> Export</button>&nbsp;
+              </div>
+            </div>
+          </form>
           <hr>
           <?php 
           foreach($dataaccepted['data'] as $todo) {
@@ -57,7 +71,7 @@
               document.addEventListener('DOMContentLoaded', function() {
                   var calendarEl = document.getElementById('calendar');
                   var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'timeGridWeek',
+                    initialView: 'dayGridMonth',
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
@@ -101,3 +115,16 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+<script>
+  $(function() {
+      $('.date-picker').datepicker( {
+          changeMonth: true,
+          changeYear: true,
+          showButtonPanel: true,
+          dateFormat: 'MM yy',
+          onClose: function(dateText, inst) { 
+              $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+          }
+      });
+  });
+</script>
