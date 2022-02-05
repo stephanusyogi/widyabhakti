@@ -65,8 +65,8 @@ class Dashboard extends MY_Controller
 		$data['title'] = "Dashboard";
 		$data['menuLink'] = "dashboard";
 		$data['menuName'] = "Dashboard";
-		$this->load->view('include/header', $data);
+		$this->load->view('include/Header', $data);
 		$this->load->view('dashboard', $data);
-		$this->load->view('include/footer');
+		$this->load->view('include/Footer');
 	}
 }
