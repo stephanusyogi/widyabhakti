@@ -35,7 +35,7 @@
                     <p class="my-0" >Harap membaca langkah-langkah alur peminjaman <span class="dibawahini" onclick="scrollToStep()">dibawah ini</span>,hubungi contact center berikut apabila mengalami kendala.</p>
                     <p >+62231418941 (WA) || 0341-2131414</p>
                     <p style="font-weight:500;">Klik tombol dibawah untuk mengisi formulir peminjaman.</p>
-                    <button class="btn btn-primary mt-2" style="font-size:14px;"  onclick="window.location='<?= base_url('peminjaman/formulirpeminjaman') ?>';">Isi Formulir Peminjaman</button>
+                    <button class="btn btn-primary mt-2 mb-2" style="font-size:14px;"  onclick="window.location='<?= base_url('peminjaman/formulirpeminjaman') ?>';">Isi Formulir Peminjaman</button>
                 </div>
                 <div class="col-md-6">
                     <div class="card">

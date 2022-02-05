@@ -41,7 +41,7 @@
                             <label for="">Tanggal Kegiatan</label>
                             <input class="form-control" type="date" name="jadwal" placeholder="Masukkan Tanggal Kegiatan" required>
                             <label for="">Waktu Mulai Kegiatan</label>
-                            <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" placeholder="Masukkan Waktu Mulai Kegiatan"  required="">
+                            <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" placeholder="Masukkan Waktu Mulai Kegiatan (Contoh 08:00 atau 13:00)"  required="">
                             <script>
                             $(document).ready(function(){
                                 $('#waktu_mulai').datetimepicker({
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group  floating-label-form-group">
                             <label for="">Waktu Selesai Kegiatan</label>
-                            <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" placeholder="Masukkan Waktu Selesai Kegiatan" required="">
+                            <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" placeholder="Masukkan Waktu Selesai Kegiatan (Contoh 08:00 atau 13:00)" required="">
                             <script>
                             $(document).ready(function(){
                                 $('#waktu_selesai').datetimepicker({
