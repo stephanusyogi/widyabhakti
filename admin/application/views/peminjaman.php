@@ -697,7 +697,7 @@
                                                     <td><?php echo $row['nama_kegiatan']; ?></td>
                                                     <td><?php echo $row['nama_peminjam']; ?></td>
                                                     <td><?php echo $row['nama_ruangan']; ?> - <?= ($row['lantai_ruangan'] == '0') ? 'Ground' : $row['lantai_ruangan'] ?></td>
-                                                    <td><button class="btn btn-warning">Pending</button></td>
+                                                    <td><button class="btn btn-dabger">Rejected</button></td>
                                                     <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
                                                 </tr>
                                                 <!-- Modal Detail -->
