@@ -49,7 +49,7 @@
           <form action="<?= base_url("dashboard/cetakData") ?>" method="POST">
             <div class="row">
               <div class="col-md-8"> 
-                <input name="startDate" id="startDate" class="date-picker form-control" placeholder="Masukkan Bulan & Tahun Laporan" required/>
+                <input name="startDate" id="startDate" class="date-picker form-control" placeholder="Masukkan Bulan & Tahun Laporan" autocomplete="off" required/>
               </div>
               <div class="col-md-4">
                 <button type="submit" style="color: white;cursor: pointer;" class="btn btn-success  text-right"><i class="fas fa-print"></i> Export</button>&nbsp;
