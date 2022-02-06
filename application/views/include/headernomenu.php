@@ -51,8 +51,8 @@
     <script src="<?php echo base_url('assets/plugins'); ?>/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
     <!-- Validate -->
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
     
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
