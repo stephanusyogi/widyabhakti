@@ -68,7 +68,7 @@
                                                         <a data-toggle="modal" data-target="#editModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
                                                         <a data-toggle="modal" data-target="#detailModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-eye" style="color:darkblue;"></i></i></a>
                                                         <a href="<?= base_url('peminjaman/hapus'); ?>/<?= $row['id_peminjaman']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
-                                                        <a href="<?= base_url() ?>" style="margin-left: 10px;cursor: pointer;" disabled><i class="fab fa-whatsapp" style="color: yellow;"></i></a>
+                                                        <a href="<?= base_url() ?>" style="margin-left: 10px;cursor: pointer;" disabled><i class="fab fa-whatsapp" style="color: #32cb9;font-weight: 900;"></i></a>
                                                     </td>
                                                     <td><?php echo $row['nama_kegiatan']; ?></td>
                                                     <td><?php echo $row['nama_peminjam']; ?></td>
