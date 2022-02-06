@@ -29,7 +29,7 @@
     <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/bootstrap/css/style.less') ?>" />
 
     <!-- Timepicker -->
-    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url('assets/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datetimepicker/jquery.datetimepicker.css') ?>" />
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

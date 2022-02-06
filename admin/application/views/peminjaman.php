@@ -259,7 +259,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Mulai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="">
+                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="" autocomplete="off">
                                                                                     <script>
                                                                                         $('#waktu_mulai').datetimepicker({
                                                                                             datepicker:false,
@@ -277,7 +277,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Selesai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="">
+                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="" autocomplete="off">
                                                                                     <script>
                                                                                     $(document).ready(function(){
                                                                                         $('#waktu_selesai').datetimepicker({
@@ -348,6 +348,11 @@
                                         <?php }else{?>
                                             <tr>
                                                 <td colspan="6" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
@@ -566,7 +571,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Mulai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="">
+                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="" autocomplete="off">
                                                                                     <script>
                                                                                         $('#waktu_mulai').datetimepicker({
                                                                                             datepicker:false,
@@ -584,7 +589,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Selesai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="">
+                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="" autocomplete="off">
                                                                                     <script>
                                                                                     $(document).ready(function(){
                                                                                         $('#waktu_selesai').datetimepicker({
@@ -655,6 +660,11 @@
                                         <?php }else{?>
                                             <tr>
                                                 <td colspan="6" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
@@ -686,7 +696,7 @@
                                                     <td><?php echo $row['nama_kegiatan']; ?></td>
                                                     <td><?php echo $row['nama_peminjam']; ?></td>
                                                     <td><?php echo $row['nama_ruangan']; ?> - <?= ($row['lantai_ruangan'] == '0') ? 'Ground' : $row['lantai_ruangan'] ?></td>
-                                                    <td><button class="btn btn-danger">Tidak Disetujui</button></td>
+                                                    <td><button class="btn btn-warning">Pending</button></td>
                                                     <td><?php echo date('m/d/Y H:i:s',strtotime($row['created_at'])); ?></td>
                                                 </tr>
                                                 <!-- Modal Detail -->
@@ -873,7 +883,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Mulai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="">
+                                                                                    <input class="form-control" id="waktu_mulai" type="text" name="waktu_mulai" value="<?php echo $row['waktu_mulai'] ?>" placeholder="Masukkan Waktu Mulai Kegiatan"  required="" autocomplete="off">
                                                                                     <script>
                                                                                         $('#waktu_mulai').datetimepicker({
                                                                                             datepicker:false,
@@ -891,7 +901,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">Waktu Selesai Kegiatan</label>
                                                                                 <div class="col-sm-8">
-                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="">
+                                                                                    <input class="form-control" id="waktu_selesai" type="text" name="waktu_selesai" value="<?php echo $row['waktu_selesai'] ?>"  placeholder="Masukkan Waktu Selesai Kegiatan" required="" autocomplete="off">
                                                                                     <script>
                                                                                     $(document).ready(function(){
                                                                                         $('#waktu_selesai').datetimepicker({
@@ -962,6 +972,11 @@
                                         <?php }else{?>
                                             <tr>
                                                 <td colspan="6" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

@@ -206,6 +206,10 @@
                                         <?php }else{?>
                                             <tr>
                                                 <td colspan="5" style="text-align:center;"><p style="color:grey;font-size:18px;">Data Belum Tersedia</p></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
+                                                <td style="display: none"></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
