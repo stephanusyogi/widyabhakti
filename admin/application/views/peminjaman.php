@@ -10,6 +10,20 @@
     background: transparent;
     }
 </style>
+<script>
+    // Send WhatsApp Message
+    function sendWhatsApp(id){
+        textMessage = document.getElementById("textMessage"+id).value;
+        phoneWa = document.getElementById("phoneWa"+id).value;
+        changePhone = phoneWa.trim();
+        phone = '62' + changePhone.slice(1);
+
+        var encodedURL = encodeURIComponent(textMessage);
+        link = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedURL}`;
+
+        window.open(link);
+    }
+</script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -68,7 +82,7 @@
                                                         <a data-toggle="modal" data-target="#editModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
                                                         <a data-toggle="modal" data-target="#detailModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fas fa-eye" style="color:darkblue;"></i></i></a>
                                                         <a href="<?= base_url('peminjaman/hapus'); ?>/<?= $row['id_peminjaman']; ?>" class="tombol-hapus" style="margin-left: 10px;"><i class="fas fa-trash-alt" style="color: red;"></i></a>
-                                                        <a href="" style="margin-left: 10px;cursor: pointer;" disabled><i class="fab fa-whatsapp" style="color: #32cb9;font-weight: 900;"></i></a>
+                                                        <a data-toggle="modal" data-target="#whatsaappModal<?= $row['id_peminjaman']; ?>" style="margin-left: 10px;cursor: pointer;"><i class="fab fa-whatsapp" style="color: #32cb9;font-weight: 900;"></i></a>
                                                     </td>
                                                     <td><?php echo $row['nama_kegiatan']; ?></td>
                                                     <td><?php echo $row['nama_peminjam']; ?></td>
@@ -228,14 +242,14 @@
                                                                                 <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nama_peminjam" value="<?= $row['nama_peminjam']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">No Handphone (WhatsApp)</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nohp" value="<?= $row['nohp']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_ruangan" value="<?= $row['id_ruangan']; ?>">
@@ -342,6 +356,27 @@
                                                                     </div>
                                                                 </form>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal WhatsApp -->
+                                                <div class="modal fade" id="whatsaappModal<?= $row['id_peminjaman']; ?>" tabindex="-1" role="dialog" aria-labelledby="whatsaappModalLabel<?= $row['id_peminjaman']; ?>" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="whatsaappModalLabel<?= $row['id_peminjaman']; ?>">Send WhatsApp Message to : <?php echo $row['nama_peminjam']; ?></h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <input type="hidden" id="phoneWa<?= $row['id_peminjaman']; ?>" value="<?= $row['nohp']; ?>">
+                                                            <textarea class="form-control" name="" id="textMessage<?= $row['id_peminjaman']; ?>" rows="15">Halo, terimakasih telah mengajukan peminjaman gedung dan ruangan di WidyaBhakti Pastoral Center.&#10Pengajuan peminjaman anda telah disetujui dengan keterangan sebagai berikut :&#10&#10Nama Peminjam : <?= $row['nama_peminjam']; ?> ,&#10Kegiatan : <?= $row['nama_kegiatan']; ?>,&#10Ruangan : <?= $row['nama_ruangan']; ?> - <?= ($row['lantai_ruangan'] == '0') ? 'Ground' : $row['lantai_ruangan'] ?>,&#10Jadwal : <?php echo $row['jadwal'] ?>,&#10Waktu : <?php echo $row['waktu_mulai'] ?> - <?php echo $row['waktu_selesai'] ?>,Keterangan Tambahan Peminjam : <?= $row['keterangan_tambahan']; ?>&#10&#10Apabila terdapat hal yang ingin ditanyakan silahkan menghubungi nomor ini. Mohon menggunakan ruangan dengan bersih, baik, & benar.&#10Untuk perhatiannya kami ucapkan terimakasih. Selamat Beraktivitas.</textarea>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" onclick="sendWhatsApp(<?= $row['id_peminjaman']; ?>)">Send</button>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -540,14 +575,14 @@
                                                                                 <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nama_peminjam" value="<?= $row['nama_peminjam']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">No Handphone (WhatsApp)</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nohp" value="<?= $row['nohp']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_ruangan" value="<?= $row['id_ruangan']; ?>">
@@ -852,14 +887,14 @@
                                                                                 <label for="" class="col-sm-4 col-form-label">Peminjam</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nama_peminjam" value="<?= $row['nama_peminjam']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="Peminjam" value="<?= $row['nama_peminjam']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <label for="" class="col-sm-4 col-form-label">No Handphone (WhatsApp)</label>
                                                                                 <div class="col-sm-8">
                                                                                     <input type="hidden" name="nohp" value="<?= $row['nohp']; ?>">
-                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>" disabled>
+                                                                                    <input type="text" name="" class="form-control" placeholder="No Handphone" value="<?= $row['nohp']; ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id_ruangan" value="<?= $row['id_ruangan']; ?>">
@@ -1149,6 +1184,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 
@@ -1173,5 +1209,6 @@
                     $('.image-ruangan').empty().append(image);
                 });
             });
+
         });
     </script>
